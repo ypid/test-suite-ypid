@@ -1,0 +1,4 @@
+---
+
+# An example of overwriting the default role password.
+mysql_root_password: 'lemonade horseshoe crab electric salad malfunction'
