@@ -1,0 +1,5 @@
+---
+
+# An example of how to use this role as a depencency in other roles.
+dependencies:
+  - role: 'debops.secret'

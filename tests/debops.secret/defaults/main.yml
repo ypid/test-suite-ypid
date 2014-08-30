@@ -1,0 +1,14 @@
+---
+
+# An example showing how to set a random 20 character password in your role.
+mysql_root_password: "{{ lookup('password', secret + '/credentials/' + ansible_fqdn + '/mysql/root/passwordi length=20') }}"
+ 
+
+# That will create a random 20 character password file in:
+# credentials/somehost/mysql/root/password
+#
+# It is relative to your custom inventory.secret path by default.
+
+
+# You can even go back later and change the password to something else and
+# the next time you run the playbook it will be updated on somehost. 
