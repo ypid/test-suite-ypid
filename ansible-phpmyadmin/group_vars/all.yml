@@ -1,0 +1,10 @@
+---
+
+# This is normally disabled by default.
+mysql_phpmyadmin: True
+
+# Used for testing purposes.
+phpmyadmin_domain: [ '{{ ansible_domain }}' ]
+
+# It defaults to:
+#phpmyadmin_domain: [ 'mysql.{{ ansible_domain }}' ]
