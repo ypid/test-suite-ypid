@@ -1,0 +1,5 @@
+---
+
+# You can also set the owner, group and mode as well as a few other options.
+directories_list:
+  - path: '/tmp/testdir'
