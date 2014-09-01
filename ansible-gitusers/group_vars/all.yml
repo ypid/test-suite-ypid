@@ -1,0 +1,20 @@
+---
+
+gitusers_list:
+  - name: 'testuser'
+    # This is your local ssh key but you can pass in any key you want.
+    sshkeys: ['{{ lookup("file", "~/.ssh/id_rsa.pub") }}']
+
+
+# Once you've ran the play:
+
+  # Execute these commands on your workstation:
+
+    # $ ssh testuser@yourhost
+    # > init testrepo
+    # > publish testrepo example.com
+
+  # Goto a git directory on your workstation:
+
+    # $ git remote add web testuser@yourhost:testrepo
+    # $ git push web master
