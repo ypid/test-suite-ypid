@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# test: Test debops.debug
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path "/tmp/ansible_variables"
