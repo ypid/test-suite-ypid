@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# test: Test debops.ruby
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+if [[ "$is_travis" ]]; then
+  __rvm unload ; rm -rf ~/.rvm
+fi
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_in "$(ruby -v)" "ruby"
