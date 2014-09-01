@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# test: Test debops.etc_services
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_in "/etc/services.d/10_debian_etc_services" "testservice"
