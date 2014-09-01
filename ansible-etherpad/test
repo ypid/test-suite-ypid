@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# test: Test debops.etherpad
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+stop mysql
+purge $mysql_libs
+
+
+role_dependencies debops.secret debops.etc_services debops.mysql \
+                  debops.nodejs debops.nginx
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_url "https://$fqdn"
