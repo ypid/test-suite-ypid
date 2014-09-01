@@ -1,0 +1,9 @@
+---
+
+# Install nginx through the official precise backport.
+# This is mainly for travis, set 'wheezy' as the backport for nginx 1.6 on wheezy.
+apt_preferences_list:
+  - package: 'nginx nginx-*'
+    backports: ['precise']
+
+# Check meta/main.yml to see how to use it as a dependency.

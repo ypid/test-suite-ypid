@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# test: Test debops.apt_preferences
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+# Without the full path you would need sudo to "see" nginx.
+# Also for some reason nginx outputs the version to stdout, so redirect it.
+assert_in "$(/usr/sbin/nginx -v 2>&1)" "nginx"
