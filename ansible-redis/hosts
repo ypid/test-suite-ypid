@@ -1,0 +1,5 @@
+[debops_redis]
+placeholder_fqdn
+
+[debops_redis_sentinel]
+placeholder_fqdn
