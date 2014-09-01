@@ -1,0 +1,7 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: true
+
+  roles:
+    - role: 'debops.auth'
