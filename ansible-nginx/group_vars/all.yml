@@ -1,0 +1,25 @@
+---
+
+# Use our custom upstream instead of the php default.
+nginx_upstreams: [ '{{ nginx_upstream }}' ]
+
+nginx_upstream:
+  name: 'nodeserver'
+  server: 'unix:/tmp/nodeserver.sock'
+
+nginx_server:
+  # It listens on 80 by default,
+  # this is just for testing custom ports.
+  listen: 8080
+  location_list:
+    - pattern: '/'
+      options: |
+        try_files $uri $uri/index.html $uri.html @nodeserver;
+    - pattern: '@nodeserver'
+      options: |
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_redirect off;
+        proxy_pass http://nodeserver;
