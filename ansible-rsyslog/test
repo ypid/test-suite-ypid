@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# test: Test debops.rsyslog
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+purge rsyslog
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path "/etc/rsyslog.d"
+assert_path "/etc/logrotate.d"

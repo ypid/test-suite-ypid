@@ -1,0 +1,5 @@
+---
+
+# Use the default system's version of ruby instead of the 2.1.x backport.
+# This is mainly for travis.
+ruby_version: '1.9.1'

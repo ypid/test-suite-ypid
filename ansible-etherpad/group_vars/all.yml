@@ -1,0 +1,7 @@
+---
+
+# Used for testing purposes.
+etherpad_domain: [ '{{ ansible_domain }}' ]
+
+# It defaults to:
+#etherpad_domain: [ 'pad.{{ ansible_domain }}' ]

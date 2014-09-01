@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# test: Test debops.mysql
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+stop mysql
+purge $mysql_libs
+
+
+role_dependencies debops.secret debops.tcpwrappers debops.ferm
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_running "mysql"
+assert_in "/etc/mysql/conf.d/mysql.cnf" "0.0.0.0"
+assert_iptables_allow "mysql"

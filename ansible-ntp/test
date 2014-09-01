@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# test: Test debops.ntp
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+role_dependencies debops.ferm
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path "/usr/sbin/sntpd"

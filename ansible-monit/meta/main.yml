@@ -1,0 +1,7 @@
+---
+
+dependencies:
+  - role: 'debops.monit'
+    tag: 'monit'
+    monit_process_dependent_list:
+      - pid: '/path/to/your/service.pid'

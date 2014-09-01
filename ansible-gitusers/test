@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# test: Test debops.gitusers
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+ssh testuser@"$fqdn" init repo
+ssh testuser@"$fqdn" publish repo example.org
+
+
+assert_path "/srv/www/testuser/sites/example.org/public"

@@ -1,0 +1,7 @@
+---
+
+# It also common to use ferm as a dependency, check meta/main.yml for an example.
+ferm_input_list:
+  - type: 'dport_accept'
+    dport: ['http']
+    filename: 'http'

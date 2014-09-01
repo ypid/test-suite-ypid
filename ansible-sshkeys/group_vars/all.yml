@@ -1,0 +1,5 @@
+---
+
+sshkeys_host_list:
+  - name: 'testuser'
+    key: '{{ lookup("file", "~/.ssh/id_rsa.pub") }}'

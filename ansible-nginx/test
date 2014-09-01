@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# test: Test debops.nginx
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+role_dependencies debops.ferm
+
+
+node "$test_path/test_files/server" &
+sleep 3
+chmod 777 /tmp/nodeserver.sock
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_url "http://$fqdn:8080"
+assert_url "https://$fqdn"
+
+
+kill -9 "$(pidof node)"

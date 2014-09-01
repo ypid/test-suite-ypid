@@ -1,0 +1,7 @@
+---
+
+# Used for testing purposes.
+phpipam_domain: [ '{{ ansible_domain }}' ]
+
+# It defaults to:
+#phpipam_domain: [ 'ipam.{{ ansible_domain }}' ]

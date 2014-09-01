@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# test: Test debops.users
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+ssh-keygen -t rsa -P "" -f /tmp/id_rsa
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path "/tmp/testuser"
+assert_path "/tmp/testuser/.dotfiles"
+
+assert_user_in_group "testuser" "audio"
+
+assert_in "$(sudo -H u testuser echo "$SHELL")" "zsh"

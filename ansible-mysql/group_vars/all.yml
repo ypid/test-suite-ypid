@@ -1,0 +1,18 @@
+---
+
+mysql_mysqld_bind_address: '0.0.0.0'
+mysql_network_allow_list:
+  - '192.168.0.0/16'
+
+
+# Example usage on how to add a database and database user.
+
+  # mysql_databases:
+  #   - name: 'testdatabase'
+  #     state: 'present'
+
+  # mysql_users:
+  #   - name: 'testuser'
+  #     host: 'localhost'
+  #     priv: '{{ mysql_databases[0].name }}.*:ALL'
+  #     state: 'present'

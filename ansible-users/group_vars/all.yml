@@ -1,0 +1,13 @@
+---
+
+# This is used for travis as a test case to show how to add this user to a group.
+users_default_groups_list: ['audio']
+
+# This is normally not needed, it is to set a custom home path.
+users_default_home_prefix: '/tmp'
+
+users_all:
+  name: 'testuser'
+  # The default shell is bash and dotfiles are disabled by default.
+  shell: '/bin/zsh'
+  dotfiles: True

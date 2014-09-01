@@ -1,0 +1,13 @@
+---
+
+dependencies:
+
+  # Here is an example of how to use it as a dependency, let's say in a role that
+  # installs mysql 5.5.x specifically.
+  - role: 'debops.apt_preferences'
+    tags: 'apt_preferences'
+    apt_preferences_dependent_list:
+      - package: 'mysql-server mysql-client mysql-common'
+        version: '5.5'
+        by_role: 'debops.mysql'
+        reason: 'Hold mysql on version 5.5*'

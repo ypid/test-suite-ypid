@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# test: Test debops.postgresql
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+stop postgresql
+purge $postgresql_libs
+
+
+role_dependencies debops.secret debops.pki debops.etc_services debops.ferm
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_running "postgres"
+assert_in_file "/etc/postgresql/9.1/main/pg_hba.conf" "192.168.0.0/16"
+assert_in_file "/etc/postgresql/9.1/main/postgresql.conf" "0.0.0.0"
+assert_iptables_allow "postgresql"
