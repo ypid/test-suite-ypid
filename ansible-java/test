@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# test: Test debops.java
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+purge openjdk-6-jre openjdk-7-jre default-jre default-jre-headless
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_in "$(java -version)" "1.7"
