@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# test: Test debops.sshkeys
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+role_dependencies debops.secret debops.apt_preferences \
+                  debops.etc_services debops.ferm debops.nginx debops.reprepro
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_in "/etc/ssh/authorized_keys" "testuser"
