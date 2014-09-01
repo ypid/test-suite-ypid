@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# test: Test debops.ferm
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_iptables_allow "http"
+assert_in_file "/etc/ferm/filter-input.d/50_http.conf" "protocol"

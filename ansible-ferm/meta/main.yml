@@ -1,0 +1,10 @@
+---
+
+dependencies:
+  - role: 'debops.ferm'
+    tag: 'ferm'
+    # The saddr is optional in case you want to IP lock access as well.
+    ferm_input_dependent_list:
+      - type: 'dport_accept'
+        dport: ['some-service']
+        saddr: '{{ groups["some_group"] }}'
