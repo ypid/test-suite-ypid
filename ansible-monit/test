@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# test: Test debops.monit
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_monitoring "ssh"
+
+assert_in_file "/etc/monit/conf.d/base_ssh.conf" "timeout 30 seconds"
+assert_in_file "/etc/monit/conf.d/base_ssh.conf" "cpu"
+
+assert_playbook_runs --extra-vars '{"monit_process_list":[{"pid":"sshd.pid","delete":"true"}]}'
+
+assert_not_monitoring "ssh" "false"

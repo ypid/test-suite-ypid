@@ -1,0 +1,10 @@
+---
+
+# Monit is also used as a dependency quite often, check meta/main.yml for an example.
+monit_process_list:
+  - pid: 'sshd.pid'
+    process: 'ssh'
+    timeout: 30
+    script: |
+      if cpu > 80% for 5 cycles then restart
+      if 3 restarts within 5 cycles then timeout
