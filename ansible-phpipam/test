@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# test: Test debops.phpiam
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "lib/test"
+
+
+stop mysql
+purge $mysql_libs
+
+
+role_dependencies debops.secret debops.mysql debops.php5 debops.nginx
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_url "https://$fqdn"
