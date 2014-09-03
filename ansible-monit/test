@@ -20,4 +20,4 @@ assert_in_file "/etc/monit/conf.d/base_ssh.conf" "cpu"
 
 assert_playbook_runs --extra-vars '{"monit_process_list":[{"pid":"sshd.pid","delete":"true"}]}'
 
-assert_not_monitoring "ssh" "false"
+assert_monitoring "ssh" !
