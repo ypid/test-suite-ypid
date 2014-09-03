@@ -13,7 +13,8 @@ purge $mysql_libs
 
 
 role_dependencies debops.secret debops.etc_services debops.mysql \
-                  debops.nodejs debops.nginx
+                  debops.nodejs debops.nginx debops.pki \
+                  debops.tcpwrappers
 
 
 assert_playbook_runs
