@@ -11,7 +11,9 @@
 assert_playbook_runs
 assert_playbook_idempotent
 
+# Check list of configured apt preferences
+assert_in "ls /etc/apt/preferences.d/' "nginx"
 
-# Without the full path you would need sudo to "see" nginx.
-# Also for some reason nginx outputs the version to stdout, so redirect it.
-assert_in "$(/usr/sbin/nginx -v 2>&1)" "nginx"
+# Check installed nginx version
+assert_in "$(dpkg -l | grep nginx)" "nginx"
+
