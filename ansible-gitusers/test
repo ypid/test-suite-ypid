@@ -13,15 +13,28 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 # Create example user repository and publish it
+echo
+echo "=> ssh testuser@${fqdn} init example-repo"
 ssh testuser@${fqdn} init example-repo
+echo
+echo "=> ssh testuser@${fqdn} publish example-repo example.org"
 ssh testuser@${fqdn} publish example-repo example.org
 
 # Clone a git repository and push it to repository on webserver
+echo
+echo "=> git clone git://github.com/debops/ansible-gitusers ~/gitusers-test-repo"
 git clone git://github.com/debops/ansible-gitusers ~/gitusers-test-repo
+echo
+echo "=> pushd ~/gitusers-test-repo"
 pushd ~/gitusers-test-repo
+echo
+echo "=> git remote add web testuser@${fqdn}:example-repo"
 git remote add web testuser@${fqdn}:example-repo
+echo
+echo "=> git push web master"
 git push web master
+echo
+echo "=> popd"
 popd
-
 
 assert_path "/srv/www/testuser/sites/example.org/public"
