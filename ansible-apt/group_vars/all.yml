@@ -6,6 +6,6 @@ apt: '{{ ansible_fqdn }}'
 # Install 1 or more packages.
 apt_packages: ['vim']
 
-# Used by Travis only because the FQDN is too long for nginx's configuration
+# Used by Travis only because the FQDN is too long for nginx's configuration.
 # You won't have to set this under normal conditions.
 apt_debian_preseed_hostname: '{{ inventory_hostname }}'
