@@ -12,4 +12,4 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_in "/etc/services.d/10_debian_etc_services" "testservice"
+assert_in "/etc/services" "testservice"

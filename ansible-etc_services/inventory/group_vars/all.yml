@@ -3,4 +3,4 @@
 # You can also set the protocol (tcp) and a comment (").
 etc_services_list:
   - name: 'testservice'
-    port: 8080
+    port: '12345'
