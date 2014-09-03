@@ -1,4 +1,7 @@
 ---
 
+# Test local APT repository and the cache server.
+apt: '{{ ansible_fqdn }}'
+
 # Install 1 or more packages.
 apt_packages: ['vim']
