@@ -15,5 +15,12 @@ role_dependencies debops.auth debops.secret debops.apt_preferences \
 assert_playbook_runs
 assert_playbook_idempotent
 
-
+# Check if vim is installed by Ansible
 assert_in "$(vim --version)" "VIM"
+
+# Check if webserver for Debian preseed is set up correctly on the local host
+assert_url "http://$fqdn"
+
+# Check if apt-cacher-ng is installed and running
+assert_path "/usr/sbin/apt-cacher-ng"
+assert_running "apt-cacher-ng"
