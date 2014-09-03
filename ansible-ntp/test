@@ -14,6 +14,10 @@ role_dependencies debops.ferm
 assert_playbook_runs
 assert_playbook_idempotent
 
+# Check if correct timezone is set
+assert_in_file "/etc/timezone" "America/New_York"
 
-assert_running "ntpd"
+# Check if ntpd is not installed on OpenVZ containers
+assert_path "/usr/sbin/ntpd" !
+assert_path "/usr/sbin/openntpd" !
 
