@@ -12,9 +12,16 @@ role_dependencies debops.auth
 assert_playbook_runs
 assert_playbook_idempotent
 
+# Create example user repository and publish it
+ssh testuser@${fqdn} init example-repo
+ssh testuser@${fqdn} publish example-repo example.org
 
-ssh testuser@"$fqdn" init repo
-ssh testuser@"$fqdn" publish repo example.org
+# Clone a git repository and push it to repository on webserver
+git clone git://github.com/debops/ansible-gitusers ~/gitusers-test-repo
+pushd ~/gitusers-test-repo
+git remote add web testuser@${fqdn}:example-repo
+git push web master
+popd
 
 
 assert_path "/srv/www/testuser/sites/example.org/public"
