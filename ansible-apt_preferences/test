@@ -12,7 +12,7 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 # Check list of configured apt preferences
-assert_in "ls /etc/apt/preferences.d/" "nginx"
+assert_in "cat /etc/apt/preferences.d/*" "nginx"
 
 # Check installed nginx version
 assert_in "$(dpkg -l | grep nginx)" "nginx"
