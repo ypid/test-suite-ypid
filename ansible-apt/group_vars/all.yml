@@ -9,3 +9,7 @@ apt_packages: ['vim']
 # Used by Travis only because the FQDN is too long for nginx's configuration.
 # You won't have to set this under normal conditions.
 apt_debian_preseed_hostname: '{{ inventory_hostname }}'
+
+# Enable haveged support in 'debops.reprepro' for faster GPG key generation
+reprepro_haveged: True
+
