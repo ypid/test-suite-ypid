@@ -1,9 +1,8 @@
 ---
 
-# Install nginx through the official precise backport.
-# This is mainly for travis, set 'wheezy' as the backport for nginx 1.6 on wheezy.
+# Set APT pin for nginx packages to be installed from precise-updates
 apt_preferences_list:
   - package: 'nginx nginx-*'
-    backports: ['precise']
+    pin: 'release a={{ ansible_distribution_release }}-updates'
 
 # Check meta/main.yml to see how to use it as a dependency.

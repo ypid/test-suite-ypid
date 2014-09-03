@@ -15,5 +15,5 @@ assert_playbook_idempotent
 cat /etc/apt/preferences.d/*
 
 # Check APT policy for nginx package
-assert_in "$(apt-cache policy nginx)" "nginx"
+apt-cache policy nginx
 
