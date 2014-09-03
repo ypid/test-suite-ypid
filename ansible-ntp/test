@@ -15,6 +15,5 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_path "/usr/sbin/ntpd"
 assert_running "ntpd"
 
