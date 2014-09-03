@@ -8,8 +8,8 @@
 . "lib/test"
 
 
-role_dependencies debops.secret debops.apt_preferences debops.etc_services \
-                  debops.ferm debops.nginx debops.reprepro
+role_dependencies debops.auth debops.secret debops.apt_preferences \
+                  debops.etc_services debops.ferm debops.nginx debops.reprepro
 
 
 assert_playbook_runs
