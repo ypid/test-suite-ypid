@@ -8,7 +8,7 @@
 . "lib/test"
 
 
-role_dependencies debops.ferm debops.pki
+role_dependencies debops.apt_preferences debops.ferm debops.pki
 
 
 node "$test_path/test_files/server" &
