@@ -15,4 +15,4 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_in "$(nodejs -v)" "v"
+assert_in "$(node -v)" "v"
