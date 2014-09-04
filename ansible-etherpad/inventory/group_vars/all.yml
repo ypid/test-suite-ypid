@@ -1,5 +1,8 @@
 ---
 
+# On Ubuntu Precise there's no 'nodejs-legacy' package
+nodejs_packages: [ 'nodejs' ]
+
 # Used for testing purposes.
 etherpad_domain: [ '{{ ansible_domain }}' ]
 
