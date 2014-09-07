@@ -7,6 +7,6 @@
       # Nginx requires configured SSL certificates
     - role: 'debops.pki'
 
-      # Install and configure nginx
-    - role: 'debops.nginx'
+      # Install and configure nginx using cloned role
+    - role: 'ansible-nginx'
 
