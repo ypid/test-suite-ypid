@@ -1,5 +1,5 @@
 ---
 
-# Use the default system's version of ruby instead of the 2.1.x backport.
-# This is mainly for travis.
-ruby_version: '1.9.1'
+# Don't install 'rubygems-integration' because it's not present in Precise
+ruby_gems_integration: False
+
