@@ -13,11 +13,19 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
+sleep 20
+
+
 assert_monitoring "ssh"
 
 assert_in_file "/etc/monit/conf.d/base_ssh.conf" "timeout 30 seconds"
 assert_in_file "/etc/monit/conf.d/base_ssh.conf" "cpu"
 
+
 assert_playbook_runs --extra-vars '{"monit_process_list":[{"pid":"sshd.pid","process":"ssh","delete":"true"}]}'
+
+
+sleep 20
+
 
 assert_monitoring "ssh" !
