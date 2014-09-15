@@ -11,8 +11,19 @@
 role_dependencies debops.ferm
 
 
+echo "Timezone before the playbook"
+cat /etc/timezone
+
+
 assert_playbook_runs
+
+
+echo "Timezone after the playbook"
+cat /etc/timezone
+
+
 assert_playbook_idempotent
+
 
 # Check if correct timezone is set
 assert_in_file "/etc/timezone" "America/New_York"
