@@ -7,7 +7,6 @@
 
 . "lib/test"
 
-role_dependencies debops.auth
 
 assert_playbook_runs
 assert_playbook_idempotent

@@ -7,7 +7,6 @@
 
 . "lib/test"
 
-role_dependencies debops.auth
 
 ssh-keygen -t rsa -P "" -f /tmp/id_rsa
 

@@ -8,9 +8,6 @@
 . "lib/test"
 
 
-role_dependencies debops.secret debops.apt_preferences debops.ferm debops.pki
-
-
 node "$test_path/test_files/server" &
 sleep 3
 chmod 777 /tmp/nodeserver.sock

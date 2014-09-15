@@ -8,10 +8,6 @@
 . "lib/test"
 
 
-role_dependencies debops.ferm debops.tcpwrappers debops.sshkeys \
-	          debops.auth
-
-
 assert_playbook_runs
 assert_playbook_idempotent
 

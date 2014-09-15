@@ -13,9 +13,6 @@ if [[ "$is_travis" ]]; then
 fi
 
 
-role_dependencies debops.apt_preferences debops.backporter
-
-
 assert_playbook_runs
 assert_playbook_idempotent
 
