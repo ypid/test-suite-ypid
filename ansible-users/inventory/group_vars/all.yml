@@ -1,13 +1,25 @@
 ---
 
-# This is used for travis as a test case to show how to add this user to a group.
-users_default_groups_list: ['audio']
-
 # This is normally not needed, it is to set a custom home path.
 users_default_home_prefix: '/tmp'
 
-users_all:
-  name: 'testuser'
-  # The default shell is bash and dotfiles are disabled by default.
-  shell: '/bin/zsh'
-  dotfiles: True
+# Don't try to change default user account, it seems that Ubuntu Precise
+# doesn't like it
+users_default: []
+
+# Make sure that audio system group exists
+users_groups:
+
+  - name: 'audio'
+    group: 'audio'
+    system: 'yes'
+
+# User accounts on the test host
+users_host_list:
+
+  - name: 'testuser'
+    groups: [ 'audio' ]
+
+    # The default shell is bash and dotfiles are disabled by default.
+    shell: '/bin/zsh'
+    dotfiles: True
