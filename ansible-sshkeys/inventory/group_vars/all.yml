@@ -1,5 +1,5 @@
 ---
 
 sshkeys_host_list:
-  - name: 'testuser'
-    key: '{{ lookup("file", "~/.ssh/id_rsa.pub") }}'
+  - name: '{{ ansible_ssh_user }}'
+    sshkeys: [ '{{ lookup("file", "~/.ssh/id_rsa.pub") }}' ]
