@@ -20,6 +20,15 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
+wget http://$fqdn:8080
+curl http://$fqdn:8080
+echo $?
+
+wget https://$fqdn
+curl https://$fqdn
+echo $?
+
+
 assert_url "http://$fqdn:8080"
 assert_url "https://$fqdn"
 
