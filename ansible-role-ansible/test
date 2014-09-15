@@ -5,9 +5,6 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
-
-
 # At the moment on Ubuntu Precise available on Travis CI, python-crypto package
 # is too old for ansible package (unmet version dependencies). Let's add a newer
 # version before the playbook is tested
@@ -15,8 +12,11 @@ if [ -n "$TRAVIS" ] ; then
   echo "Upgrade python-crypto to >= 2.6 for Ansible"
   echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted" | sudo tee /etc/apt/sources.list.d/trusty.list
   sudo apt-get -qq update
-  sudo apt-get -yq install python-crypto/trusty
+  sudo apt-get -yq install python-crypto/trusty python/trusty python-dev/trusty
 fi
+
+
+. "lib/test"
 
 
 assert_playbook_runs
