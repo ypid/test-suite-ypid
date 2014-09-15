@@ -13,6 +13,9 @@ if [ -n "$TRAVIS" ] ; then
   echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted" | sudo tee /etc/apt/sources.list.d/trusty.list
   sudo apt-get -qq update
   sudo apt-get -yq install python-crypto/trusty python/trusty python-dev/trusty
+
+  echo "Re-initialize Ansible"
+  . /home/travis/build/debops/ansible-role-ansible/ansible/hacking/env-setup
 fi
 
 
