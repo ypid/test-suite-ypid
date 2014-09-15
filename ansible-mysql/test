@@ -20,5 +20,5 @@ assert_playbook_idempotent
 
 
 assert_running "mysql"
-assert_in_file "/etc/mysql/conf.d/mysql.cnf" "0.0.0.0"
+assert_in_file "/etc/mysql/conf.d/mysqld.cnf" "0.0.0.0"
 assert_iptables_allow "mysql"
