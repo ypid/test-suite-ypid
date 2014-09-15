@@ -1,5 +1,0 @@
----
-
-# Set the timezone
-ntp_timezone: [ 'America', 'New_York' ]
-
