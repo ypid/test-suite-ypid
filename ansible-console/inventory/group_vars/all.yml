@@ -1,0 +1,5 @@
+---
+
+# Disable locale configuration on Travis CI
+console_locale: []
+
