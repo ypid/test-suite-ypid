@@ -8,9 +8,6 @@
 . "lib/test"
 
 
-role_dependencies debops.ferm
-
-
 assert_playbook_runs
 assert_playbook_idempotent
 

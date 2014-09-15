@@ -12,9 +12,6 @@ stop postgresql
 purge $postgresql_libs
 
 
-role_dependencies debops.secret debops.pki debops.etc_services debops.ferm
-
-
 assert_playbook_runs
 assert_playbook_idempotent
 
