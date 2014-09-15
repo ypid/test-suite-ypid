@@ -1,16 +1,20 @@
 ---
 
 # Use our custom upstream instead of the php default.
-nginx_upstreams: [ '{{ nginx_upstream }}' ]
+nginx_upstreams: [ '{{ nginx_upstream_test }}' ]
 
-nginx_upstream:
+nginx_upstream_test:
   name: 'nodeserver'
   server: 'unix:/tmp/nodeserver.sock'
 
-nginx_server:
+nginx_servers: [ '{{ nginx_server_test }}' ]
+
+nginx_server_test:
+  enabled: True
+  default: True
   # It listens on 80 by default,
   # this is just for testing custom ports.
-  listen: 8080
+  listen: [ '80', '8080' ]
   location_list:
     - pattern: '/'
       options: |
