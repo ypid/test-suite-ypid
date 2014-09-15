@@ -21,4 +21,4 @@ assert_path "/tmp/testuser/.dotfiles"
 
 assert_user_in_group "testuser" "audio"
 
-assert_in "$(sudo -H u testuser echo "$SHELL")" "zsh"
+assert_in "$(sudo -H -u testuser echo "$SHELL")" "zsh"
