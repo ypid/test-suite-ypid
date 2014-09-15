@@ -1,8 +1,7 @@
 ---
 
 mysql_mysqld_bind_address: '0.0.0.0'
-mysql_network_allow_list:
-  - '192.168.0.0/16'
+mysql_mysqld_allow: [ '192.168.0.0/16' ]
 
 
 # Example usage on how to add a database and database user.
