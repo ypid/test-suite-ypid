@@ -13,9 +13,9 @@
 # version before the playbook is tested
 if [ -n "$TRAVIS" ] ; then
   echo "Upgrade python-crypto to >= 2.6 for Ansible"
-  echo "deb http://us.archive.ubuntu.com/ubuntu/ raring main restricted" | sudo tee /etc/apt/sources.list.d/raring.list
+  echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted" | sudo tee /etc/apt/sources.list.d/trusty.list
   sudo apt-get -qq update
-  sudo apt-get -yq install python-crypto/raring
+  sudo apt-get -yq install python-crypto/trusty
 fi
 
 
