@@ -11,15 +11,13 @@
 role_dependencies debops.ferm
 
 
-echo "Timezone before the playbook"
-cat /etc/timezone
+echo "Timezone before the playbook: =:$(cat /etc/timezone):="
 
 
 assert_playbook_runs
 
 
-echo "Timezone after the playbook"
-cat /etc/timezone
+echo "Timezone after the playbook: =:$(cat /etc/timezone):="
 
 
 assert_playbook_idempotent
