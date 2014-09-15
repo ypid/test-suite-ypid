@@ -4,6 +4,7 @@
 nginx_upstreams: [ '{{ nginx_upstream_test }}' ]
 
 nginx_upstream_test:
+  enabled: True
   name: 'nodeserver'
   server: 'unix:/tmp/nodeserver.sock'
 
@@ -12,6 +13,10 @@ nginx_servers: [ '{{ nginx_server_test }}' ]
 nginx_server_test:
   enabled: True
   default: True
+
+  # name is always required
+  name: []
+
   # It listens on 80 by default,
   # this is just for testing custom ports.
   listen: [ '80', '8080' ]
