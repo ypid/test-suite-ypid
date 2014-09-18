@@ -5,15 +5,18 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 assert_playbook_runs
 assert_playbook_idempotent
+
 
 # Check list of configured apt preferences
 cat /etc/apt/preferences.d/*
 
 # Check APT policy for nginx package
 apt-cache policy nginx
-

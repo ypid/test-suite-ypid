@@ -5,13 +5,16 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 ansible-galaxy install -f debops.pki
 
 
-node "$test_path/test_files/server" &
+node "${ROLESPEC_TEST}/test_files/server" &
 sleep 3
 chmod 777 /tmp/nodeserver.sock
 
@@ -20,8 +23,8 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_url "http://$fqdn:8080" 307
-assert_url "https://$fqdn"
+assert_url "http://${ROLESPEC_FQDN}:8080" 307
+assert_url "https://${ROLESPEC_FQDN}"
 
 
 kill -9 "$(pidof node)"

@@ -5,11 +5,14 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 stop postgresql
-purge $postgresql_libs
+purge ${ROLESPEC_POSTGRESQL_LIBS}
 
 
 assert_playbook_runs

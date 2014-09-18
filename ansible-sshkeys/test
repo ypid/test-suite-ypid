@@ -5,7 +5,11 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+install_ansible
+
+
 
 
 assert_playbook_runs

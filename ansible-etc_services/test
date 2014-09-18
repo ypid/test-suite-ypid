@@ -5,15 +5,18 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 assert_playbook_runs
 assert_playbook_idempotent
+
 
 # Check if existing services are available
 assert_in_file "/etc/services" "80/tcp"
 
 # Check if our custom service is added
 assert_in_file "/etc/services" "testservice"
-
