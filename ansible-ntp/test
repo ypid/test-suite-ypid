@@ -5,7 +5,10 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 assert_playbook_runs
@@ -18,4 +21,3 @@ assert_in_file "/etc/timezone" "Etc/UTC"
 # Check if ntpd is not installed on OpenVZ containers
 assert_path "/usr/sbin/ntpd" !
 assert_path "/usr/sbin/openntpd" !
-

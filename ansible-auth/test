@@ -5,11 +5,15 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 assert_playbook_runs
 assert_playbook_idempotent
+
 
 # Check if all system groups are created
 assert_group admins sshusers sftponly webadmins
@@ -22,4 +26,3 @@ assert_permission "/etc/sudoers.d/admins" "440"
 
 # Check if admins group can use sudo without password
 assert_in_file "/etc/sudoers.d/admins" "NOPASSWD"
-

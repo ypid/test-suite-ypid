@@ -5,10 +5,13 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
 
 
-if [[ "$is_travis" ]]; then
+install_ansible
+
+
+if [[ -n "${ROLESPEC_TRAVIS}" ]]; then
   __rvm unload ; rm -rf ~/.rvm
 fi
 

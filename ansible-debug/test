@@ -5,7 +5,10 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 assert_playbook_runs
@@ -15,6 +18,5 @@ assert_playbook_runs
 # fields are writing current date. This means that the playbook idempotency will
 # never be achieved, so we should not test for this.
 #assert_playbook_idempotent
-
 
 assert_path "/tmp/ansible_variables"

@@ -5,19 +5,23 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 assert_playbook_runs
 assert_playbook_idempotent
 
+
 # Create example user repository and publish it
 echo
-echo "=> ssh testuser@${fqdn} init example-repo"
-ssh testuser@${fqdn} init example-repo
+echo "=> ssh testuser@${ROLESPEC_FQDN} init example-repo"
+ssh testuser@${ROLESPEC_FQDN} init example-repo
 echo
-echo "=> ssh testuser@${fqdn} publish example-repo example.org"
-ssh testuser@${fqdn} publish example-repo example.org
+echo "=> ssh testuser@${ROLESPEC_FQDN} publish example-repo example.org"
+ssh testuser@${ROLESPEC_FQDN} publish example-repo example.org
 
 # Clone a git repository and push it to repository on webserver
 echo
@@ -27,8 +31,8 @@ echo
 echo "=> pushd ~/gitusers-test-repo"
 pushd ~/gitusers-test-repo
 echo
-echo "=> git remote add web testuser@${fqdn}:example-repo"
-git remote add web testuser@${fqdn}:example-repo
+echo "=> git remote add web testuser@${ROLESPEC_FQDN}:example-repo"
+git remote add web testuser@${ROLESPEC_FQDN}:example-repo
 echo
 echo "=> git push web master"
 git push web master

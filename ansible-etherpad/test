@@ -5,15 +5,18 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 stop mysql
-purge $mysql_libs
+purge ${ROLESPEC_MYSQL_LIBS}
 
 
 assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_url "https://$fqdn"
+assert_url "https://${ROLESPEC_FQDN}"

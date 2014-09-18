@@ -5,11 +5,14 @@
 # Part of the DebOps project - http://debops.org/
 
 
-. "lib/test"
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
 
 
 assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_url "https://$fqdn"
+assert_url "https://${ROLESPEC_FQDN}"
