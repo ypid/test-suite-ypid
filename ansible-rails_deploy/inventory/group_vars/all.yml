@@ -1,0 +1,54 @@
+---
+
+# Allow everyone on the local network to talk to redis
+redis_bind: ['0.0.0.0']
+redis_server_allow: '{{ ["192.168.0.0/16"] + groups["debops_rails_deploy"] }}'
+
+# Use 9.3 instead of the default
+postgresql_version: '9.3'
+postgresql_pgdg: True
+
+postgresql_default_cluster:
+  - name: 'main'
+    port: '5432'
+
+    shared_buffers: '64'
+    listen_addresses: '0.0.0.0'
+    hba:
+      - address: '192.168.0.0/16'
+    allow:
+      - '192.168.0.0/16'
+
+# Rails configuration, normally you would have a remote host to pull from
+rails_deploy_git_location: 'file:////tmp/testapp'
+rails_deploy_worker_enabled: True
+
+# Normally this wouldn't be required either, it's so we can pull from ourself
+rails_deploy_user_groups: ['sshusers']
+
+# This is only necessary because I generated the testapp with orats
+# https://github.com/nickjj/orats
+rails_deploy_env:
+  TIME_ZONE: 'Eastern Time (US & Canada)'
+  DEFAULT_LOCALE: 'en'
+
+  GOOGLE_ANALYTICS_UA: ''
+  DISQUS_SHORT_NAME: ''
+  S3_ACCESS_KEY_ID: ''
+  S3_SECRET_ACCESS_KEY: ''
+  S3_REGION: ''
+
+  # Don't worry, this token was only generated for this testapp
+  TOKEN_RAILS_SECRET: '992353bbb381397fde967f4c1e1da35edad100192867fa90e295d89aa601f04fe2de5252648d95b0d056a2eeecc2497cb95972ec1fe83cd89c5a88b8d7af018a'
+
+  SMTP_ADDRESS: 'foo@localhost'
+  SMTP_PORT: 587
+  SMTP_DOMAIN: 'localhost'
+  SMTP_USERNAME: 'foo@localhost'
+  SMTP_PASSWORD: 'themostsecurepasswordevermade'
+  SMTP_AUTH: 'plain'
+  SMTP_ENCRYPTION: 'starttls'
+
+  ACTION_MAILER_HOST: 'localhost:3000'
+  ACTION_MAILER_DEFAULT_FROM: 'info@localhost'
+  ACTION_MAILER_DEFAULT_TO: 'me@localhost'

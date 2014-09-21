@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# test: Test debops.rails_deploy
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+
+
+stop postgresql
+purge ${ROLESPEC_POSTGRESQL_LIBS} 
+stop redis-server
+stop redis-sentinel
+purge redis-server
+
+
+install_ansible
+
+
+# Create a test git config
+git config --global user.email 'test@localhost'
+git config --global user.name 'Test user'
+
+# Place the test files in a common spot and setup a new git repo 
+if [[ -d "/tmp/testapp" ]]; then
+  rm -rf /tmp/testapp
+fi
+cp -r "${ROLESPEC_TEST}/test_files/testapp" "/tmp"
+cd "/tmp/testapp"
+git init && git add -A && git commit -m "Initial commit"
+cd -
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_permission "/var/local/testapp" "751"
+assert_user_in_group "testapp" "testapp"
+
+assert_in_file "/var/local/testapp/.ssh/id_rsa.pub" "ssh"
+assert_in_file "/etc/logrotate.d/testapp" "{"
+assert_in_file "/etc/logrotate.d/testapp" "}"
+
+assert_url "https://${ROLESPEC_FQDN}"
+assert_url "https://${ROLESPEC_FQDN}/sidekiq"
+
+assert_monitoring "testapp"
+assert_monitoring "sidekiq"
