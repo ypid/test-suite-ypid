@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# test: Test debops.elasticsearch
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+
+
+install_ansible
+
+
+stop elasticsearch
+purge elasticsearch
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_in_file "/etc/services.d/20_local_service_elasticsearch-multicast" "54328"
+
+assert_iptables_allow "9200:9300"
+assert_iptables_allow "9300:9400"
+
+assert_url "http://${ROLESPEC_FQDN}:9200"
