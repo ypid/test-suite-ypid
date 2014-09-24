@@ -19,7 +19,7 @@ assert_playbook_idempotent
 
 
 assert_path "/tmp/testuser"
-assert_path "/tmp/testuser/.dotfiles"
+assert_path "/tmp/testuser/.config/dotfiles"
 
 assert_user_in_group "testuser" "audio"
 
