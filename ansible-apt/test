@@ -6,7 +6,7 @@
 
 
 . "${ROLESPEC_LIB}/main"
-. "../defaults.conf"
+. "${ROLESPEC_TEST}/../defaults.conf"
 
 
 install_ansible ${test_ansible_version}
