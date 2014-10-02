@@ -6,9 +6,10 @@
 
 
 . "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
 
 
-install_ansible
+install_ansible ${test_ansible_version}
 
 
 purge openjdk-6-jre openjdk-7-jre default-jre default-jre-headless

@@ -20,9 +20,10 @@ fi
 
 
 . "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
 
 
-install_ansible
+install_ansible ${test_ansible_version}
 
 
 assert_playbook_runs

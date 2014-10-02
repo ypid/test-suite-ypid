@@ -6,6 +6,7 @@
 
 
 . "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
 
 
 stop postgresql
@@ -15,7 +16,7 @@ stop redis-sentinel
 purge redis-server
 
 
-install_ansible
+install_ansible ${test_ansible_version}
 
 
 # Create a test git config
