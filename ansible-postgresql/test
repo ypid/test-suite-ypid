@@ -14,6 +14,7 @@ install_ansible ${test_ansible_version}
 
 stop postgresql
 purge ${ROLESPEC_POSTGRESQL_LIBS}
+sudo rm -rf /var/lib/postgresql
 
 
 assert_playbook_runs
