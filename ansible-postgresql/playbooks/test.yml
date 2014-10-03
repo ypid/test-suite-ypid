@@ -1,0 +1,12 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+      # PostgreSQL requires configured SSL certificates
+    - role: 'debops.pki'
+
+      # Install and configure PostgreSQL using cloned role
+    - role: 'ansible-postgresql'
+
