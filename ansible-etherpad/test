@@ -33,6 +33,12 @@ purge ${ROLESPEC_MYSQL_LIBS}
 
 
 assert_playbook_runs
+
+
+cat /etc/nginx/sites-enabled/*
+sudo nginx -t
+
+
 assert_playbook_idempotent
 
 
