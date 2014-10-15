@@ -16,8 +16,7 @@ if [ -n "${ROLESPEC_TRAVIS}" ] ; then
   sudo apt-get -qq update
   sudo apt-get -yq install nodejs/${dist} nodejs-legacy/${dist}
 
-  sudo apt-cache policy nginx-full
-
+  # Disable saucy to not interfere with other packages
   sudo rm -f /etc/apt/sources.list.d/${dist}.list
   sudo apt-get -qq update
 fi
@@ -38,13 +37,17 @@ purge ${ROLESPEC_MYSQL_LIBS}
 
 
 assert_playbook_runs
-
-
-sudo nginx -t
-sudo nginx -v
-
-
 assert_playbook_idempotent
 
 
 assert_url "https://${ROLESPEC_FQDN}"
+
+echo "https test"
+curl https://${ROLESPEC_FQDN}
+
+echo "http test"
+curl http://${ROLESPEC_FQDN}
+
+echo "direct test"
+curl https://localhost/
+
