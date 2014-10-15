@@ -39,20 +39,6 @@ purge ${ROLESPEC_MYSQL_LIBS}
 assert_playbook_runs
 assert_playbook_idempotent
 
-echo "http test"
-curl http://${ROLESPEC_FQDN}
-
-echo "https test"
-curl -k https://${ROLESPEC_FQDN}
-
-echo "direct test"
-curl -k https://localhost/
-
-sudo netstat -nlp
-
-ls /etc/nginx/sites-enabled
-
-cat /etc/nginx/sites-enabled/*
 
 assert_url "https://${ROLESPEC_FQDN}"
 
