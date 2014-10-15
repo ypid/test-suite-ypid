@@ -5,6 +5,12 @@
 # Part of the DebOps project - http://debops.org/
 
 
+# Fix missing insserv command in Ubuntu Precise
+if [ -n "${ROLESPEC_TRAVIS}" ] ; then
+  sudo ln -s /usr/lib/insserv/insserv /usr/sbin/insserv
+fi
+
+
 . "${ROLESPEC_LIB}/main"
 . "${ROLESPEC_TEST}/../defaults.conf"
 
