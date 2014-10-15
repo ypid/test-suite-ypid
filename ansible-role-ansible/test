@@ -9,7 +9,7 @@
 # is too old for ansible package (unmet version dependencies). Let's add a newer
 # version before the playbook is tested
 if [ -n "${ROLESPEC_TRAVIS}" ] ; then
-  dist="raring"
+  dist="saucy"
   echo "Upgrade python-crypto to >= 2.6 for Ansible"
   echo "deb http://us.archive.ubuntu.com/ubuntu/ ${dist} main restricted" | sudo tee /etc/apt/sources.list.d/${dist}.list
   sudo apt-get -qq update
