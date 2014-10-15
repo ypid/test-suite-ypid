@@ -12,6 +12,9 @@
 install_ansible ${test_ansible_version}
 
 
+ansible-galaxy install -f debops.pki
+
+
 stop mysql
 purge ${ROLESPEC_MYSQL_LIBS}
 
