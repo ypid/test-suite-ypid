@@ -5,9 +5,16 @@
 # Part of the DebOps project - http://debops.org/
 
 
-# Fix missing insserv command in Ubuntu Precise
 if [ -n "${ROLESPEC_TRAVIS}" ] ; then
+  # Fix missing insserv command in Ubuntu Precise
   sudo ln -s /usr/lib/insserv/insserv /usr/sbin/insserv
+
+  # Install nodejs 10.x from saucy
+  dist="saucy"
+  echo "Upgrade nodejs to >= 10.x for Etherpad"
+  echo "deb http://us.archive.ubuntu.com/ubuntu/ ${dist} main restricted universe" | sudo tee /etc/apt/sources.list.d/${dist}.list
+  sudo apt-get -qq update
+  sudo apt-get -yq install nodejs/${dist}
 fi
 
 
