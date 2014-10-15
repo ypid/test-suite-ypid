@@ -15,6 +15,11 @@ if [ -n "${ROLESPEC_TRAVIS}" ] ; then
   echo "deb http://us.archive.ubuntu.com/ubuntu/ ${dist} main restricted universe" | sudo tee /etc/apt/sources.list.d/${dist}.list
   sudo apt-get -qq update
   sudo apt-get -yq install nodejs/${dist} nodejs-legacy/${dist}
+
+  sudo apt-cache policy nginx-full
+
+  sudo rm -f /etc/apt/sources.list.d/${dist}.list
+  sudo apt-get -qq update
 fi
 
 
@@ -35,8 +40,8 @@ purge ${ROLESPEC_MYSQL_LIBS}
 assert_playbook_runs
 
 
-cat /etc/nginx/sites-enabled/*
 sudo nginx -t
+sudo nginx -v
 
 
 assert_playbook_idempotent
