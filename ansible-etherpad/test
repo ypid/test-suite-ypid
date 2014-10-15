@@ -48,6 +48,11 @@ curl -k https://${ROLESPEC_FQDN}
 echo "direct test"
 curl -k https://localhost/
 
+sudo netstat -nlp
+
+ls /etc/nginx/sites-enabled
+
+cat /etc/nginx/sites-enabled/*
 
 assert_url "https://${ROLESPEC_FQDN}"
 
