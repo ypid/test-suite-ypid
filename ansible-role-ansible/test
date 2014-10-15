@@ -15,7 +15,8 @@ if [ -n "${ROLESPEC_TRAVIS}" ] ; then
   sudo apt-get -yq install python-crypto/trusty python/trusty python-dev/trusty \
                            python-paramiko/trusty python-yaml/trusty python-jinja2/trusty \
                            python-httplib2/trusty python-support/trusty python-nose/trusty \
-                           python-passlib/trusty python-setuptools/trusty build-essential/trusty
+                           python-passlib/trusty python-setuptools/trusty build-essential/trusty \
+                           libpython2.7-stdlib/trusty libpython2.7/trusty
 fi
 
 
