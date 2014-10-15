@@ -14,7 +14,7 @@ if [ -n "${ROLESPEC_TRAVIS}" ] ; then
   echo "Upgrade nodejs to >= 10.x for Etherpad"
   echo "deb http://us.archive.ubuntu.com/ubuntu/ ${dist} main restricted universe" | sudo tee /etc/apt/sources.list.d/${dist}.list
   sudo apt-get -qq update
-  sudo apt-get -yq install nodejs/${dist}
+  sudo apt-get -yq install nodejs/${dist} nodejs-legacy/${dist}
 fi
 
 
