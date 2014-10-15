@@ -1,0 +1,5 @@
+---
+
+# Test stable Ansible version
+role_ansible_version: 'v1.7.2'
+
