@@ -11,9 +11,11 @@
 
 stop postgresql
 purge ${ROLESPEC_POSTGRESQL_LIBS} 
+sudo rm -rf /var/lib/postgresql
 stop redis-server
 stop redis-sentinel
 purge redis-server
+sudo rm -rf /etc/redis
 fix_precise_issues
 
 
