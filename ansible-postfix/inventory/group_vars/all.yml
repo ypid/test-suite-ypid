@@ -1,0 +1,7 @@
+---
+
+# Configure everything that we have in the mail server
+postfix: [ 'local', 'network', 'mx', 'submission', 'deprecated',
+           'postscreen', 'dnsbl', 'dnswl', 'test', 'archive',
+           'client', 'sender_dependent' ]
+
