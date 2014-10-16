@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# test: Test debops.ntp
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+fix_precise_issues
+
+
+install_ansible ${test_ansible_version}
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+# Check if smsd group exists
+assert_group "smsd"
+
+# Check if configuration files are present
+assert_path "/etc/smsd.conf"
+assert_path "/etc/sms-transport.conf"
+assert_path "/etc/xinetd.d/sms"
+
+# Check firewall
+assert_iptables_allow sms
+
