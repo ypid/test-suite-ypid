@@ -9,6 +9,10 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+fix_precise_issues
+upgrade_packages redis-server
+
+
 install_ansible ${test_ansible_version}
 
 
