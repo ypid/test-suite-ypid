@@ -4,7 +4,7 @@
 ruby_gems_integration: False
 
 # Our ruby is different
-ruby_packages: [ 'ruby2.1', 'rubygems' ]
+ruby_packages: [ 'ruby2.1', 'ruby2.1-dev', 'rubygems' ]
 
 # Don't install any gems by default
 ruby_default_gems: [ 'bundler' ]
