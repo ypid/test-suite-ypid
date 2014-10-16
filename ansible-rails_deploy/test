@@ -22,7 +22,7 @@ fix_precise_issues
 install_ansible ${test_ansible_version}
 
 
-ansible-galaxy install -f debops.pki
+ansible-galaxy install -f debops.pki debops.auth
 
 
 # Create a test git config
