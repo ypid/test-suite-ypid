@@ -43,18 +43,12 @@ sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -qq update
 
-# Debug nvm
-sudo stat /home/travis/.nvm/current
-sudo stat /home/travis/.nvm
+# Fix travis nvm error
+chmod 777 -R /home/travis/.nvm
 
 
 assert_playbook_runs
-
-# Debug nvm
-sudo stat /home/travis/.nvm/current
-sudo stat /home/travis/.nvm
-
-#assert_playbook_idempotent
+assert_playbook_idempotent
 
 
 assert_permission "/var/local/testapp" "751"
