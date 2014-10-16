@@ -17,12 +17,13 @@ stop redis-sentinel
 purge redis-server
 sudo rm -rf /etc/redis
 fix_precise_issues
+upgrade_packages nodejs nodejs-legacy
 
 
 install_ansible ${test_ansible_version}
 
 
-ansible-galaxy install -f debops.pki debops.auth
+ansible-galaxy install -f debops.pki debops.auth debops.nodejs
 
 
 # Create a test git config

@@ -11,6 +11,9 @@
       # Configure SSL certificates
     - role: 'debops.pki'
 
+      # Configure NodeJS
+    - role: 'debops.nodejs'
+
       # Install and configure rails app using cloned role
     - role: 'ansible-rails_deploy'
 
