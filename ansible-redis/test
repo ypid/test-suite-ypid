@@ -9,6 +9,9 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+stop redis-server
+purge redis-server
+sudo rm -rf /etc/redis
 fix_precise_issues
 upgrade_packages redis-server
 
