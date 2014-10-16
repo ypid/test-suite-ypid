@@ -38,6 +38,11 @@ cd "/tmp/testapp"
 git init && git add -A && git commit -m "Initial commit"
 cd -
 
+# Symlink ruby from rvm to have newer version available
+for name in ~/.rvm/wrappers/default ; do
+  ln -s ~/.rvm/wrappers/default/${name} /usr/local/bin/${name}
+done
+
 
 assert_playbook_runs
 assert_playbook_idempotent
