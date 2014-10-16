@@ -22,6 +22,9 @@ fix_precise_issues
 install_ansible ${test_ansible_version}
 
 
+ansible-galaxy install -f debops.pki
+
+
 # Create a test git config
 git config --global user.email 'test@localhost'
 git config --global user.name 'Test user'
