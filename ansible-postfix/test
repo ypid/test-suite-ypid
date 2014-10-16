@@ -31,9 +31,6 @@ assert_path "/etc/postfix/master.cf"
 
 # Check firewall
 assert_iptables_allow smtp
-assert_iptables_allow smtps
+assert_iptables_allow ssmtp
 assert_iptables_allow submission
-
-# Check postfix configuration
-assert_in "postfix check" ""
 
