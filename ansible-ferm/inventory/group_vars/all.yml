@@ -4,4 +4,5 @@
 ferm_input_list:
   - type: 'dport_accept'
     dport: ['http']
+    accept_any: True
     filename: 'http'
