@@ -43,17 +43,11 @@ sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -qq update
 
+# Drop the troublesome node dir
+sudo rm -rf /home/travis/.nvm/current
+
 
 assert_playbook_runs
-
-
-echo "Init - testapp"
-cat /etc/init.d/testapp
-
-echo "Init - sidekiq"
-cat /etc/init.d/sidekiq
-
-
 assert_playbook_idempotent
 
 
