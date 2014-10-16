@@ -11,8 +11,8 @@ redis_bind: ['0.0.0.0']
 redis_server_allow: '{{ ["192.168.0.0/16"] + groups["debops_rails_deploy"] }}'
 
 # Use 9.3 instead of the default
-postgresql_version: '9.3'
-postgresql_pgdg: True
+#postgresql_version: '9.3'
+#postgresql_pgdg: True
 
 postgresql_default_cluster:
   - name: 'main'
