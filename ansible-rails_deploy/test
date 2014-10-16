@@ -48,6 +48,13 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
+echo "Init - testapp"
+cat /etc/init.d/testapp
+
+echo "Init - sidekiq"
+cat /etc/init.d/sidekiq
+
+
 assert_permission "/var/local/testapp" "751"
 assert_user_in_group "testapp" "testapp"
 
