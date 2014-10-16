@@ -1,0 +1,12 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+      # Configure SSL certificates
+    - role: 'debops.pki'
+
+      # Install and configure rails app using cloned role
+    - role: 'ansible-rails_deploy'
+
