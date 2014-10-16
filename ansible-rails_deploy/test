@@ -45,7 +45,6 @@ sudo apt-get -qq update
 
 
 assert_playbook_runs
-assert_playbook_idempotent
 
 
 echo "Init - testapp"
@@ -53,6 +52,9 @@ cat /etc/init.d/testapp
 
 echo "Init - sidekiq"
 cat /etc/init.d/sidekiq
+
+
+assert_playbook_idempotent
 
 
 assert_permission "/var/local/testapp" "751"
