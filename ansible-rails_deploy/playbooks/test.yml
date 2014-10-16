@@ -4,6 +4,10 @@
   sudo: True
 
   roles:
+
+      # Create required system users
+    - role: 'debops.auth'
+
       # Configure SSL certificates
     - role: 'debops.pki'
 
