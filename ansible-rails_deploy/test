@@ -38,10 +38,10 @@ cd "/tmp/testapp"
 git init && git add -A && git commit -m "Initial commit"
 cd -
 
-# Symlink ruby from rvm to have newer version available
-for name in ~/.rvm/wrappers/default ; do
-  ln -s ~/.rvm/wrappers/default/${name} /usr/local/bin/${name}
-done
+# Add Ruby 2.1 from PPA
+sudo apt-get -yq install python-software-properties
+sudo apt-add-repository -y ppa:brightbox/ruby-ng
+sudo apt-get -qq update
 
 
 assert_playbook_runs
