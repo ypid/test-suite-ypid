@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# test: Test debops.ntp
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+stop postfix
+purge postfix
+rm -rf /etc/postfix
+fix_precise_issues
+
+
+install_ansible ${test_ansible_version}
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+# Check if postfix group exists
+assert_group "postfix"
+
+# Check if configuration files are present
+assert_path "/etc/postfix/main.cf"
+assert_path "/etc/postfix/master.cf"
+
+# Check firewall
+assert_iptables_allow smtp
+assert_iptables_allow smtps
+assert_iptables_allow submission
+
+# Check postfix configuration
+assert_in "postfix check" ""
+
