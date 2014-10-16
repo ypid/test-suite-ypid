@@ -31,6 +31,7 @@ postgresql_default_cluster:
 # Rails configuration, normally you would have a remote host to pull from
 rails_deploy_git_location: 'file:////tmp/testapp'
 rails_deploy_worker_enabled: True
+rails_deploy_service_timeout: '300'
 
 # Normally this wouldn't be required either, it's so we can pull from ourself
 rails_deploy_user_groups: ['sshusers']
