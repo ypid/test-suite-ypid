@@ -14,6 +14,7 @@ purge ${ROLESPEC_POSTGRESQL_LIBS}
 stop redis-server
 stop redis-sentinel
 purge redis-server
+fix_precise_issues
 
 
 install_ansible ${test_ansible_version}
