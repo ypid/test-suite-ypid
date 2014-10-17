@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# test: Test debops.boxbackup
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_group "bbstored"
+
+assert_in_file "/etc/boxbackup/bbstored.conf" "bbstored"
+
