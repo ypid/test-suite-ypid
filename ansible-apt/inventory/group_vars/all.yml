@@ -10,6 +10,10 @@ apt_packages: ['vim']
 # You won't have to set this under normal conditions.
 apt_debian_preseed_hostname: '{{ inventory_hostname }}'
 
+# Use specific mirror for Precise Panglion
+apt_default_mirrors: []
+apt_mirrors: ['http://us.archive.ubuntu.com/ubuntu/']
+
 # Enable haveged support in 'debops.reprepro' for faster GPG key generation
 reprepro_haveged: True
 
