@@ -10,6 +10,7 @@
 
 
 install_ansible ${test_ansible_version}
+ansible_plugins
 
 
 ssh-keygen -t rsa -P "" -f /tmp/id_rsa
