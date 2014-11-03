@@ -9,6 +9,9 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+upgrade-packages python-jinja2
+
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
