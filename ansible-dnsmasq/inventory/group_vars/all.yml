@@ -1,0 +1,5 @@
+---
+
+dnsmasq_options: |
+  # Run dnsmasq as 'root' for Travis-CI test
+  user = root
