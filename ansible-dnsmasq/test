@@ -9,7 +9,7 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
-upgrade_packages python-jinja2
+upgrade_packages python-jinja2 dnsmasq
 
 
 install_ansible ${test_ansible_version}
