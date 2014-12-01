@@ -13,11 +13,11 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-ls -l /etc/motd
+rm -f /etc/motd
+
+
 assert_playbook_runs
-ls -l /etc/motd
 assert_playbook_idempotent
-ls -l /etc/motd
 
 
 assert_in_file "/etc/motd" "managed by Ansible"
