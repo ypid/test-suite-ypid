@@ -17,8 +17,8 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-pause 10
-ls -lR /usr/local/share/debops
+sleep 10
+ls -lR /usr/local/share
 
 
 assert_path "/usr/local/bin/debops"
