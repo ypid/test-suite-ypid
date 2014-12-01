@@ -13,7 +13,7 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-rm -f /etc/motd
+sudo rm -f /etc/motd
 
 
 assert_playbook_runs
