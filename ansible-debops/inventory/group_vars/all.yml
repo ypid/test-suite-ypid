@@ -1,0 +1,8 @@
+---
+
+# Don't install ansible .deb package, it's installed manually
+debops_packages: [ 'python-netaddr' ]
+
+# Install DebOps playbooks and roles system-wide
+debops_playbooks_systemwide: True
+
