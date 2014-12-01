@@ -17,10 +17,5 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-sleep 10
-ls -lR /usr/local/share
-
-
 assert_path "/usr/local/bin/debops"
-assert_path "/usr/local/share/debops/debops-playbooks/playbooks/site.yml"
 
