@@ -18,5 +18,6 @@ assert_playbook_idempotent
 
 
 assert_path "/etc/salt/master"
-assert_path "/setc/salt/master.d/ansible.conf"
+assert_path "/etc/salt/master.d/ansible.conf"
+assert_in "$(salt-master --version)" "salt-master"
 
