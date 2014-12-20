@@ -17,9 +17,8 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_path "/srv/pki/ca"
-assert_path "/srv/pki/host"
-assert_path "/srv/pki/wildcard"
+assert_path "/etc/pki/host"
+assert_path "/etc/pki/domain"
 
-assert_in_file "/srv/pki/host/selfsigned/${ROLESPEC_FQDN}.crt" "CERTIFICATE"
-assert_in_file "/srv/pki/host/private/${ROLESPEC_FQDN}.key" "PRIVATE KEY"
+assert_in_file "/etc/pki/system/default.crt" "CERTIFICATE"
+assert_in_file "/etc/pki/system/default.key" "PRIVATE KEY"
