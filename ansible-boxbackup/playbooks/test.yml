@@ -1,0 +1,12 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+      # boxbackup requires configured SSL certificates
+    - role: 'debops.pki'
+
+      # Install and configure boxbackup using cloned role
+    - role: 'ansible-boxbackup'
+
