@@ -1,0 +1,12 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+      # Postfix requires configured SSL certificates
+    - role: 'debops.pki'
+
+      # Install and configure Postfix using cloned role
+    - role: 'ansible-postfix'
+
