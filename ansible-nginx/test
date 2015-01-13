@@ -25,6 +25,13 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
+# Fixing the test
+echo domain
+ls -l /etc/pki/domain/CA
+echo system-certs
+ls -l /usr/local/share/ca-certificates
+echo "URL: ${ROLESPEC_FQDN}"
+
 assert_url "http://${ROLESPEC_FQDN}:8080" 307
 assert_url "https://${ROLESPEC_FQDN}"
 
