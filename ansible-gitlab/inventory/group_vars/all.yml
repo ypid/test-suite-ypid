@@ -1,8 +1,16 @@
 ---
 
+# Ubuntu 12.04 does not work well with gems in Ruby role
 ruby_default_gems: []
 
+# Currently tested GitLab version on Travis-CI
 gitlab_version: '6.7'
 
+# Default domain on Travis-CI
 gitlab_domain: [ 'localhost.localdomain' ]
+
+# Travis does not support filesystem ACL, so give access to the webserver via
+# group permissions
+gitlab_group: 'www-data'
+gitlab_support_filesystem_acl: False
 
