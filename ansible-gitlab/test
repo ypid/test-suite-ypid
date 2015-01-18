@@ -10,7 +10,7 @@
 
 
 # Add Ruby 2.1 PPA
-sudo apt-get install python-software-properties
+sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -yq update
 
