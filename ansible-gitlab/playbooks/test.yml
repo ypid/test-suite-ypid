@@ -1,0 +1,18 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+      # Nginx requires configured SSL certificates
+    - role: 'debops.pki'
+
+      # GitLab requires 'sshusers' system group
+    - role: 'debops.auth'
+
+      # Install standard set of packages
+    - role: 'debops.apt'
+
+      # Install and configure GitLab using cloned role
+    - role: 'ansible-gitlab'
+
