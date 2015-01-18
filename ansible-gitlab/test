@@ -9,6 +9,11 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+# Add Ruby 2.1 PPA
+sudo apt-get install python-software-properties
+sudo apt-add-repository -y ppa:brightbox/ruby-ng
+sudo apt-get -yq update
+
 #install_ansible ${test_ansible_version}
 install_ansible v1.8.2
 ansible_plugins
