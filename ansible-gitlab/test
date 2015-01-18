@@ -13,6 +13,7 @@
 sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -yq update
+sudo apt-get -yq install ruby2.1
 
 #install_ansible ${test_ansible_version}
 install_ansible v1.8.2
