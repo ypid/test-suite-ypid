@@ -1,5 +1,7 @@
 ---
 
+ruby_default_gems: []
+
 gitlab_version: '6.7'
 
 gitlab_domain: [ 'localhost.localdomain' ]
