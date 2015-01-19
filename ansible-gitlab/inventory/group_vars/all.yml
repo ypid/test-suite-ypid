@@ -3,6 +3,9 @@
 # Disable PKI support in nginx
 nginx_pki: False
 
+# Specify GitLab version to test against
+gitlab_version: '7.6'
+
 # Default domain on Travis-CI
 gitlab_domain: [ 'localhost.localdomain' ]
 
