@@ -1,8 +1,5 @@
 ---
 
-# Ubuntu 12.04 does not work well with gems in Ruby role
-ruby_default_gems: []
-
 # Currently tested GitLab version on Travis-CI
 gitlab_version: '6.7'
 
