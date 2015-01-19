@@ -1,10 +1,16 @@
 ---
 
+# Disable PKI support in nginx
+nginx_pki: False
+
 # Currently tested GitLab version on Travis-CI
 gitlab_version: '6.7'
 
 # Default domain on Travis-CI
 gitlab_domain: [ 'localhost.localdomain' ]
+
+# Don't add 'git' user to additional groups
+gitlab_user_append_groups: []
 
 # Travis does not support filesystem ACL, so give access to the webserver via
 # group permissions
