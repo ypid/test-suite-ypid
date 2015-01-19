@@ -25,5 +25,5 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_url "https://localhost.localdomain/"
+assert_url "http://localhost.localdomain/"
 
