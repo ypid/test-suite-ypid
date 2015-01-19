@@ -29,8 +29,5 @@ assert_playbook_idempotent
 sleep 15
 
 
-# Check page content
-curl http://localhost.localdomain
-
-assert_url "http://localhost.localdomain/"
+assert_url "http://localhost.localdomain/users/sign_in"
 
