@@ -10,6 +10,10 @@ apt_packages: ['vim']
 # You won't have to set this under normal conditions.
 apt_debian_preseed_hostname: '{{ inventory_hostname }}'
 
+# Travis does not have ssh-agent enabled, therefore use the generated public
+# SSH key directly from the filesystem
+apt_debian_preseed_sshkey: '{{ lookup("file","~/.ssh/id_rsa.pub") }}'
+
 # Use specific mirror for Precise Panglion
 apt_default_mirrors: []
 apt_mirrors: ['http://us.archive.ubuntu.com/ubuntu/']
