@@ -4,7 +4,7 @@
 nginx_pki: False
 
 # Specify GitLab version to test against
-gitlab_version: '7.6'
+gitlab_version: '7.0'
 
 # Default domain on Travis-CI
 gitlab_domain: [ 'localhost.localdomain' ]
