@@ -25,5 +25,12 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_url "https://localhost.localdomain/"
+# GitLab needs some time to start up
+sleep 15
+
+
+# Check page content
+curl http://localhost.localdomain
+
+assert_url "http://localhost.localdomain/"
 
