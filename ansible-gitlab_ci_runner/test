@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# test: Test debops.gitlab
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+# Add Ruby 2.1 PPA
+sudo apt-get -yq install python-software-properties
+sudo apt-add-repository -y ppa:brightbox/ruby-ng
+sudo apt-get -yq update
+sudo apt-get -yq install ruby2.1 ruby2.1-dev
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+# GitLab CI needs some time to start up
+sleep 5
+
+
+assert_path "/var/local/gitlab-ci-runner/gitlab-ci-runner/VERSION"
+assert_permission "/etc/init.d/gitlab-ci-runner" "755"
+assert_running "ruby"
+
+
