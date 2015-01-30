@@ -30,9 +30,6 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-ansible-galaxy install -f debops.pki
-
-
 stop mysql
 purge ${ROLESPEC_MYSQL_LIBS}
 
@@ -41,5 +38,5 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_url "https://${ROLESPEC_FQDN}"
+assert_url "http://${ROLESPEC_FQDN}"
 

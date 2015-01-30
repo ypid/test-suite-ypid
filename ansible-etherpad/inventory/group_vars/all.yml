@@ -1,5 +1,8 @@
 ---
 
+# Disable PKI support in nginx to make test faster
+nginx_pki: False
+
 # On Ubuntu Precise there's no 'nodejs-legacy' package
 nodejs_packages: [ 'nodejs' ]
 
