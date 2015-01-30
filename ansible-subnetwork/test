@@ -18,5 +18,4 @@ assert_playbook_idempotent
 
 
 assert_path /etc/network/interfaces
-assert_in "$(sudo ip addr show)" "br2"
 
