@@ -1,4 +1,7 @@
 ---
 
+# Disable PKI support in Postfix
+postfix_pki: False
+
 smstools_service_allow: [ '0.0.0.0/0' ]
 
