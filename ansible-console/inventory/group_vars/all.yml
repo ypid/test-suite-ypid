@@ -1,5 +1,8 @@
 ---
 
+# Set a static organization name
+console_issue: 'Organization Name'
+
 # Disable locale configuration on Travis CI
 console_locales: []
 
