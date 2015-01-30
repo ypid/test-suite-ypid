@@ -4,8 +4,6 @@
   sudo: True
 
   roles:
-      # Nginx requires configured SSL certificates
-    - role: 'debops.pki'
 
       # Install and configure Etherpad using cloned role
     - role: 'ansible-etherpad'
