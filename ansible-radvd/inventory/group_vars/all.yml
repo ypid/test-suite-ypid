@@ -1,0 +1,6 @@
+---
+
+# On OpenVZ hosts we cannot manage networking from the inside of a container,
+# so just try and use what we have
+radvd_default_interface: 'venet0'
+
