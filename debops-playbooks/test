@@ -6,7 +6,6 @@
 
 
 sudo hostname travis.example.com
-hostname --fqdn
 
 
 . "${ROLESPEC_LIB}/main"

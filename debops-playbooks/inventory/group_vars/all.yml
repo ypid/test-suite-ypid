@@ -1,0 +1,5 @@
+---
+
+# Set a static secret directory
+secret: '/tmp/secret'
+
