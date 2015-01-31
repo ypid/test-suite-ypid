@@ -13,13 +13,7 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-debops_roles=$(cat /home/travis/build/debops/debops-playbooks/galaxy/requirements.txt | sed -e 's/^debops\./ansible-/' -e 's/ansible\-ansible/ansible-role-ansible/')
-
-
-for role in ${debops_roles} ; do
-	slug=$(echo ${role} | sed -e 's/^ansible\-role\-//' -e 's/^ansible\-//')
-	git clone --depth=1 git://github.com/debops/${role} /home/travis/build/debops/debops-playbooks/roles/debops.${slug}
-done
+ansible-galaxy install -r /home/travis/build/debops/debops-playbooks/galaxy/requirements.txt
 
 
 assert_playbook_runs
