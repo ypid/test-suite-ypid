@@ -16,7 +16,7 @@ ansible_plugins
 ansible-galaxy install -r /home/travis/build/debops/debops-playbooks/galaxy/requirements.txt
 
 
-echo "127.0.1.2 travis.localdomain travis" >> /etc/hosts
+echo "127.0.1.2 travis.localdomain travis" | sudo tee >> /etc/hosts
 
 
 ansible-playbook -i 'travis.localdomain,' -c local /home/travis/build/debops/debops-playbooks/playbooks/site.yml
