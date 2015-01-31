@@ -5,9 +5,6 @@
 # Part of the DebOps project - http://debops.org/
 
 
-sudo hostname travis.example.com
-
-
 . "${ROLESPEC_LIB}/main"
 . "${ROLESPEC_TEST}/../defaults.conf"
 
