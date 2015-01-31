@@ -16,6 +16,13 @@ ansible_plugins
 ansible-galaxy install -r /home/travis/build/debops/debops-playbooks/galaxy/requirements.txt
 
 
+ls -l /etc/motd
+sudo rm -f /etc/motd
+
+
 assert_playbook_runs
+
+ls -l /etc/motd
+
 assert_playbook_idempotent
 
