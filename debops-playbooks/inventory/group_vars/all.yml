@@ -1,5 +1,5 @@
 ---
 
-# Set a static secret directory
-secret: '/tmp/secret'
+# Disable locale configuration on Travis CI
+console_locales: []
 
