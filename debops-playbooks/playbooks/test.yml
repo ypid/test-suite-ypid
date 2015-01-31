@@ -1,0 +1,4 @@
+---
+
+- include: '/home/travis/build/debops/debops-playbooks/playbooks/site.yml'
+
