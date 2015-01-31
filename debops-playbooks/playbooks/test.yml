@@ -1,4 +1,16 @@
 ---
 
+- hosts: all
+  sudo: True
+
+  roles:
+
+    - role: debops.secret
+
+  tasks:
+    - debug: var=ansible_fqdn
+    - debug: msg="Check if {{ secret }} variable is defined"
+
+
 - include: '/home/travis/build/debops/debops-playbooks/playbooks/site.yml'
 
