@@ -16,6 +16,13 @@ ansible_plugins
 ansible-galaxy install -r /home/travis/build/debops/debops-playbooks/galaxy/requirements.txt
 
 
-assert_playbook_runs
-assert_playbook_idempotent
+hostname --fqdn
+pwd
+
+
+ansible-playbook /home/travis/build/debops/debops-playbooks/playbooks/site.yml
+
+
+#assert_playbook_runs
+#assert_playbook_idempotent
 
