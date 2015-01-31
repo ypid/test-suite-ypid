@@ -8,8 +8,7 @@
     - role: debops.secret
 
   tasks:
-    - debug: var=ansible_fqdn
-    - debug: msg="Check if {{ secret }} variable is defined"
+    - debug: msg="Check if {{ inventory_dir }} variable is defined"
 
 
 - include: '/home/travis/build/debops/debops-playbooks/playbooks/site.yml'
