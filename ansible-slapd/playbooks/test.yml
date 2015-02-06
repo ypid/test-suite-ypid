@@ -1,0 +1,15 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+      # OpenLDAP requires configured SSL certificates
+    - role: 'debops.pki'
+
+      # LDAP client is configured by debops.auth
+    - role: 'debops.auth'
+
+      # Install and configure slapd using cloned role
+    - role: 'ansible-slapd'
+
