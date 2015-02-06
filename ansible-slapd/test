@@ -9,7 +9,7 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
-upgrade_packages slapd
+upgrade_packages slapd ldap-utils python-ldap
 
 
 install_ansible ${test_ansible_version}
