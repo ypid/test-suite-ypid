@@ -1,0 +1,5 @@
+---
+
+# Configure LDAP access on localhost
+auth_ldap_uri: [ 'ldap://localhost/' ]
+
