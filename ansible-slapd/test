@@ -9,6 +9,9 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+upgrade_packages slapd
+
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
@@ -18,9 +21,6 @@ ansible-galaxy install -f debops.pki debops.auth
 
 assert_playbook_runs
 assert_playbook_idempotent
-
-
-sudo apt-get -yq install ldap-utils
 
 
 assert_group openldap
