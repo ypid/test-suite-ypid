@@ -3,3 +3,6 @@
 # Configure LDAP access on localhost
 auth_ldap_uri: [ 'ldap://localhost/' ]
 
+# Try setting custom BaseDN
+slapd_basedn: 'dc=travis,dc=example,dc=org'
+
