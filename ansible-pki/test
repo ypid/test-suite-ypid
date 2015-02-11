@@ -10,7 +10,7 @@
 
 
 #install_ansible ${test_ansible_version}
-install_ansible devel 0f6b87d33e36a7f37d0d58ea631965e13d199540
+install_ansible devel b3af2f9beecc54e33c9b9eab7ac323d96ca3c68b
 ansible_plugins
 
 
