@@ -17,6 +17,10 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
+# Debugging
+sudo ls -laR /etc/pki/
+
+
 assert_path "/etc/pki/host"
 assert_path "/etc/pki/domain"
 
