@@ -10,16 +10,12 @@
 
 
 #install_ansible ${test_ansible_version}
-install_ansible v1.8.2
+install_ansible 90a6c82d55109be9cd31898e6daa5db232eaabfd
 ansible_plugins
 
 
 assert_playbook_runs
 assert_playbook_idempotent
-
-
-# Debugging
-sudo ls -laR /etc/pki/
 
 
 assert_path "/etc/pki/host"
