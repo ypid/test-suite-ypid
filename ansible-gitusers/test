@@ -17,6 +17,10 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
+# Install Jekyll, required for correct deployment to public directory
+sudo apt-get -yq install ruby ruby-dev build-essential nodejs
+sudo gem install jekyll
+
 # Create example user repository and publish it
 echo
 echo "=> ssh testuser@${ROLESPEC_FQDN} init example-repo"
