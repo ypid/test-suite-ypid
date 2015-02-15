@@ -17,9 +17,15 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
+# Add Ruby 2.1 PPA
+sudo apt-get -yq install python-software-properties
+sudo apt-add-repository -y ppa:brightbox/ruby-ng
+sudo apt-get -yq update
+
 # Install Jekyll, required for correct deployment to public directory
-sudo apt-get -yq install ruby ruby-dev build-essential nodejs
+sudo apt-get -yq install ruby2.1 ruby2.1-dev build-essential nodejs rubygems-integration
 sudo gem install jekyll
+
 
 # Create example user repository and publish it
 echo
