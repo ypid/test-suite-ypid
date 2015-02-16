@@ -21,4 +21,4 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_url "https://${ROLESPEC_FQDN}"
+assert_url "http://${ROLESPEC_FQDN}"

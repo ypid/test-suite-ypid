@@ -1,0 +1,13 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+
+      # Configure MySQL server for phpIPAM
+    - role: 'debops.mysql'
+
+      # Install and configure phpIPAM using cloned role
+    - role: 'ansible-phpipam'
+
