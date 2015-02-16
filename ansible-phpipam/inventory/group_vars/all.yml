@@ -1,5 +1,8 @@
 ---
 
+# Disable SSL support in nginx
+nginx_pki: False
+
 # Used for testing purposes.
 phpipam_domain: [ '{{ ansible_domain }}' ]
 
