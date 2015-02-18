@@ -38,3 +38,6 @@ assert_iptables_allow smtp
 assert_iptables_allow ssmtp
 assert_iptables_allow submission
 
+# Test documentation
+assert_docs
+
