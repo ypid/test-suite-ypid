@@ -1,0 +1,6 @@
+[debops_rsnapshot]
+placeholder_fqdn
+
+[debops_rsnapshot_rsync]
+placeholder_fqdn
+
