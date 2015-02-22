@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# test: Test debops.rsnapshot
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path: "/etc/cron.hourly/rsnapshot-wrapper"
+assert_path: "/etc/cron.daily/rsnapshot-wrapper"
+assert_path: "/etc/cron.weekly/rsnapshot-wrapper"
+assert_path: "/etc/cron.monthly/rsnapshot-wrapper"
+assert_path: "/usr/local/lib/rrsync"
+assert_path: "/usr/local/lib/rsnapshot-cron-wrapper"
+
+assert_docs
+
