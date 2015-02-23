@@ -6,3 +6,6 @@ auth_ldap_uri: [ 'ldap://localhost/' ]
 # Use custom domain for BaseDN
 slapd_domain: 'travis.example.org'
 
+# Enable anonymous bind to the server
+slapd_anonymous_bind: True
+
