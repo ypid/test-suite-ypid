@@ -22,8 +22,8 @@ assert_playbook_idempotent
 assert_in "$(vim --version)" "VIM"
 
 # Check if webserver for Debian preseed is set up correctly on the local host
-assert_url "http://${ROLESPEC_FQDN}"
+#assert_url "http://${ROLESPEC_FQDN}"
 
 # Check if apt-cacher-ng is installed and running
-assert_path "/usr/sbin/apt-cacher-ng"
-assert_running "apt-cacher-ng"
+#assert_path "/usr/sbin/apt-cacher-ng"
+#assert_running "apt-cacher-ng"
