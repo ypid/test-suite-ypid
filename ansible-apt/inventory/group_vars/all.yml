@@ -1,23 +1,20 @@
 ---
 
 # Test local APT repository and the cache server.
-apt: '{{ ansible_fqdn }}'
+#apt: '{{ ansible_fqdn }}'
 
 # Install 1 or more packages.
 apt_packages: ['vim']
 
 # Used by Travis only because the FQDN is too long for nginx's configuration.
 # You won't have to set this under normal conditions.
-apt_debian_preseed_hostname: '{{ inventory_hostname }}'
+#apt_debian_preseed_hostname: '{{ inventory_hostname }}'
 
 # Travis does not have ssh-agent enabled, therefore use the generated public
 # SSH key directly from the filesystem
-apt_debian_preseed_sshkey: '{{ lookup("file","~/.ssh/id_rsa.pub") }}'
+#apt_debian_preseed_sshkey: '{{ lookup("file","~/.ssh/id_rsa.pub") }}'
 
 # Use specific mirror for Precise Panglion
 apt_default_mirrors: []
 apt_mirrors: ['http://us.archive.ubuntu.com/ubuntu/']
-
-# Enable haveged support in 'debops.reprepro' for faster GPG key generation
-reprepro_haveged: True
 
