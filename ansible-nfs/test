@@ -21,7 +21,7 @@ assert_path "/srv/nfs"
 assert_path "/etc/exports.d/ansible.exports"
 
 
-assert_running "nfsd"
+assert_running "rpcbind"
 
 
 assert_docs
