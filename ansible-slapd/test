@@ -24,6 +24,4 @@ assert_group openldap
 assert_running "slapd"
 assert_in_file "/etc/ldap/ldap.conf" "TLS_CACERT"
 assert_in "$(ldapsearch -x)" "LDAPv3"
-assert_iptables_allow "ldap"
-assert_iptables_allow "ldaps"
-
+assert_tcp "localhost" "389"
