@@ -1,0 +1,5 @@
+---
+
+# Ignore POSIX capabilities on OpenVZ, buggy and unreliable
+ferm_ignore_cap12s: True
+
