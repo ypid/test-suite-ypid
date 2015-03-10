@@ -1,0 +1,2 @@
+travis ansible_connection=local
+
