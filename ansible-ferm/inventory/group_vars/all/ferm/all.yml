@@ -1,8 +1,5 @@
 ---
 
-# Ignore POSIX capabilities detection on Travis
-ferm_ignore_cap12s: True
-
 # It also common to use ferm as a dependency, check meta/main.yml for an example.
 ferm_input_list:
   - type: 'dport_accept'
