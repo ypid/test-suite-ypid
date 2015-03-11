@@ -20,6 +20,5 @@ assert_playbook_idempotent
 # Check if correct timezone is set
 assert_in_file "/etc/timezone" "Etc/UTC"
 
-# Check if ntpd is not installed on OpenVZ containers
-assert_path "/usr/sbin/ntpd" !
-assert_path "/usr/sbin/openntpd" !
+# Check if ntpd is installed
+assert_path "/usr/sbin/openntpd"
