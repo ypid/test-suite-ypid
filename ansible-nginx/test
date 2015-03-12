@@ -21,8 +21,8 @@ sleep 3
 chmod 777 /tmp/nodeserver.sock
 
 
-assert_playbook_runs
-assert_playbook_idempotent
+assert_playbook_runs -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
+assert_playbook_idempotent -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 
 
 assert_url "http://${ROLESPEC_FQDN}:8080" 307
