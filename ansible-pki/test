@@ -22,3 +22,18 @@ assert_path "/etc/pki/domain"
 
 assert_in_file "/etc/pki/system/default.crt" "CERTIFICATE"
 assert_in_file "/etc/pki/system/default.key" "PRIVATE KEY"
+
+
+# Test the reinitialization of existing PKI
+sudo rm -rf /etc/pki /etc/ansible/facts.d/pki.fact
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path "/etc/pki/host"
+assert_path "/etc/pki/domain"
+
+assert_in_file "/etc/pki/system/default.crt" "CERTIFICATE"
+assert_in_file "/etc/pki/system/default.key" "PRIVATE KEY"
