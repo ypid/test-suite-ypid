@@ -9,15 +9,15 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
 # Add Ubuntu Trusty repository
 if [ -n "${ROLESPEC_TRAVIS}" ] ; then
     echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/trusty.list
     sudo apt-get -qq update
 fi
-
-
-install_ansible ${test_ansible_version}
-ansible_plugins
 
 
 assert_playbook_runs
