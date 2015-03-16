@@ -1,0 +1,5 @@
+---
+
+# Get SSH keys from file instead of SSH agent on Travis
+lxc_template_admin_sshkeys: [ '{{ lookup("file", "~/.ssh/id_rsa.pub") }}' ]
+
