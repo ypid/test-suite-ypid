@@ -1,8 +1,0 @@
----
-
-# Disable PKI support in nginx
-nginx_pki: False
-
-# Default domain on Travis-CI
-dokuwiki_main_domain: [ 'localhost.localdomain' ]
-
