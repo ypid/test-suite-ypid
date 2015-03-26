@@ -8,5 +8,5 @@
     - role: 'debops.pki'
 
       # Test stunnel
-    - role: 'debops.stunnel'
+    - role: 'ansible-stunnel'
 
