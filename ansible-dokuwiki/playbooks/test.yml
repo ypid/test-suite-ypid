@@ -1,0 +1,10 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+
+      # Install and configure DokuWiki using cloned role
+    - role: 'ansible-dokuwiki'
+
