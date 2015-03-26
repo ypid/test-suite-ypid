@@ -1,0 +1,12 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+      # stunnel requires configured SSL certificates
+    - role: 'debops.pki'
+
+      # Test stunnel
+    - role: 'debops.stunnel'
+

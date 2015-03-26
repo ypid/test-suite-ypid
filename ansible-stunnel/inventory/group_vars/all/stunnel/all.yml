@@ -1,0 +1,18 @@
+---
+
+stunnel_server: [ 'test-service' ]
+
+stunnel_services:
+
+  - name: 'test-service'
+    server_accept: ':::test-service'
+    server_connect: '3306'
+
+    port: '3307'
+
+    type: 'dport_accept'
+    dport: [ 'test-service' ]
+
+    daemon: 'test-service'
+
+    accept_any: True
