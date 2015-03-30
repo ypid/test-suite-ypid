@@ -17,6 +17,9 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-assert_running "dhcpd"
+sudo tail /var/log/syslog
+
+
 assert_path "/etc/dhcp/dhcpd.conf"
+assert_in_file "/etc/dhcp/dhcpd.conf" "subnet"
 
