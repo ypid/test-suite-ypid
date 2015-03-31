@@ -1,7 +1,7 @@
 ---
 
 # Configure LDAP access on localhost
-auth_ldap_uri: [ 'ldap://localhost/' ]
+auth_ldap_conf_uri: [ 'ldap://localhost/' ]
 
 # Use custom domain for BaseDN
 slapd_domain: 'travis.example.org'

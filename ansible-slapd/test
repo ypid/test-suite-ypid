@@ -20,10 +20,6 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-sudo cat /etc/ldap/ldap.conf
-sudo netstat -lp
-
-
 assert_group openldap
 assert_running "slapd"
 assert_in_file "/etc/ldap/ldap.conf" "TLS_CACERT"
