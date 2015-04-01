@@ -23,5 +23,6 @@ assert_path "/etc/cron.weekly/rsnapshot-wrapper"
 assert_path "/etc/cron.monthly/rsnapshot-wrapper"
 assert_path "/usr/local/lib/rsnapshot-cron-wrapper"
 
+# Test documentation
 assert_docs
 

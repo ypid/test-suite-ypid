@@ -14,3 +14,7 @@ ansible_plugins
 
 
 assert_playbook_runs
+
+# Test documentation
+assert_docs
+

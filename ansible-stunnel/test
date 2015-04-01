@@ -24,3 +24,6 @@ assert_group stunnel4
 assert_running "stunnel4"
 assert_path "/etc/stunnel/test-service.conf"
 
+# Test documentation
+assert_docs
+
