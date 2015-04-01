@@ -24,3 +24,6 @@ assert_path "/etc/dovecot/local.conf"
 assert_in_file "/etc/dovecot/local.conf" "mail_location"
 assert_running "dovecot"
 
+# Test documentation
+assert_docs
+

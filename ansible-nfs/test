@@ -24,5 +24,6 @@ assert_path "/etc/exports.d/ansible.exports"
 assert_running "rpcbind"
 
 
+# Test documentation
 assert_docs
 
