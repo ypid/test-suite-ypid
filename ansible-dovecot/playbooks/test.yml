@@ -1,0 +1,12 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+      # Dovecot requires configured SSL certificates
+    - role: 'debops.pki'
+
+      # Install and configure Dovecot using cloned role
+    - role: 'ansible-dovecot'
+
