@@ -1,0 +1,5 @@
+---
+
+# Disable PKI support in nginx
+nginx_pki: False
+
