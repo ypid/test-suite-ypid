@@ -1,8 +1,5 @@
 ---
 
-# This is normally not needed, it is to set a custom home path.
-users_default_home_prefix: '/tmp'
-
 # Don't try to change default user account, it seems that Ubuntu Precise
 # doesn't like it
 users_default: []
@@ -18,6 +15,7 @@ users_groups:
 users_host_list:
 
   - name: 'testuser'
+    home: '/tmp/testuser'
     groups: [ 'audio' ]
 
     # The default shell is bash and dotfiles are disabled by default.
