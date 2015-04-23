@@ -23,7 +23,7 @@ assert_playbook_idempotent
 
 assert_path "/etc/tgt/targets.conf"
 assert_path "/etc/tgt/conf.d/test.target.conf"
-assert_in "sudo tgt-admin -s" "test.target"
+assert_in "$(sudo tgt-admin -s)" "test.target"
 
 
 # Test documentation
