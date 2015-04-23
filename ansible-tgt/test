@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# test: Test debops.nfs
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+dd if=/dev/zero of=/tmp/test.img bs=1M count=32
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path "/etc/tgt/targets.conf"
+assert_path "/etc/tgt/conf.d/test.target.conf"
+assert_in "sudo tgt-admin -s" "test.target"
+
+
+# Test documentation
+assert_docs
+
