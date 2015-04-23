@@ -1,0 +1,7 @@
+---
+
+tgt_targets:
+
+  - name: 'test.target'
+    backing_stores: [ '/tmp/test.img' ]
+
