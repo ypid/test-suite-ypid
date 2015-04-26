@@ -9,6 +9,10 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+# Use reprepro from Trusty, Precise is too old
+upgrade_packages reprepro
+
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
