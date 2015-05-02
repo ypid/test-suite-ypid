@@ -1,0 +1,5 @@
+---
+
+# Force Debian Wheezy release
+openvz_apt_distribution: 'wheezy'
+
