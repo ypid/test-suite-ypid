@@ -3,3 +3,6 @@
 # Force Debian Wheezy release
 openvz_apt_distribution: 'wheezy'
 
+# Do not install OpenVZ kernel
+openvz_kernel: False
+

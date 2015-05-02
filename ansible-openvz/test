@@ -9,10 +9,6 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
-# Install grub package inside the test container
-sudo apt-get -yq install grub
-
-
 install_ansible ${test_ansible_version}
 ansible_plugins
 
