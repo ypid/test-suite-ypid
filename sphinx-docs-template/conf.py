@@ -5,7 +5,7 @@ import os
 
 # Generate documentation on the fly based on Ansible default variables
 import yaml2rst
-yaml2rst.convert_file('../defaults/main.yml', 'defaults.rst')
+os.path.isfile('../defaults/main,yml') and yaml2rst.convert_file('../defaults/main.yml', 'defaults.rst')
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
