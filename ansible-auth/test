@@ -20,9 +20,6 @@ assert_playbook_idempotent
 # Check if all system groups are created
 assert_group admins sshusers sftponly webadmins
 
-# Check if user is in admins group
-assert_user_in_group $USER admins
-
 # Check if sudoers configuration for admins has correct permissions
 assert_permission "/etc/sudoers.d/admins" "440"
 
