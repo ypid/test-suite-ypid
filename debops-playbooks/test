@@ -23,3 +23,5 @@ sudo rm -f /etc/motd
 assert_playbook_runs
 assert_playbook_idempotent
 
+assert_docs
+
