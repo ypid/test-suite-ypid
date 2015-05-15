@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# test: Test debops.rstudio_server
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+echo "Installing RStudio Server..."
+wget http://download2.rstudio.org/rstudio-server-0.98.1103-amd64.deb
+sudo dpkg -i rstudio-server-*.deb
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path "/usr/lib/rstudio-server"
+assert_running "rserver"
+
+
+# Test documentation
+assert_docs
+
