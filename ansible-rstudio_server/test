@@ -20,6 +20,7 @@ assert_playbook_idempotent
 echo "Installing RStudio Server..."
 wget http://download2.rstudio.org/rstudio-server-0.98.1103-amd64.deb
 sudo dpkg -i rstudio-server-*.deb
+sudo service rstudio-server stop
 
 
 assert_playbook_runs
