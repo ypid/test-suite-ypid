@@ -1,12 +1,14 @@
 ---
 
-- hosts: 'placeholder_fqdn'
+- name: Configure subnetwork
+  hosts: all
   sudo: True
 
   roles:
     - role: 'debops.subnetwork'
 
-- hosts: 'placeholder_fqdn'
+- name: Configure tinc
+  hosts: 'placeholder_fqdn'
   sudo: True
 
   roles:
