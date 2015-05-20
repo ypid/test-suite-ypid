@@ -5,5 +5,10 @@
 
   roles:
     - role: 'debops.subnetwork'
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
     - role: 'ansible-tinc'
 
