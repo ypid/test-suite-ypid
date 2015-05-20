@@ -1,4 +1,7 @@
 ---
 
+# Ignore OpenVZ capabilities
+ifupdown_ignore_cap12s: True
+
 tinc_connection_type: 'static'
 
