@@ -1,4 +1,17 @@
 ---
 
+# Ignore OpenVZ capabilities
+ifupdown_ignore_cap12s: True
+
+# Test IPv4 network
+subnetwork_ipv4: '192.168.128.1/24'
+
+# Test IPv6 network
+subnetwork_ipv6: [ '2001:db8:1234:5678::1/64' ]
+
+# NAT is disabled on Travis-CI
+# https://github.com/travis-ci/travis-ci/issues/1341
+subnetwork_ipv4_nat: False
+
 tinc_connection_type: 'static'
 
