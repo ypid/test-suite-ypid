@@ -21,7 +21,6 @@ assert_playbook_idempotent
 
 
 assert_path "/etc/tinc/mesh0/tinc.conf"
-assert_running "tincd"
 
 assert_docs
 
