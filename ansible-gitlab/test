@@ -16,8 +16,7 @@ sudo apt-get -yq update
 sudo apt-get -yq install ruby2.1 ruby2.1-dev
 
 
-#install_ansible ${test_ansible_version}
-install_ansible v1.8.2
+install_ansible ${test_ansible_version}
 ansible_plugins
 
 
