@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# test: Test debops.snmpd
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path "/etc/snmp/snmpd.conf"
+assert_path "/etc/snmp/snmp.local.conf"
+assert_running "snmpd"
+assert_in_file "/etc/snmp/snmpd.conf" "agentx"
+assert_in "$(sudo snmpwalk localhost system)" "sysName"
+
+
+# Test documentation
+assert_docs
+
