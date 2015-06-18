@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# test: Test debops.mysql
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+stop mysql
+purge ${ROLESPEC_MYSQL_LIBS}
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_running "mysql"
+assert_in_file "/etc/mysql/conf.d/mysqld.cnf" "0.0.0.0"
+assert_iptables_allow "mysql"
