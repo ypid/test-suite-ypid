@@ -24,6 +24,9 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
+cat ~/.my.cnf
+
+
 assert_in "mysql -sN -e 'show databases;'" "testapp"
 assert_in "mysql -sN -e 'select * from mysql.user;'" "testapp"
 
