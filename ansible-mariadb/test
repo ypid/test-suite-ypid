@@ -13,7 +13,7 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-sudo ansible-galaxy install debops.mariadb_server
+ansible-galaxy install debops.mariadb_server
 
 
 stop mysql
