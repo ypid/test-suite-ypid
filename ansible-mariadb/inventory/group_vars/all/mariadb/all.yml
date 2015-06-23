@@ -1,0 +1,11 @@
+---
+
+mariadb_users:
+
+  - name: 'testapp'
+    owner: 'travis'
+
+mariadb_databases:
+
+  - name: 'testapp'
+
