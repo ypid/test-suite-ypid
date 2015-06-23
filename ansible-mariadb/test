@@ -24,11 +24,8 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
-mysql -e 'show databases;'
-
-
-assert_in "mysql -sN -e 'show databases;'" "testapp"
-assert_in "mysql -sN -e 'select * from mysql.user;'" "testapp"
+assert_in "$(mysql -sN -e 'show databases;')" "testapp"
+assert_in "$(mysql -sN -e 'select * from mysql.user;')" "testapp"
 
 assert_docs
 
