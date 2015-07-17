@@ -13,6 +13,17 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+# We cannot really test open-iscsi in an OpenVZ container, so just try to
+# suppress the service from starting up
+# Prevent service startup while we are working in chroot
+cat | sudo tee /usr/sbin/policy-rc.d <<EOF
+#!/bin/sh
+echo "All runlevel operations denied by policy" >&2
+exit 101
+EOF
+sudo chmod +x /usr/sbin/policy-rc.d
+
+
 assert_playbook_runs
 assert_playbook_idempotent
 
