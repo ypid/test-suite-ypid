@@ -1,0 +1,5 @@
+---
+
+# Disable iscsid on Travis
+iscsi_enabled: False
+
