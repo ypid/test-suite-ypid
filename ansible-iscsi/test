@@ -24,11 +24,6 @@ EOF
 sudo chmod +x /usr/sbin/policy-rc.d
 
 
-# Nuke the cap12s local fact to try and fool the role so that it thinks that
-# open-iscsi cannot be run on this host
-sudo rm -rf /etc/ansible/facts.d/cap12s.fact
-
-
 assert_playbook_runs
 assert_playbook_idempotent
 
