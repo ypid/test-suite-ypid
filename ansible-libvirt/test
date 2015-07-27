@@ -27,10 +27,7 @@ fi
 assert_playbook_runs
 
 # Debug errors
-sudo ls -l /var/run/libvirt/libvirt-sock
-ps aux | grep libvirt
-id travis
-
+groups
 
 assert_playbook_idempotent
 
