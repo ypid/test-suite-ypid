@@ -1,0 +1,4 @@
+---
+
+# Disable networks, they cannot be started on Travis
+libvirt_networks: []

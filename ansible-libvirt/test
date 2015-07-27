@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# test: Test debops.libvirt
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+# Add Ubuntu Trusty repository
+if [ -n "${ROLESPEC_TRAVIS}" ] ; then
+    echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/trusty.list
+    sudo apt-get -qq update
+    sudo apt-get -y install ubuntu-keyring
+    sudo apt-get -qq update
+fi
+
+
+assert_playbook_runs
+assert_playbook_idempotent
+
+
+assert_path "${HOME}/.config/libvirt/libvirt.conf"
+assert_docs
+
