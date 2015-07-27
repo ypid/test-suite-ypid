@@ -26,6 +26,7 @@ assert_playbook_runs
 assert_playbook_idempotent
 
 
+assert_path "/etc/libvirt/libvirt.conf"
 assert_path "/etc/libvirt/libvirtd.conf"
-
 assert_running "libvirtd"
+assert_docs
