@@ -1,0 +1,10 @@
+---
+
+# Disable SSL support in nginx
+nginx_pki: False
+
+# Used for testing purposes.
+librenms_domain: [ '{{ ansible_domain }}' ]
+
+# It defaults to:
+#librenms_domain: [ 'nms.{{ ansible_domain }}' ]

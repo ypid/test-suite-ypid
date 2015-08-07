@@ -1,0 +1,13 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+
+      # Configure MySQL server for LibreNMS
+    - role: 'debops.mariadb_server'
+
+      # Install and configure LibreNMS using cloned role
+    - role: 'ansible-librenms'
+
