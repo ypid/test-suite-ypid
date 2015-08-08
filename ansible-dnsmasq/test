@@ -9,7 +9,19 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+# Prevent service startup while we are working in chroot
+cat <<EOF | sudo tee /usr/sbin/policy-rc.d
+#!/bin/sh
+echo "All runlevel operations denied by policy" >&2
+exit 101
+EOF
+sudo chmod +x /usr/sbin/policy-rc.d
+
+
 upgrade_packages python-jinja2 dnsmasq
+
+
+sudo rm -rf /usr/sbin/policy-rc.d
 
 
 install_ansible ${test_ansible_version}
