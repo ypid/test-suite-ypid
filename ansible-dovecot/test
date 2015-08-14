@@ -19,10 +19,14 @@ ansible-galaxy install -f debops.pki
 assert_playbook_runs
 assert_playbook_idempotent
 
-
 assert_path "/etc/dovecot/local.conf"
-assert_in_file "/etc/dovecot/local.conf" "mail_location"
 assert_running "dovecot"
+
+assert_tcp "localhost" "143"
+assert_iptables_allow imap
+
+assert_tcp "localhost" "993"
+assert_iptables_allow imaps
 
 # Test documentation
 assert_docs
