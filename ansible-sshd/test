@@ -19,3 +19,6 @@ assert_playbook_idempotent
 
 assert_in_file "/etc/ssh/sshd_config" "PermitRootLogin without-password"
 assert_in_file "/etc/ssh/sshd_config" "PasswordAuthentication no"
+
+assert_docs
+
