@@ -25,7 +25,7 @@ assert_playbook_runs -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 assert_playbook_idempotent -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 
 
-assert_url "http://${ROLESPEC_FQDN}:8080" 307
+assert_url "http://${ROLESPEC_FQDN}:8080" 301
 assert_url "https://localhost.localdomain/"
 
 
