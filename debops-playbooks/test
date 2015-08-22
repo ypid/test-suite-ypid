@@ -20,7 +20,7 @@ ansible-galaxy install -r /home/travis/build/debops/debops-playbooks/galaxy/requ
 sudo rm -f /etc/motd
 
 
-assert_playbook_runs
+assert_playbook_check_runs
 assert_playbook_idempotent
 
 assert_docs

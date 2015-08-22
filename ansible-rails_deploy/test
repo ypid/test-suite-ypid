@@ -49,7 +49,7 @@ sudo apt-get -qq update
 chmod 777 -R /home/travis/.nvm
 
 
-assert_playbook_runs
+assert_playbook_check_runs
 assert_playbook_idempotent
 
 
