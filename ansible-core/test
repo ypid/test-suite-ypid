@@ -16,7 +16,8 @@ ansible_plugins
 assert_playbook_check_runs
 echo "/etc/ansible/facts.d/root.fact"
 cat /etc/ansible/facts.d/root.fact
-assert_playbook_idempotent || true
+assert_playbook_runs
+#assert_playbook_idempotent
 echo "/etc/ansible/facts.d/root.fact"
 cat /etc/ansible/facts.d/root.fact
 assert_ansible_check_diff
