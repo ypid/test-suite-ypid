@@ -21,7 +21,7 @@ purge ${ROLESPEC_POSTGRESQL_LIBS}
 sudo rm -rf /var/lib/postgresql
 
 
-assert_playbook_runs
+assert_playbook_check_runs
 assert_playbook_idempotent
 
 

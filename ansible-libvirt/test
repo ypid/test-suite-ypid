@@ -24,7 +24,7 @@ if [ -n "${ROLESPEC_TRAVIS}" ] ; then
 fi
 
 
-assert_playbook_runs
+assert_playbook_check_runs
 
 # Debug errors
 groups

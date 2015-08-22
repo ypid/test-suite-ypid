@@ -17,7 +17,7 @@ dd if=/dev/zero of=/tmp/test.img bs=1M count=32
 echo "iscsi-target    3260/tcp" | sudo tee --append /etc/services
 
 
-assert_playbook_runs
+assert_playbook_check_runs
 assert_playbook_idempotent
 
 
