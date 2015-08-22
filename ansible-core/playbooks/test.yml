@@ -1,0 +1,10 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: False
+
+  roles:
+
+    - role: 'ansible-core'
+      sudo: True
+
