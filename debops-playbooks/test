@@ -13,7 +13,7 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-ansible-galaxy install -r /home/travis/build/debops/debops-playbooks/galaxy/requirements.txt
+ansible-galaxy install --force -r /home/travis/build/debops/debops-playbooks/galaxy/requirements.txt
 
 
 # Remove symlink to /var/run/motd
