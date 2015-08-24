@@ -2,5 +2,5 @@
 
 # Ignore POSIX capabilities on Travis-CI, because they are apparently ignored
 # in OpenVZ containers
-root_flags: [ 'ignore-cap12s' ]
+core_tags: [ 'ignore-cap12s' ]
 
