@@ -1,0 +1,7 @@
+---
+
+fcgiwrap_instances:
+
+  - name: 'test'
+    user: 'test'
+    group: 'test'
