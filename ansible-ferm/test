@@ -14,9 +14,7 @@ ansible_plugins
 
 
 assert_playbook_check_runs
-cat /etc/default/ferm
 assert_playbook_idempotent
-cat /etc/default/ferm
 
 
 assert_iptables_allow "http"
