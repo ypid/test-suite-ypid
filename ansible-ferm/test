@@ -14,6 +14,7 @@ ansible_plugins
 
 
 assert_playbook_check_runs
+cat /etc/ansible/facts.d/ferm.fact
 assert_playbook_idempotent
 
 
