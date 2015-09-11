@@ -9,6 +9,10 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+# Make sure newer start-stop-daemon is present
+upgrade_packages dpkg
+
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
