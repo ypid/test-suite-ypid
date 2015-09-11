@@ -9,5 +9,5 @@
     - role: 'debops.docker'
 
     # Test docker-gen role
-    - role: 'ansible-docker-gen'
+    - role: 'ansible-docker_gen'
 
