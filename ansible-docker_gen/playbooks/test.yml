@@ -1,0 +1,13 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  sudo: True
+
+  roles:
+
+    # Install Docker locally
+    - role: 'debops.docker'
+
+    # Test docker-gen role
+    - role: 'ansible-docker-gen'
+
