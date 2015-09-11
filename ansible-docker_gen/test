@@ -17,6 +17,13 @@ ansible-galaxy install -f debops.docker
 
 
 assert_playbook_check_runs
+
+sudo tail -n 30 /var/log/docker-gen.log /var/log/syslog
+
+sudo cat /etc/docker-gen.conf
+
+ps aux | grep docker
+
 assert_playbook_idempotent
 
 
