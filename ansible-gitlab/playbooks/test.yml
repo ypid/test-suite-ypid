@@ -5,6 +5,8 @@
 
   roles:
 
+    - role: 'debops.mariadb_server'
+
       # Install and configure GitLab using cloned role
     - role: 'ansible-gitlab'
 
