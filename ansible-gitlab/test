@@ -20,6 +20,9 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+ansible-galaxy -f install debops.mariadb_server
+
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
