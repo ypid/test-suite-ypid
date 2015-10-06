@@ -20,8 +20,8 @@ stop mysql
 purge ${ROLESPEC_MYSQL_LIBS}
 
 
-assert_playbook_check_runs -vvvv
-assert_playbook_idempotent -vvvv
+assert_playbook_check_runs
+assert_playbook_idempotent
 
 
 assert_in "$(mysql -sN -e 'show databases;')" "testapp"
