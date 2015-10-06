@@ -2,14 +2,14 @@
 
 - name: Configure subnetwork
   hosts: all
-  sudo: True
+  become: True
 
   roles:
     - role: 'debops.subnetwork'
 
 - name: Configure tinc
   hosts: 'placeholder_fqdn'
-  sudo: True
+  become: True
 
   roles:
     - role: 'ansible-tinc'

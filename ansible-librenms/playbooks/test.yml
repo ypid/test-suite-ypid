@@ -1,7 +1,7 @@
 ---
 
 - hosts: 'placeholder_fqdn'
-  sudo: True
+  become: True
 
   roles:
 
@@ -9,7 +9,7 @@
     - role: 'debops.snmpd'
 
 - hosts: 'placeholder_fqdn'
-  sudo: True
+  become: True
 
   roles:
 
