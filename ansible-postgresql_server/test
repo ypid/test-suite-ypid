@@ -23,7 +23,5 @@ assert_playbook_idempotent
 
 
 assert_running "postgres"
-assert_in_file "/etc/postgresql/9.1/main/pg_hba.conf" "192.168.0.0/16"
-assert_in_file "/etc/postgresql/9.1/main/postgresql.conf" "0.0.0.0"
 assert_iptables_allow "postgresql"
 assert_docs
