@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# test: Test debops.postgresql_server
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+stop postgresql
+purge ${ROLESPEC_POSTGRESQL_LIBS}
+sudo rm -rf /var/lib/postgresql
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+assert_running "postgres"
+assert_in_file "/etc/postgresql/9.1/main/pg_hba.conf" "192.168.0.0/16"
+assert_in_file "/etc/postgresql/9.1/main/postgresql.conf" "0.0.0.0"
+assert_iptables_allow "postgresql"
+assert_docs

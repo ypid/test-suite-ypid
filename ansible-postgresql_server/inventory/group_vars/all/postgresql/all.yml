@@ -1,0 +1,12 @@
+---
+
+postgresql_server_cluster_main:
+  - name: 'main'
+    port: '5432'
+    # Allow everyone to potentially connect to postgresql.
+    listen_addresses: '0.0.0.0'
+
+    # Only allow this range of IPs to connect through the firewall.
+    # Feel free to add individual hosts here as well.
+    allow:
+      - '192.168.0.0/16'

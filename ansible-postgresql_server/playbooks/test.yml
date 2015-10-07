@@ -1,0 +1,10 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+      # Install and configure PostgreSQL using cloned role
+    - role: 'ansible-postgresql_server'
+
