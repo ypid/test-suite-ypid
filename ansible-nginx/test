@@ -25,6 +25,14 @@ assert_playbook_check_runs -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 assert_playbook_idempotent -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 
 
+echo "nginx sites"
+cat /etc/nginx/sites-enabled/*
+echo "nginx.fact"
+cat /etc/ansible/facts.d/nginx.fact
+echo "pki.fact"
+cat /etc/ansible/facts.d/pki.fact
+
+
 assert_url "http://${ROLESPEC_FQDN}:8080" 301
 assert_url "https://localhost.localdomain/"
 
