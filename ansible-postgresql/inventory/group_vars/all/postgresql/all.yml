@@ -1,21 +1,25 @@
 ---
 
-# Use 9.3 instead of the default (9.1).
-#postgresql_version: '9.3'
-#postgresql_pgdg: True
+postgresql_roles:
 
-postgresql_default_cluster:
-  - name: 'main'
-    port: '5432'
-    # Allow everyone to potentially connect to postgresql.
-    listen_addresses: '0.0.0.0'
-    # Let postgresql accept connections from this IP range.
-    # You can pass in either a single address, IP range, or a group of hosts.
-    hba:
-      - address: '192.168.0.0/16'
-    # Uncomment the line below if you're not using br2.
-    #interface: 'eth0'
-    # Only allow this range of IPs to connect through the firewall.
-    # Feel free to add individual hosts here as well.
-    allow:
-      - '192.168.0.0/16'
+  - role: 'travis_test'
+    flags: [ 'NOLOGIN' ]
+
+  - role: 'travis'
+
+postgresql_groups:
+
+  - roles: [ 'travis' ]
+    groups: [ 'travis_test' ]
+    database: 'travis_test'
+
+postgresql_databases:
+
+  - name: 'travis_test'
+    owner: 'travis_test'
+
+postgresql_pgpass:
+
+  - owner: 'travis'
+
+

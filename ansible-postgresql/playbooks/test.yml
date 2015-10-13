@@ -4,8 +4,8 @@
   become: True
 
   roles:
-      # PostgreSQL requires configured SSL certificates
-    - role: 'debops.pki'
+      # PostgreSQL requires configured PostgreSQL Server
+    - role: 'debops.postgresql_server'
 
       # Install and configure PostgreSQL using cloned role
     - role: 'ansible-postgresql'
