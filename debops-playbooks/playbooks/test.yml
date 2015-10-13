@@ -1,4 +1,4 @@
 ---
 
-- include: '/home/travis/build/debops/debops-playbooks/playbooks/site.yml'
+- include: '/home/travis/build/debops/debops-playbooks/playbooks/common.yml'
 
