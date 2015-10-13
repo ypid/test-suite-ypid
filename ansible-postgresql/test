@@ -25,13 +25,13 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 
-psql -c '\l' travis_test
-psql -c '\du' travis_test
+psql -d travis_test -c '\l'
+psql -d travis_test -c '\du'
 
 
 assert_running "postgres"
 assert_in_file "/home/travis/.pgpass" "travis"
-assert_in "psql -c '\l' travis_test" "travis"
-assert_in "psql -c '\du' travis_test" "travis"
+assert_in "psql -d travis_test -c '\l'" "travis_test"
+assert_in "psql -d travis_test -c '\du'" "travis_test"
 assert_docs
 
