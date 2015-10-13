@@ -25,7 +25,8 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 
-psql -d travis_test -a -q -X --pset pager=off -l
+psql -d travis_test -a -q -X --pset pager=off -c '\l'
+psql -d travis_test -a -q -X --pset pager=off -c '\du'
 
 
 assert_running "postgres"
