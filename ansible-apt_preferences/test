@@ -15,6 +15,7 @@ ansible_plugins
 
 assert_playbook_check_runs
 assert_playbook_idempotent
+assert_docs
 
 
 # Check list of configured apt preferences
