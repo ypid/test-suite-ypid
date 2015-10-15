@@ -1,0 +1,23 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  pre_tasks:
+
+    - name: Debug variables
+      debug: var=hostvars[inventory_hostname]
+
+    - name: Debug variables 2
+      debug: var=dhcpd_relay_servers
+
+    - name: Debug variables 2
+      debug: var=dhcpd_relay_interfaces
+
+    - name: Debug variables 2
+      debug: var=dhcpd_relay_options
+
+  roles:
+
+    - role: 'ansible-dhcpd'
+
