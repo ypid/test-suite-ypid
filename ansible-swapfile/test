@@ -20,14 +20,14 @@ ansible_plugins
 
 
 # Make a fake swapon command to avoid issues on Travis
-echo <<EOF | sudo tee /usr/local/sbin/swapon
+echo <<EOF | sudo tee /sbin/swapon
 #!/bin/sh
 
 echo 'Swap enabled'
 exit 0
 EOF
 
-sudo chmod +x /usr/local/sbin/swapon
+sudo chmod +x /sbin/swapon
 
 
 assert_playbook_check_runs
