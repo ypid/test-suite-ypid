@@ -16,12 +16,24 @@ ansible_plugins
 # Fake the swapfile becaue Travis-CI lies about 'cap_sys_admin' being available
 # and swapfile cannot be enabled. Thus, test basically checks Ansible playbook
 # syntax.
-sudo touch /swapfile
+#sudo touch /swapfile
+
+
+# Make a fake swapon command to avoid issues on Travis
+echo <<EOF | sudo tee /usr/local/sbin/swapon
+#!/bin/sh
+
+echo 'Swap enabled'
+exit 0
+EOF
+
+sudo chmod +x /usr/local/sbin/swapon
 
 
 assert_playbook_check_runs
 assert_playbook_idempotent
 
 
+assert_path "/swapfile"
 assert_docs
 
