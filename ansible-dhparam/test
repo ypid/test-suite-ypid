@@ -22,9 +22,14 @@ assert_path "/etc/pki/dhparam/set0"
 assert_in_file "/etc/pki/dhparam/set0" "BEGIN DH PARAMETERS"
 
 
-echo "Test DH parameter regeneration"
+echo "Show the initial DH parameters"
+cat /etc/pki/dhparam/set0
+
+echo "Test DH parameter regeneration ..."
 sudo /usr/local/lib/dhparam-generate-params run
 
+echo "Show new DH parameters"
+cat /etc/pki/dhparam/set0
 
 assert_in_file "/etc/pki/dhparam/set0" "BEGIN DH PARAMETERS"
 assert_docs
