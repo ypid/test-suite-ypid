@@ -2,6 +2,5 @@
 
 # Test dhparam configuration
 
-dhparam_source_library: 'gnutls'
 dhparam_bits: [ '512' ]
 
