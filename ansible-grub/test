@@ -16,6 +16,8 @@ ansible_plugins
 assert_playbook_check_runs
 assert_playbook_idempotent
 
+assert_in_file "/etc/default/grub" "GRUB_CMDLINE_LINUX_DEFAULT"
+assert_in_file "/etc/default/grub" "GRUB_CMDLINE_LINUX"
 assert_in_file "/etc/default/grub" "GRUB_SERIAL_COMMAND"
 assert_docs
 
