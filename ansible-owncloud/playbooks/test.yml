@@ -1,0 +1,11 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: 'debops.mariadb_server'
+
+    - role: 'ansible-owncloud'
+
