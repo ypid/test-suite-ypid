@@ -19,13 +19,7 @@ ansible-galaxy install -f debops.pki
 upgrade_packages dovecot-core dovecot-imapd
 
 
-sudo apt-get -y install tree
-
-
 assert_playbook_check_runs
-
-sudo tree /etc/dovecot
-
 assert_playbook_idempotent
 
 assert_path "/etc/dovecot/local.conf"
