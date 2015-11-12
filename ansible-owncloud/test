@@ -9,14 +9,16 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
-upgrade_packages ca-certificates
-
-
 install_ansible ${test_ansible_version}
 ansible_plugins
 
 
 ansible-galaxy -f install debops.mariadb_server
+
+
+# Use Trusty packages for more recent PHP5 support
+echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/trusty.list
+sudo apt-get -qq update
 
 
 assert_playbook_check_runs
