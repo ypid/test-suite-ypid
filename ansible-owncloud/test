@@ -9,6 +9,9 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+upgrade_packages ca-certificates
+
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
