@@ -21,3 +21,6 @@ users_host_list:
     # The default shell is bash and dotfiles are disabled by default.
     shell: '/bin/zsh'
     dotfiles: True
+    sshkeys:
+      - 'ssh-rsa 000000 test'
+
