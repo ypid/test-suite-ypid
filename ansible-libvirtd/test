@@ -14,12 +14,10 @@ ansible_plugins
 
 
 # Add Ubuntu Trusty repository
-if [ -n "${ROLESPEC_TRAVIS}" ] ; then
-    echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/trusty.list
-    sudo apt-get -qq update
-    sudo apt-get -y install ubuntu-keyring
-    sudo apt-get -qq update
-fi
+echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/trusty.list
+sudo apt-get -qq update
+sudo apt-get -y install ubuntu-keyring
+sudo apt-get -qq update
 
 
 assert_playbook_check_runs
