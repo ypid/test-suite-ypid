@@ -30,6 +30,11 @@ ls -l /etc/nginx/sites-enabled/
 cat /etc/nginx/sites-enabled/*
 cat /etc/hosts
 
+echo "curl http://${ROLESPEC_FQDN}/"
+curl http://${ROLESPEC_FQDN}/
+echo HTTPS
+curl https://${ROLESPEC_FQDN}/
+
 assert_url "http://${ROLESPEC_FQDN}:8080" 301
 assert_url "https://localhost.localdomain/"
 
