@@ -25,18 +25,8 @@ assert_playbook_check_runs -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 assert_playbook_idempotent -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 
 
-echo "Debugging"
-ls -l /etc/nginx/sites-enabled/
-cat /etc/nginx/sites-enabled/*
-cat /etc/hosts
-
-echo "curl http://${ROLESPEC_FQDN}/"
-curl http://${ROLESPEC_FQDN}/
-echo HTTPS
-curl https://${ROLESPEC_FQDN}/
-
 assert_url "http://${ROLESPEC_FQDN}:8080" 301
-assert_url "https://localhost.localdomain/"
+assert_url "https://${ROLESPEC_FQDN}/"
 
 
 kill -9 "$(pidof node)"
