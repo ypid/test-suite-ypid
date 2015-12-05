@@ -4,3 +4,26 @@
 pki_fqdn: 'travis.{{ pki_domain }}'
 pki_domain: 'test.internal'
 
+# Custom default certificates
+pki_certificates_default:
+
+  - source: '{{ "hosts/" + pki_fqdn + "/host" }}'
+    destination: 'host'
+    cn: '{{ pki_fqdn }}'
+    dns: [ '{{ "*." + pki_domain }}', '{{ "*." + ansible_domain }}' ]
+    uri: [ '{{ pki_default_certificate_uri }}' ]
+
+  - source: '{{ "hosts/" + pki_fqdn + "/domain" }}'
+    destination: 'domain'
+    cn: '{{ pki_domain }}'
+    dns: [ '{{ "*." + pki_domain }}', '{{ "*." + ansible_domain }}' ]
+    uri: [ '{{ pki_default_certificate_uri }}' ]
+    filename: 'wildcard.domain.{{ pki_fqdn }}'
+
+  - source: '{{ "hosts/" + pki_fqdn + "/service" }}'
+    destination: 'service'
+    cn: '{{ pki_fqdn }}'
+    dns: [ '{{ "*." + pki_domain }}', '{{ "*." + ansible_domain }}' ]
+    uri: [ '{{ pki_default_certificate_uri }}' ]
+    filename: 'srv.{{ pki_fqdn }}'
+
