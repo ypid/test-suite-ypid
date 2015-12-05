@@ -1,6 +1,6 @@
 ---
 
 # Fix for long travis hostnames
-pki_common_name: 'travis.{{ ansible_domain }}'
-pki_default_certificate: 'test.internal'
+pki_fqdn: 'travis.{{ pki_domain }}'
+pki_domain: 'test.internal'
 
