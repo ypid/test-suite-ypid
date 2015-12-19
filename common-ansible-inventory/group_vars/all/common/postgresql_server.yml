@@ -1,0 +1,4 @@
+---
+
+postgresql_server_delegate_to: 'localhost'
+
