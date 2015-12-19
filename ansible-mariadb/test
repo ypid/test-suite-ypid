@@ -21,6 +21,19 @@ purge ${ROLESPEC_MYSQL_LIBS}
 
 
 assert_playbook_check_runs -vvv
+
+echo "DEBUGGING"
+ls -l /etc/mysql/conf.d
+
+sudo cat /etc/mysql/conf.d/*
+
+sudo ls -l /root/.my.cnf
+sudo cat /root/.my.cnf
+
+ps aux | grep mysql
+
+sudo netstat -nlp
+
 assert_playbook_idempotent
 
 
