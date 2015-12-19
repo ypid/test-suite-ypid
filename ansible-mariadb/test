@@ -20,7 +20,7 @@ stop mysql
 purge ${ROLESPEC_MYSQL_LIBS}
 
 
-assert_playbook_check_runs
+assert_playbook_check_runs -vvv
 assert_playbook_idempotent
 
 
