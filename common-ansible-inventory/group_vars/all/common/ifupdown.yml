@@ -1,0 +1,4 @@
+---
+
+# Disable ifupdown role in all tests, Travis environment is unreliable
+ifupdown: False
