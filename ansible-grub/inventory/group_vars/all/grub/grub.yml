@@ -2,3 +2,7 @@
 
 grub_serial_console: True
 
+grub_users:
+  - name: 'su'
+    password: 'NBLWAThUq5'
+    superuser: True

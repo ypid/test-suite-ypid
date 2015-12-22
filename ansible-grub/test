@@ -19,5 +19,8 @@ assert_playbook_idempotent
 assert_in_file "/etc/default/grub" "GRUB_CMDLINE_LINUX_DEFAULT"
 assert_in_file "/etc/default/grub" "GRUB_CMDLINE_LINUX"
 assert_in_file "/etc/default/grub" "GRUB_SERIAL_COMMAND"
+assert_in_file "/etc/grub.d/01_users" "password_pbkdf2 su grub.pbkdf2.sha512.10000"
+assert_in_file "/etc/grub.d/01_users" 'set superusers="su"'
+assert_in_file "/boot/grub/grub.cfg" '--unrestricted'
 assert_docs
 
