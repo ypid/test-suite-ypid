@@ -9,6 +9,8 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+upgrade_packages grub-pc
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
