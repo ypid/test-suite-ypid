@@ -29,6 +29,10 @@ sudo rm -rf /etc/pki /etc/ansible/facts.d/pki.fact
 
 
 assert_playbook_check_runs
+
+sudo /usr/local/lib/pki/pki-realm new-realm -n service --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
+sudo bash -x /usr/local/lib/pki/pki-realm new-realm -n service2 --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
+
 assert_playbook_idempotent
 
 
