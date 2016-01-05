@@ -1,4 +1,4 @@
 ---
 
-owncloud_domain: [ 'localhost.{{ ansible_domain }}' ]
+owncloud_domain: [ 'localhost.localdomain' ]
 
