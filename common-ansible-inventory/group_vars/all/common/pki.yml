@@ -4,3 +4,11 @@
 pki_fqdn: 'travis.{{ pki_domain }}'
 pki_domain: 'test.internal'
 
+pki_ca_domain: 'test.internal'
+
+pki_ca_root_dn: [ 'o=Travis-CI Test Root CA' ]
+
+pki_ca_domain_dn: [ 'o=Travis-CI', 'ou=Domain CA' ]
+
+pki_ca_service_dn: [ 'o=Travis-CI', 'ou=Service CA' ]
+
