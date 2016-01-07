@@ -9,6 +9,8 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+upgrade_packages bash
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
@@ -20,6 +22,9 @@ sudo /usr/local/lib/pki/pki-realm new-realm -n service --subject "" --domains ""
 
 echo "Second check"
 sudo bash -x /usr/local/lib/pki/pki-realm new-realm -n service2 --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
+
+echo "Third check"
+sudo bash -x /usr/local/lib/pki/pki-realm new-realm --name service3 --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
 
 assert_playbook_idempotent
 
