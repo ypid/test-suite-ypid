@@ -16,24 +16,14 @@ ansible_plugins
 
 
 assert_playbook_check_runs
-
-echo "Fist check"
-sudo /usr/local/lib/pki/pki-realm new-realm -n service --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
-
-echo "Second check"
-sudo bash -x /usr/local/lib/pki/pki-realm new-realm -n service2 --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
-
-echo "Third check"
-sudo bash -x /usr/local/lib/pki/pki-realm new-realm --name service3 --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
-
 assert_playbook_idempotent
 
 
-assert_path "/etc/pki/host"
-assert_path "/etc/pki/domain"
+assert_path "/etc/pki/realms/domain"
+assert_path "/etc/pki/realms/service"
 
-assert_in_file "/etc/pki/system/default.crt" "CERTIFICATE"
-assert_in_file "/etc/pki/system/default.key" "PRIVATE KEY"
+assert_in_file "/etc/pki/realms/domain/default.crt" "CERTIFICATE"
+assert_in_file "/etc/pki/realms/service/default.key" "PRIVATE KEY"
 
 
 # =========================================
@@ -47,9 +37,11 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 
-assert_path "/etc/pki/host"
-assert_path "/etc/pki/domain"
+assert_path "/etc/pki/realms/domain"
+assert_path "/etc/pki/realms/service"
 
-assert_in_file "/etc/pki/system/default.crt" "CERTIFICATE"
-assert_in_file "/etc/pki/system/default.key" "PRIVATE KEY"
+assert_in_file "/etc/pki/realms/domain/default.crt" "CERTIFICATE"
+assert_in_file "/etc/pki/realms/service/default.key" "PRIVATE KEY"
+
+openssl x509 -in /etc/pki/realms/domain/public/cert.pem -text -noout
 
