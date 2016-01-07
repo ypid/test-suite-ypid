@@ -14,6 +14,13 @@ ansible_plugins
 
 
 assert_playbook_check_runs
+
+echo "Fist check"
+sudo /usr/local/lib/pki/pki-realm new-realm -n service --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
+
+echo "Second check"
+sudo bash -x /usr/local/lib/pki/pki-realm new-realm -n service2 --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
+
 assert_playbook_idempotent
 
 
@@ -24,29 +31,20 @@ assert_in_file "/etc/pki/system/default.crt" "CERTIFICATE"
 assert_in_file "/etc/pki/system/default.key" "PRIVATE KEY"
 
 
+# =========================================
 # Test the reinitialization of existing PKI
+# =========================================
+
 sudo rm -rf /etc/pki /etc/ansible/facts.d/pki.fact
 
 
-echo "AAAAAAAAAAAAAAAAAAAAAA"
-
 assert_playbook_check_runs
-
-echo "BBBBBBBBBBBBBBBBBBBBBB"
-
-sudo /usr/local/lib/pki/pki-realm new-realm -n service --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
-
-echo "CCCCCCCCCCCCCCCCCCCCCC"
-
-sudo bash -x /usr/local/lib/pki/pki-realm new-realm -n service2 --subject "" --domains "" --subdomains "" --acme "false" --acme-subject "" --acme-domains "" --acme-subdomains ""
-
-echo "DDDDDDDDDDDDDDDDDDDDDD"
-
-#assert_playbook_idempotent
+assert_playbook_idempotent
 
 
-#assert_path "/etc/pki/host"
-#assert_path "/etc/pki/domain"
+assert_path "/etc/pki/host"
+assert_path "/etc/pki/domain"
 
-#assert_in_file "/etc/pki/system/default.crt" "CERTIFICATE"
-#assert_in_file "/etc/pki/system/default.key" "PRIVATE KEY"
+assert_in_file "/etc/pki/system/default.crt" "CERTIFICATE"
+assert_in_file "/etc/pki/system/default.key" "PRIVATE KEY"
+
