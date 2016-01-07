@@ -12,3 +12,26 @@ pki_ca_domain_dn: [ 'o=Travis-CI', 'ou=Domain CA' ]
 
 pki_ca_service_dn: [ 'o=Travis-CI', 'ou=Service CA' ]
 
+# Custom default certificates for old debops.pki version
+pki_certificates_default:
+
+  - source: '{{ "hosts/" + pki_fqdn + "/host" }}'
+    destination: 'host'
+    cn: '{{ pki_fqdn }}'
+    dns: [ '{{ "*." + pki_domain }}', '*.localdomain' ]
+    uri: [ '{{ pki_default_certificate_uri }}' ]
+
+  - source: '{{ "hosts/" + pki_fqdn + "/domain" }}'
+    destination: 'domain'
+    cn: '{{ pki_domain }}'
+    dns: [ '{{ "*." + pki_domain }}', '*.localdomain' ]
+    uri: [ '{{ pki_default_certificate_uri }}' ]
+    filename: 'wildcard.domain.{{ pki_fqdn }}'
+
+  - source: '{{ "hosts/" + pki_fqdn + "/service" }}'
+    destination: 'service'
+    cn: '{{ pki_fqdn }}'
+    dns: [ '{{ "*." + pki_domain }}', '*.localdomain' ]
+    uri: [ '{{ pki_default_certificate_uri }}' ]
+    filename: 'srv.{{ pki_fqdn }}'
+
