@@ -14,6 +14,9 @@ ansible_plugins
 
 
 ansible-galaxy -f install debops.mariadb_server
+ansible-galaxy -f install debops.mariadb
+ansible-galaxy -f install debops.php5
+ansible-galaxy -f install debops.nginx
 
 
 # Use Trusty packages for more recent PHP5 support
