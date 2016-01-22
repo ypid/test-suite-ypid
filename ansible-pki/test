@@ -20,10 +20,9 @@ assert_playbook_idempotent
 
 
 assert_path "/etc/pki/realms/domain"
-assert_path "/etc/pki/realms/service"
 
 assert_in_file "/etc/pki/realms/domain/default.crt" "CERTIFICATE"
-assert_in_file "/etc/pki/realms/service/default.key" "PRIVATE KEY"
+assert_in_file "/etc/pki/realms/domain/default.key" "PRIVATE KEY"
 
 
 # =========================================
@@ -38,10 +37,9 @@ assert_playbook_idempotent
 
 
 assert_path "/etc/pki/realms/domain"
-assert_path "/etc/pki/realms/service"
 
 assert_in_file "/etc/pki/realms/domain/default.crt" "CERTIFICATE"
-assert_in_file "/etc/pki/realms/service/default.key" "PRIVATE KEY"
+assert_in_file "/etc/pki/realms/domain/default.key" "PRIVATE KEY"
 
 openssl x509 -in /etc/pki/realms/domain/public/cert.pem -text -noout
 
