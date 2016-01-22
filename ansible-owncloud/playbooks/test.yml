@@ -7,5 +7,22 @@
 
     - role: 'debops.mariadb_server'
 
+    - role: debops.mariadb
+      mariadb_users:
+        - database: '{{ owncloud_database_map[owncloud_database].dbname }}'
+          user: '{{ owncloud_database_map[owncloud_database].dbuser }}'
+          password: '{{ owncloud_database_map[owncloud_database].dbpass }}'
+      when: (owncloud_database == 'mariadb')
+
+    - role: debops.php5
+      php5_pools:
+        - '{{ owncloud_php5_pool }}'
+
+    - role: debops.nginx
+      nginx_servers:
+        - '{{ owncloud_nginx_server }}'
+      nginx_upstreams:
+        - '{{ owncloud_nginx_upstream_php5 }}'
+
     - role: 'ansible-owncloud'
 
