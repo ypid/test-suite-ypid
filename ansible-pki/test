@@ -43,3 +43,5 @@ assert_in_file "/etc/pki/realms/domain/default.key" "PRIVATE KEY"
 
 openssl x509 -in /etc/pki/realms/domain/public/cert.pem -text -noout
 
+assert_docs
+
