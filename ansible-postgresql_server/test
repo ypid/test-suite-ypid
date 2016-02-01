@@ -23,5 +23,4 @@ assert_playbook_idempotent
 
 
 assert_running "postgres"
-assert_iptables_allow "postgresql"
 assert_docs
