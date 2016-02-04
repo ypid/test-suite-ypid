@@ -1,11 +1,11 @@
 ---
 
+- include: '../../common-ansible-playbooks/pki.yml'
+
 - hosts: 'placeholder_fqdn'
   become: True
 
   roles:
-      # stunnel requires configured SSL certificates
-    - role: 'debops.pki'
 
       # Test stunnel
     - role: 'ansible-stunnel'

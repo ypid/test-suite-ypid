@@ -1,11 +1,11 @@
 ---
 
+- include: '../../common-ansible-playbooks/pki.yml'
+
 - hosts: 'placeholder_fqdn'
   become: True
 
   roles:
-      # OpenLDAP requires configured SSL certificates
-    - role: 'debops.pki'
 
       # LDAP client is configured by debops.auth
     - role: 'debops.auth'

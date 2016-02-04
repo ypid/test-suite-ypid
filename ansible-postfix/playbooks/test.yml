@@ -1,11 +1,11 @@
 ---
 
+- include: '../../common-ansible-playbooks/pki.yml'
+
 - hosts: 'placeholder_fqdn'
   become: True
 
   roles:
-      # Postfix requires configured SSL certificates
-    - role: 'debops.pki'
 
       # Install and configure Postfix using cloned role
     - role: 'ansible-postfix'
