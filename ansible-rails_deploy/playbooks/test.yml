@@ -1,5 +1,7 @@
 ---
 
+- include: '../../common-ansible-playbooks/pki.yml'
+
 - hosts: 'placeholder_fqdn'
   become: True
 
@@ -7,9 +9,6 @@
 
       # Create required system users
     - role: 'debops.auth'
-
-      # Configure SSL certificates
-    - role: 'debops.pki'
 
       # Configure NodeJS
     - role: 'debops.nodejs'
