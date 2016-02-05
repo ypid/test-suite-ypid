@@ -28,6 +28,7 @@ echo DEBUG
 netstat -nlp
 ls -l /etc/nginx/sites-enabled
 cat /etc/nginx/sites-enabled/*
+tail -n 50 /var/log/nginx/*.log /var/log/syslog
 
 assert_url "http://${ROLESPEC_FQDN}:8080" 301
 assert_url "https://${ROLESPEC_FQDN}/"
