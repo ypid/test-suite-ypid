@@ -14,6 +14,10 @@ ansible_plugins
 
 
 assert_playbook_check_runs --diff
+
+echo "Test capabilities"
+sudo capsh --print
+
 assert_playbook_idempotent --diff
 
 
