@@ -12,11 +12,13 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+cp /etc/hosts ~/hosts
 
 assert_playbook_check_runs --diff
 
-echo "Test capabilities"
-sudo capsh --print
+echo "======================================"
+diff /etc/hosts ~/hosts
+echo "======================================"
 
 assert_playbook_idempotent --diff
 
