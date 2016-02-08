@@ -4,8 +4,8 @@
 bootstrap_raw: False
 
 # Don't set domain on Travis
-boostrap_domain: ''
+bootstrap_domain: ''
 
 # Try bootstrapping a different IP address to avoid idempotency loop
-boostrap_ipv4: '127.0.1.2'
+bootstrap_ipv4: '127.0.1.2'
 
