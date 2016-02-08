@@ -3,3 +3,6 @@
 # Disable raw commands to avoid sudo issues
 bootstrap_raw: False
 
+# Don't set domain on Travis
+boostrap_domain: ''
+
