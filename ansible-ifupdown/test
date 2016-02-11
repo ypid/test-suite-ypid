@@ -13,6 +13,8 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+ansible -i 'localhost,' -c local -m setup
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
