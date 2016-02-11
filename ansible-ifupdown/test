@@ -13,7 +13,9 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-sudo capsh --print
+cat /etc/network/interfaces
+
+cat /etc/network/interfaces.d/*
 
 
 assert_playbook_check_runs
