@@ -1,0 +1,4 @@
+---
+
+dovecot_user_accounts: [ 'deny', 'system', 'passwdfile' ]
+
