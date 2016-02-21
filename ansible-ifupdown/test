@@ -13,11 +13,6 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-# Well. Currently on GCE, network interfaces don't want to restart, not sure
-# yet why. So let's cheat and make them not do anything drastic.
-echo "This is static because GCE isn't playing nice" | sudo tee -a /etc/network/interfaces
-
-
 assert_playbook_check_runs
 assert_playbook_idempotent
 
