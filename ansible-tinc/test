@@ -17,6 +17,13 @@ ansible-galaxy install -f debops.ferm debops.etc_services debops.secret debops.a
 
 
 assert_playbook_check_runs
+echo "------------------------------------------------------------"
+ls -lR /etc/tinc
+echo "------------------------------------------------------------"
+cat /etc/tinc/mesh0/tinc.conf
+echo "------------------------------------------------------------"
+cat /etc/tinc/mesh0/hosts/*
+echo "------------------------------------------------------------"
 assert_playbook_idempotent
 
 
