@@ -2,5 +2,5 @@
 
 # Test dhparam configuration
 
-dhparam_bits: [ '512' ]
+dhparam__bits: [ '512' ]
 
