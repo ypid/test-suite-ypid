@@ -1,8 +1,8 @@
 ---
 
 # Loopback the Tinc list of hosts to itself
-tinc_inventory_hosts: [ '{{ inventory_hostname_short }}' ]
+tinc__inventory_hosts: [ '{{ inventory_hostname_short }}' ]
 
 # Don't manage the kernel modules because GCE are cheaters.
-tinc_modprobe: False
+tinc__modprobe: False
 
