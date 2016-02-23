@@ -1,2 +1,6 @@
-[debops_tinc]
+[debops_service_tinc]
 placeholder_fqdn
+
+[debops_service_tinc_mesh0]
+placeholder_fqdn
+
