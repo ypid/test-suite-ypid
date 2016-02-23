@@ -9,16 +9,16 @@
     - role: ansible-tinc/env
 
     - role: debops.secret
-      secret_directories: '{{ tinc_env_secret_directories }}'
+      secret_directories: '{{ tinc__env_secret__directories }}'
 
     - role: debops.apt_preferences
       apt_preferences_dependent_list: '{{ tinc__apt_preferences__dependent_list }}'
 
     - role: debops.etc_services
-      etc_services_dependent_list: '{{ tinc_env_etc_services_dependent_list }}'
+      etc_services_dependent_list: '{{ tinc__env_etc_services__dependent_list }}'
 
     - role: debops.ferm
-      ferm_dependent_rules: '{{ tinc_env_ferm_dependent_rules }}'
+      ferm_dependent_rules: '{{ tinc__env_ferm__dependent_rules }}'
 
     - role: 'ansible-tinc'
 
