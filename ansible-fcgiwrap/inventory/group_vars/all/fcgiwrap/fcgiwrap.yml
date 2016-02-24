@@ -1,6 +1,6 @@
 ---
 
-fcgiwrap_instances:
+fcgiwrap__instances:
 
   - name: 'test'
     user: 'test'
