@@ -22,11 +22,14 @@ go version
 echo "go env"
 go env
 
+echo "Nuke the gimmie directory"
+rm -rfv /home/travis/.gimmie
+
 echo "travis go env"
 sudo -u travis go env
 
 echo "List home directory"
-ls -la ~
+ls -la /home/travis
 
 #install_ansible ${test_ansible_version}
 install_ansible devel
