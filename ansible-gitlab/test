@@ -25,6 +25,9 @@ go env
 echo "travis go env"
 sudo -u travis go env
 
+echo "List home directory"
+ls -la ~
+
 #install_ansible ${test_ansible_version}
 install_ansible devel
 ansible_plugins
