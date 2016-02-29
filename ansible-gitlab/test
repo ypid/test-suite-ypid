@@ -12,7 +12,7 @@
 # Add Ruby 2.1 PPA and Golang PPA
 sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
-sudo add-apt-repository -y ppa:duh/golang
+sudo add-apt-repository -y ppa:evarlast/golang1.4
 sudo apt-get -yq update
 sudo apt-get -yq install ruby2.1 ruby2.1-dev golang
 
