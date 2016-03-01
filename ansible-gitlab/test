@@ -36,6 +36,10 @@ assert_playbook_check_runs
 assert_playbook_idempotent_long
 
 
+# GitLab needs some time to start up
+sleep 15
+
+
 echo "Check contents of the webpage"
 curl http://localhost.localdomain/users/sign_in
 
