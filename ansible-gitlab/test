@@ -16,6 +16,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 sudo rm -rf /home/travis/.rvm
 sudo rm -rf /home/travis/.gem
 sudo rm -rf /home/travis/.gemrc
+sudo rm -rf /home/travis/.bundle
+sudo rm -rf /home/travis/.rvmrc
 
 ls -la /home/travis
 
