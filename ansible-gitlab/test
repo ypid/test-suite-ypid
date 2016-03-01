@@ -16,17 +16,9 @@ sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -yq update
 sudo apt-get -yq install ruby2.1 ruby2.1-dev
 
-echo "go version"
-go version
 
-echo "go env"
-go env
-
-go get archive/zip
-go get compress/gzip
-go get encoding/base64
-go get encoding/binary
-go get encoding/json
+wget http://ftp.debian.org/debian/pool/main/g/gitlab-workhorse/gitlab-workhorse_0.6.3-1_amd64.deb
+sudo dpkg -i gitlab-workhorse*.deb
 
 
 #install_ansible ${test_ansible_version}
