@@ -20,11 +20,11 @@ sudo rm -rf /home/travis/.bundle
 sudo rm -rf /home/travis/.rvmrc
 
 echo "Check .profile"
-cat ~/.profile
+cat ~/.bashrc
 
 echo "Check root profile"
 
-sudo cat /root/.profile
+sudo cat /root/.bashrc
 
 ls -la /home/travis
 
@@ -58,6 +58,8 @@ gem which bundler
 echo "sudo gem which bundler"
 sudo gem which bundler
 
+echo "environment"
+env
 
 #install_ansible ${test_ansible_version}
 install_ansible devel
@@ -65,6 +67,10 @@ ansible_plugins
 
 
 ansible-galaxy -f install debops.mariadb_server
+
+
+echo "ansible environment"
+ansible all -s -m setup
 
 
 assert_playbook_check_runs
