@@ -25,6 +25,12 @@ go env
 
 sudo gem install bundler
 
+echo "PATH=$PATH"
+
+echo "ls /usr/local/bin"
+
+ls /usr/local/bin
+
 
 #install_ansible ${test_ansible_version}
 install_ansible devel
