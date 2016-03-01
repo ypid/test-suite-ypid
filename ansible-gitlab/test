@@ -12,13 +12,16 @@
 # Add Ruby 2.1 PPA and Golang PPA
 sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
-#sudo add-apt-repository -y ppa:evarlast/golang1.4
+sudo add-apt-repository -y ppa:evarlast/golang1.4
 sudo apt-get -yq update
-sudo apt-get -yq install ruby2.1 ruby2.1-dev
+sudo apt-get -yq install ruby2.1 ruby2.1-dev golang golang-go
 
 
-wget http://ftp.debian.org/debian/pool/main/g/gitlab-workhorse/gitlab-workhorse_0.6.3-1_amd64.deb
-sudo dpkg -i gitlab-workhorse*.deb
+export GOROOT="/usr/lib/go"
+export GOTOOLDIR="/usr/lib/go/pkg/tool/linux_amd64"
+
+echo "go env"
+go env
 
 
 #install_ansible ${test_ansible_version}
