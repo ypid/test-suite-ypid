@@ -58,6 +58,8 @@ gem which bundler
 echo "sudo gem which bundler"
 sudo gem which bundler
 
+echo "environment"
+env
 
 #install_ansible ${test_ansible_version}
 install_ansible devel
