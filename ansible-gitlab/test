@@ -19,14 +19,8 @@ sudo rm -rf /home/travis/.gemrc
 sudo rm -rf /home/travis/.bundle
 sudo rm -rf /home/travis/.rvmrc
 
-echo "Check .profile"
-cat ~/.bashrc
-
-echo "Check root profile"
-
-sudo cat /root/.bashrc
-
-ls -la /home/travis
+echo "Clean up the environment"
+unset rvm_bin_path GEM_HOME IRBRC MY_RUBY_HOME rvm_autoupdate_flag rvm_path RACK_ENV rvm_prefix rvm_version RAILS_ENV GEM_PATH RUBY_VERSION rvm_silence_path_mismatch_check_flag
 
 # Add Ruby 2.1 PPA and Golang PPA
 sudo apt-get -yq install python-software-properties
@@ -36,21 +30,10 @@ sudo apt-get -yq update
 sudo apt-get -yq install ruby2.1 ruby2.1-dev golang golang-go
 
 
-export GOROOT="/usr/lib/go"
-export GOTOOLDIR="/usr/lib/go/pkg/tool/linux_amd64"
-
-echo "go env"
-go env
-
 sudo gem install bundler
-
-echo "PATH=$PATH"
 
 echo "gem environment"
 gem environment
-
-echo "sudo gem environment"
-sudo gem environment
 
 echo "gem which bundler"
 gem which bundler
@@ -61,6 +44,9 @@ sudo gem which bundler
 echo "environment"
 env
 
+echo "which bundle"
+which bundle
+
 #install_ansible ${test_ansible_version}
 install_ansible devel
 ansible_plugins
@@ -70,7 +56,7 @@ ansible-galaxy -f install debops.mariadb_server
 
 
 echo "ansible environment"
-ansible all -s -m setup
+ansible all -s -c local -m setup
 
 
 assert_playbook_check_runs
