@@ -31,6 +31,18 @@ sudo gem install bundler
 
 echo "PATH=$PATH"
 
+echo "gem environment"
+gem environment
+
+echo "sudo gem environment"
+sudo gem environment
+
+echo "gem which bundler"
+gem which bundler
+
+echo "sudo gem which bundler"
+sudo gem which bundler
+
 
 #install_ansible ${test_ansible_version}
 install_ansible devel
