@@ -12,9 +12,9 @@
 # Add Ruby 2.1 PPA and Golang PPA
 sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
-sudo add-apt-repository -y ppa:evarlast/golang1.4
+#sudo add-apt-repository -y ppa:evarlast/golang1.4
 sudo apt-get -yq update
-sudo apt-get -yq install ruby2.1 ruby2.1-dev golang golang-go
+sudo apt-get -yq install ruby2.1 ruby2.1-dev
 
 echo "go version"
 go version
@@ -22,9 +22,6 @@ go version
 echo "go env"
 go env
 
-echo "List home directory"
-ls -l /home/travis/.gimmie
-ls -l /home/travis/.gimmie/versions
 
 #install_ansible ${test_ansible_version}
 install_ansible devel
