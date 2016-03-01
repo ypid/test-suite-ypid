@@ -22,6 +22,12 @@ go version
 echo "go env"
 go env
 
+go get archive/zip
+go get compress/gzip
+go get encoding/base64
+go get encoding/binary
+go get encoding/json
+
 
 #install_ansible ${test_ansible_version}
 install_ansible devel
