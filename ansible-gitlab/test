@@ -29,6 +29,8 @@ sudo add-apt-repository -y ppa:evarlast/golang1.4
 sudo apt-get -yq update
 sudo apt-get -yq install ruby2.1 ruby2.1-dev golang golang-go
 
+export GOROOT="/usr/lib/go"
+export GOTOOLDIR="/usr/lib/go/pkg/tool/linux_amd64"
 
 sudo gem install bundler
 
