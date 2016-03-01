@@ -20,11 +20,11 @@ sudo rm -rf /home/travis/.bundle
 sudo rm -rf /home/travis/.rvmrc
 
 echo "Check .profile"
-cat ~/.profile
+cat ~/.bashrc
 
 echo "Check root profile"
 
-sudo cat /root/.profile
+sudo cat /root/.bashrc
 
 ls -la /home/travis
 
