@@ -14,6 +14,10 @@
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 sudo rm -rf /home/travis/.rvm
+sudo rm -rf /home/travis/.gem
+sudo rm -rf /home/travis/.gemrc
+
+ls -la /home/travis
 
 # Add Ruby 2.1 PPA and Golang PPA
 sudo apt-get -yq install python-software-properties
