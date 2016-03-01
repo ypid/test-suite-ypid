@@ -19,6 +19,13 @@ sudo rm -rf /home/travis/.gemrc
 sudo rm -rf /home/travis/.bundle
 sudo rm -rf /home/travis/.rvmrc
 
+echo "Check .profile"
+cat ~/.profile
+
+echo "Check root profile"
+
+sudo cat /root/.profile
+
 ls -la /home/travis
 
 # Add Ruby 2.1 PPA and Golang PPA
