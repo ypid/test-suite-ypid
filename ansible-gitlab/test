@@ -69,6 +69,10 @@ ansible_plugins
 ansible-galaxy -f install debops.mariadb_server
 
 
+echo "ansible environment"
+ansible all -s -m setup
+
+
 assert_playbook_check_runs
 assert_playbook_idempotent_long
 
