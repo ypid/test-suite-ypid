@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# test: Test debops.mailman
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+ansible-galaxy install -f debops.ferm debops.postfix debops.fcgiwrap debops.unattended_upgrades debops.secret debops.apt_preferences
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+assert_path "/var/lib/mailman/lists/mailman/config.pck"
+assert_path "/var/lib/mailman/lists/test-list/config.pck"
+assert_docs
+

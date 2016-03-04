@@ -1,0 +1,6 @@
+---
+
+mailman__lists:
+
+  - name: 'test-list'
+
