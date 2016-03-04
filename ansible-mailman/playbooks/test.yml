@@ -1,0 +1,35 @@
+---
+
+- name: Configure Mailman
+  hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: debops.fcgiwrap
+      fcgiwrap__instances:
+        - '{{ mailman__fcgiwrap__instance }}'
+
+    - role: debops.unattended_upgrades
+      unattended_upgrades__dependent_blacklist: '{{ mailman__unattended_upgrades__dependent_blacklist }}'
+
+    - role: debops.apt_preferences
+      apt_preferences_dependent_list:
+        - '{{ mailman__apt_preferences__dependent_list }}'
+        - '{{ nginx_apt_preferences_dependent_list }}'
+
+    - role: debops.ferm
+      ferm_dependent_rules:
+        - '{{ postfix_ferm_dependent_rules }}'
+        - '{{ nginx_ferm_dependent_rules }}'
+
+    - role: debops.postfix
+      postfix_dependent_lists:    '{{ mailman__postfix__dependent_lists }}'
+      postfix_dependent_maincf:   '{{ mailman__postfix__dependent_maincf }}'
+      postfix_dependent_mastercf: '{{ mailman__postfix__dependent_mastercf }}'
+
+    - role: debops.nginx
+      nginx_servers: '{{ mailman__nginx__servers }}'
+
+    - role: ansible-mailman
+
