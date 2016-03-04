@@ -24,11 +24,6 @@ chmod 777 /tmp/nodeserver.sock
 assert_playbook_check_runs -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 assert_playbook_idempotent -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 
-echo "Debugging"
-sudo netstat -nlp
-cat /etc/nginx/sites-enabled/*
-
-curl http://${ROLESPEC_FQDN}/
 
 assert_url "http://${ROLESPEC_FQDN}:8080" 301
 assert_url "https://${ROLESPEC_FQDN}/"
