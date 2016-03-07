@@ -1,6 +1,6 @@
 ---
 
-mailman__site_domain: 'localhost.localdomain'
+mailman__site_domain: 'travis.test.internal'
 
 mailman__lists:
 
