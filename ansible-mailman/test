@@ -23,6 +23,9 @@ assert_playbook_idempotent
 ls -l /etc/nginx/sites-enabled
 cat /etc/nginx/sites-enabled/*
 
+cat /etc/pki/realms/domain/internal/gnutls.conf
+curl http://travis.test.internal/
+
 
 assert_path "/var/lib/mailman/lists/mailman/config.pck"
 assert_path "/var/lib/mailman/lists/test-list/config.pck"
