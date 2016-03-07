@@ -26,7 +26,7 @@ cat /etc/nginx/sites-enabled/*
 
 assert_path "/var/lib/mailman/lists/mailman/config.pck"
 assert_path "/var/lib/mailman/lists/test-list/config.pck"
-assert_url "http://localhost.localdomain/" 301
-assert_url "https://localhost.localdomain/mailman/listinfo/"
+assert_url "http://travis.test.internal/" 301
+assert_url "https://travis.test.internal/mailman/listinfo/"
 assert_docs
 
