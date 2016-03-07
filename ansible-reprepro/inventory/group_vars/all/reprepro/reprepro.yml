@@ -1,0 +1,4 @@
+---
+
+reprepro_gpg_snapshot_path: '{{ secret }}'
+
