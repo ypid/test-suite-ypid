@@ -6,6 +6,8 @@
 
   roles:
 
+    - role: debops.pki
+
     - role: debops.fcgiwrap
       fcgiwrap__instances:
         - '{{ mailman__fcgiwrap__instance }}'
