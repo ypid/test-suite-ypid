@@ -6,8 +6,16 @@
 
   roles:
 
+    # debops.pki requirements
+    - role: 'debops.pki/env'
+
+    - role: debops.secret
+      secret_directories:
+        - '{{ pki_env_secret_directories }}'
+
     - role: debops.pki
 
+    # debops.mailman requirements
     - role: debops.fcgiwrap
       fcgiwrap__instances:
         - '{{ mailman__fcgiwrap__instance }}'
