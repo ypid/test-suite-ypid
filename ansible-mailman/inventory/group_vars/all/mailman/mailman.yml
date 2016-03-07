@@ -4,3 +4,19 @@ mailman__lists:
 
   - name: 'test-list'
 
+# List of patches applied to Mailman source code.
+mailman__patch_list:
+
+  # Add direct link to moderation page
+  - 'add-moderator-link'
+
+  # Remove automatic capitalization of list names
+  - 'remove-upper-list-name'
+
+  # Ignore commands from non-members (reduces backscatter, but blocks mail
+  # registration)
+  # This patch fails on Travis-CI for some reason
+  #- 'ignore-commands-from-nonmembers'
+
+  # Remove extra aliases that are not needed (reduces backscatter)
+  - 'prune-alias-list'
