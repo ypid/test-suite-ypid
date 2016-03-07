@@ -27,18 +27,12 @@ cat /etc/pki/realms/domain/internal/gnutls.conf
 
 mailman_host="$(hostname -f)"
 
-echo "Test http with '${mailman_host}'"
-curl -v http://${mailman_host}/
-
-echo "Test https"
-curl -v https://${mailman_host}/
-
 echo "Test https proper"
-curl -v https://${mailman_host}/mailman/listinfo/
+curl -v https://${mailman_host}/mailman/listinfo
 
 assert_path "/var/lib/mailman/lists/mailman/config.pck"
 assert_path "/var/lib/mailman/lists/test-list/config.pck"
 assert_url "http://${mailman_host}/" 301
-assert_url "https://${mailman_host}/mailman/listinfo/"
+assert_url "https://${mailman_host}/mailman/listinfo"
 assert_docs
 
