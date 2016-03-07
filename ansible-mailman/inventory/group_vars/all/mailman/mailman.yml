@@ -1,5 +1,7 @@
 ---
 
+mailman__site_domain: 'localhost.localdomain'
+
 mailman__lists:
 
   - name: 'test-list'
