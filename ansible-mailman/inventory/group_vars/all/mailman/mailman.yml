@@ -1,6 +1,6 @@
 ---
 
-mailman__site_domain: 'travis.test.internal'
+mailman__site_domain: '{{ ansible_fqdn }}'
 
 mailman__lists:
 
