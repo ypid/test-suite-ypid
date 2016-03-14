@@ -22,3 +22,6 @@ assert_in_file "/etc/services" "80/tcp"
 
 # Check if our custom service is added
 assert_in_file "/etc/services" "testservice"
+
+assert_docs
+
