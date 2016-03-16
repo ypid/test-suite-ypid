@@ -5,7 +5,7 @@
 
   roles:
 
-    - role: debops.subnetwork/env
+    - role: ansible-subnetwork/env
       tags: [ 'role::subnetwork' ]
 
     - role: debops.ifupdown
@@ -18,6 +18,6 @@
       ferm_dependent_rules:
         - '{{ subnetwork__ferm__dependent_rules }}'
 
-    - role: debops.subnetwork
+    - role: ansible-subnetwork
       tags: [ 'role::subnetwork' ]
 
