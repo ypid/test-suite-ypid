@@ -25,6 +25,19 @@ sudo apt-get -qq update
 
 
 assert_playbook_check_runs
+
+echo "DEBUGGING"
+
+echo "apt-cache search owncloud"
+apt-cache search owncloud
+
+echo "apt-cache policy owncloud"
+apt-cache policy owncloud
+
+echo "dpkg -L owncloud"
+dpkg -L owncloud
+
+
 assert_playbook_idempotent
 
 
