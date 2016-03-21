@@ -5,18 +5,16 @@
 
   roles:
 
-    - role: ansible-subnetwork/env
-      tags: [ 'role::subnetwork' ]
-
     - role: debops.ifupdown
       tags: [ 'role::ifupdown' ]
       ifupdown_dependent_interfaces: '{{ subnetwork__ifupdown__dependent_list }}'
+      when: subnetwork__addresses
 
     - role: debops.ferm
       tags: [ 'role::ferm' ]
       ferm_forward: '{{ subnetwork__kernel_forwarding|d() | bool }}'
       ferm_dependent_rules:
-        - '{{ subnetwork__ferm__dependent_rules }}'
+        - '{{ subnetwork__ferm__dependent_rules if subnetwork__addresses else [] }}'
 
     - role: ansible-subnetwork
       tags: [ 'role::subnetwork' ]
