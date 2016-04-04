@@ -16,9 +16,10 @@ unset rvm_bin_path GEM_HOME IRBRC MY_RUBY_HOME rvm_autoupdate_flag rvm_path RACK
 # Add Ruby 2.1 PPA and Golang PPA
 sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
-sudo add-apt-repository -y ppa:evarlast/golang1.4
+#sudo add-apt-repository -y ppa:evarlast/golang1.4
+sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
 sudo apt-get -yq update
-sudo apt-get -yq install ruby2.1 ruby2.1-dev golang golang-go
+sudo apt-get -yq install ruby2.1 ruby2.1-dev golang
 
 export GOROOT="/usr/lib/go"
 export GOTOOLDIR="/usr/lib/go/pkg/tool/linux_amd64"
