@@ -21,11 +21,15 @@ sudo apt-add-repository -y ppa:brightbox/ruby-ng
 echo "deb http://us.archive.ubuntu.com/ubuntu/ wily main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/wily.list
 sudo apt-get -yq update
 
+sudo apt-get -yq install golang golang-go
+
 echo "golang version"
 apt-cache policy golang
 apt-cache policy golang-go
 
-sudo apt-get -yq install ruby2.1 ruby2.1-dev golang golang-go
+sudo rm -rf /etc/apt/sources.list.d/wily.list
+sudo apt-get -yq udpate
+sudo apt-get -yq install ruby2.1 ruby2.1-dev
 
 export GOROOT="/usr/lib/go"
 export GOTOOLDIR="/usr/lib/go/pkg/tool/linux_amd64"
