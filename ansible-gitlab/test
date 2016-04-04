@@ -55,5 +55,5 @@ echo "Check contents of the webpage"
 curl http://localhost.localdomain/users/sign_in
 
 
-assert_url "http://localhost.localdomain/users/sign_in"
+assert_url "http://localhost.localdomain/users/sign_in" 302
 
