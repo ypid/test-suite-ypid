@@ -25,29 +25,14 @@ sudo apt-get -qq update
 
 
 assert_playbook_check_runs
-
-echo "DEBUGGING"
-
-echo "ls -lR /etc/apt/"
-ls -lR /etc/apt/
-
-echo "cat /etc/apt/sources.list.d/*"
-cat /etc/apt/sources.list.d/*
-
-echo "apt-cache search owncloud"
-apt-cache search owncloud
-
-echo "apt-cache policy owncloud"
-apt-cache policy owncloud
-
-echo "dpkg -L owncloud"
-dpkg -L owncloud
-
-
 assert_playbook_idempotent
 
 
-assert_path "/var/www/owncloud"
+echo "curl http://localhost.localdomain/"
+curl http://localhost.localdomain
 
+
+assert_path "/var/www/owncloud"
+assert_url "http://localhost.localdomain/"
 assert_docs
 
