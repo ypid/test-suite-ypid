@@ -2,3 +2,6 @@
 
 owncloud_domain: [ 'localhost.localdomain' ]
 
+# Ubuntu Precise (12.04) does not provide the required .deb package anymore.
+owncloud_distribution_version: '14.04'
+
