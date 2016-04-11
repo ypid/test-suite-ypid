@@ -1,0 +1,5 @@
+---
+
+# GitLab does not provide packages for Ubuntu Precise
+gitlab_runner__apt_repo: 'https://packages.gitlab.com/runner/gitlab-ci-multi-runner/ubuntu/ trusty main'
+
