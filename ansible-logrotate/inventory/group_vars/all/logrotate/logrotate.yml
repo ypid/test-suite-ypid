@@ -1,0 +1,11 @@
+---
+
+logrotate__config:
+
+  - filename: 'custom'
+    logs: '/var/log/custom.log'
+    options: |
+      notifempty
+      compress
+      missingok
+
