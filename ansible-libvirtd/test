@@ -20,6 +20,8 @@ sudo apt-get -y install ubuntu-keyring
 sudo apt-get -qq update
 
 
+ansible-galaxy -f install debops.apt_preferences debops.ferm
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
