@@ -13,6 +13,10 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+# Create missing modules-load.d directory
+sudo mkdir -p /etc/modules-load.d
+
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
