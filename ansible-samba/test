@@ -18,7 +18,7 @@ sudo mkdir -p /etc/modules-load.d
 
 
 # Try newer packages
-echo "deb http://us.archive.ubuntu.com/ubuntu/ wily main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/wily.list
+echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/wily.list
 sudo apt-get -yq update
 
 # Clear out stale files
