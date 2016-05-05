@@ -16,13 +16,13 @@
 
     - role: debops.php5
       php5_pools:
-        - '{{ owncloud_php5_pool }}'
+        - '{{ owncloud__php5__pool }}'
 
     - role: debops.nginx
       nginx_servers:
-        - '{{ owncloud_nginx_server }}'
+        - '{{ owncloud__nginx__servers }}'
       nginx_upstreams:
-        - '{{ owncloud_nginx_upstream_php5 }}'
+        - '{{ owncloud__nginx__upstream_php5 }}'
 
     - role: 'ansible-owncloud'
 
