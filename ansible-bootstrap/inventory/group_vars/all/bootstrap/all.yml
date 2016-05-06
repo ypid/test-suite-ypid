@@ -1,11 +1,11 @@
 ---
 
-# Disable raw commands to avoid sudo issues
-bootstrap_raw: False
+# Disable raw commands to avoid sudo issues.
+bootstrap__raw: False
 
-# Don't set domain on Travis
-bootstrap_domain: ''
+# Don't set domain on Travis.
+bootstrap__domain: ''
 
-# Try bootstrapping a different IP address to avoid idempotency loop
-bootstrap_ipv4: '127.0.1.2'
+# Try bootstrapping a different IP address to avoid idempotency loop.
+bootstrap__ipv4: '127.0.1.2'
 
