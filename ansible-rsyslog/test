@@ -13,9 +13,15 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+ansible-galaxy -f install debops.logrotate debops.etc_services debops.apt_preferences debops.ferm
+
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
 
 assert_path "/etc/rsyslog.d"
-assert_path "/etc/logrotate.d"
+assert_path "/etc/rsyslog.d/00-global.conf"
+assert_running "rsyslogd"
+assert_docs
+
