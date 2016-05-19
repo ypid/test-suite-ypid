@@ -19,4 +19,4 @@ assert_playbook_idempotent
 
 # Check if correct timezone is set
 assert_in_file "/etc/timezone" "Etc/UTC"
-
+assert_docs
