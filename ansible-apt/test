@@ -12,11 +12,10 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+
+ansible-galaxy -f install debops.apt_preferences
+
+
 assert_playbook_check_runs
 assert_playbook_idempotent
-
-
-# Check if vim is installed by Ansible
-assert_in "$(vim --version)" "VIM"
-
 assert_docs
