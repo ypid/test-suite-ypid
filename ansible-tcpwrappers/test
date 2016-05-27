@@ -19,4 +19,5 @@ assert_playbook_idempotent
 
 assert_path "/etc/hosts.allow.d"
 assert_in_file "/etc/hosts.allow" "127.0.0.0/8"
+assert_docs
 
