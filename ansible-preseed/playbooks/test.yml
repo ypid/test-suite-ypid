@@ -1,0 +1,12 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: debops.nginx
+      nginx_servers: '{{ preseed__nginx__servers }}'
+
+    - role: ansible-preseed
+
