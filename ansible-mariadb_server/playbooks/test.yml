@@ -1,0 +1,17 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: 'debops.ferm'
+      ferm__dependent_rules:
+        - '{{ mariadb_server__ferm__dependent_rules }}'
+
+    - role: 'debops.tcpwrappers'
+      tcpwrappers__dependent_allow:
+        - '{{ mariadb_server__tcpwrappers__dependent_allow }}'
+
+    - role: 'ansible-mariadb_server'
+

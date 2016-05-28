@@ -13,6 +13,9 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+ansible-galaxy -f install debops.ferm debops.tcpwrappers
+
+
 stop mysql
 purge ${ROLESPEC_MYSQL_LIBS}
 
