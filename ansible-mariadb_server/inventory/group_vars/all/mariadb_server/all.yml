@@ -1,6 +1,6 @@
 ---
 
-mariadb_server_bind_address: '0.0.0.0'
-mariadb_server_allow: [ '192.168.0.0/16' ]
+mariadb_server__bind_address: '0.0.0.0'
+mariadb_server__allow: [ '192.168.0.0/16' ]
 
 
