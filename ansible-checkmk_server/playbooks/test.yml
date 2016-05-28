@@ -1,0 +1,14 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: debops.ferm
+      tags: [ 'role::ferm' ]
+      ferm__dependent_rules: '{{ checkmk_server__ferm_dependent_rules }}'
+      when: checkmk_server__dependencies | bool
+
+    - role: ansible-checkmk_server
+      tags: [ 'role::checkmk_server' ]
