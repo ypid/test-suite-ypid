@@ -1,5 +1,5 @@
 ---
 
 # Delegate all MariaDB tasks on Travis to the same host
-mariadb_delegate_to: 'localhost'
+mariadb__delegate_to: 'localhost'
 
