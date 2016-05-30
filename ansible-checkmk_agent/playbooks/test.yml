@@ -9,13 +9,13 @@
       tags: [ 'role::etc_services' ]
       etc_services__dependent_list:
         - name: 'check-mk-agent'
-          port: '{{ checkmk_agent_port }}'
+          port: '{{ checkmk_agent__port }}'
           comment: 'Check_MK agent (via xinetd)'
       when: (checkmk_agent|d() and 'xinetd' in checkmk_agent)
 
     - role: debops.ferm
       tags: [ 'role::ferm' ]
-      ferm__dependent_rules: '{{ checkmk_agent_ferm_dependent_rules }}'
+      ferm__dependent_rules: '{{ checkmk_agent__ferm_dependent_rules }}'
       when: (checkmk_agent|d() and 'xinetd' in checkmk_agent)
 
     - role: ansible-checkmk_agent
