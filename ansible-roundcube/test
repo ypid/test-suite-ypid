@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# test: Test debops.owncloud
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+ansible-galaxy -f install debops.php5
+ansible-galaxy -f install debops.nginx
+
+
+# Use Trusty packages for more recent PHP5 support
+echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" | sudo tee /etc/apt/sources.list.d/trusty.list
+sudo apt-get -qq update
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+assert_path "/var/www/roundcube"
+
+assert_docs
+
