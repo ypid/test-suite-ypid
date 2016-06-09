@@ -26,7 +26,7 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 
-assert_path "/var/www/roundcube"
+assert_path "/srv/www/roundcube"
 
 assert_docs
 
