@@ -7,16 +7,16 @@
 
     - role: debops.php5
       php5_packages:
-        - '{{ roundcube_php5_packages }}'
+        - '{{ roundcube__php5_packages }}'
       php5_pools:
-        - '{{ roundcube_php5_pool }}'
+        - '{{ roundcube__php5_pool }}'
       when: roundcube_dependencies|d()
 
     - role: debops.nginx
       nginx_servers:
-        - '{{ roundcube_nginx_server }}'
+        - '{{ roundcube__nginx_server }}'
       nginx_upstreams:
-        - '{{ roundcube_nginx_upstream_php5 }}'
+        - '{{ roundcube__nginx_upstream_php5 }}'
       when: roundcube_dependencies|d()
 
     - role: 'ansible-roundcube'
