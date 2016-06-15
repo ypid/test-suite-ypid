@@ -29,5 +29,11 @@ curl http://localhost.localdomain
 
 assert_path "/var/www/owncloud"
 assert_url "http://localhost.localdomain/"
+
+/usr/local/bin/occ check
+/usr/local/bin/occ integrity:check-core
+/usr/local/bin/occ user:report
+/usr/local/bin/occ status
+
 assert_docs
 
