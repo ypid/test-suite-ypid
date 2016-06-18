@@ -1,0 +1,5 @@
+---
+# .. vim: foldmarker=[[[,]]]:foldmethod=marker
+
+## Skip package upgrade in test builds.
+paedml_linux__packages_upgrade: False
