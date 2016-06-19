@@ -9,7 +9,7 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
-install_ansible ${test_ansible_version}
+install_ansible stable-2.0
 ansible_plugins
 
 
