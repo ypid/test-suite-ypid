@@ -1,0 +1,25 @@
+---
+
+resources__paths:
+
+  - path: '/tmp/test-dir'
+
+  - path: '/tmp/test-tar-dir'
+
+  - path: '/tmp/remove-me'
+    state: 'absent'
+
+resources__archives:
+
+  - src: '{{ resources__src + "test-file.tar" }}'
+    dest: '/tmp/test-tar-dir'
+
+resources__files:
+
+  - src: '{{ resources__src + "test-file.txt" }}'
+    dest: '/tmp/test-dir/test-file.txt'
+
+  - dest: '/tmp/test-dir/test-content.txt'
+    content: |
+      This is a test content
+
