@@ -1,4 +1,4 @@
 ---
 
-postgresql_server_delegate_to: 'localhost'
+postgresql_server__delegate_to: 'localhost'
 
