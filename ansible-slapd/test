@@ -25,3 +25,6 @@ assert_running "slapd"
 assert_in_file "/etc/ldap/ldap.conf" "TLS_CACERT"
 assert_in "$(ldapsearch -x)" "LDAPv3"
 assert_tcp "localhost" "389"
+
+assert_docs
+
