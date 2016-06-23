@@ -4,6 +4,7 @@
   become: True
 
   roles:
+
       # PostgreSQL requires configured PostgreSQL Server
     - role: 'debops.postgresql_server'
 

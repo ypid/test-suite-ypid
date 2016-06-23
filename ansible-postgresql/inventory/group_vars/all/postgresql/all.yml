@@ -1,24 +1,29 @@
 ---
 
-postgresql_roles:
+postgresql__roles:
 
   - role: 'travis_test'
     flags: [ 'NOLOGIN' ]
 
   - role: 'travis'
 
-postgresql_groups:
+postgresql__groups:
 
   - roles: [ 'travis' ]
     groups: [ 'travis_test' ]
     database: 'travis_test'
 
-postgresql_databases:
+postgresql__databases:
 
   - name: 'travis_test'
     owner: 'travis_test'
 
-postgresql_pgpass:
+postgresql__extensions:
+
+  - database: 'travis_test'
+    extension: 'pg_trgm'
+
+postgresql__pgpass:
 
   - owner: 'travis'
 

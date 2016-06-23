@@ -13,6 +13,9 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+ansible-galaxy -f install debops.ferm debops.apt_preferences debops.etc_services
+
+
 stop postgresql
 purge ${ROLESPEC_POSTGRESQL_LIBS}
 sudo rm -rf /var/lib/postgresql
