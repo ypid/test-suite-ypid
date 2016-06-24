@@ -6,9 +6,7 @@
   roles:
 
     - role: debops.ferm
-      tags: [ 'role::ferm' ]
-      ferm__dependent_rules: '{{ checkmk_server__ferm_dependent_rules }}'
-      when: checkmk_server__dependencies | bool
+      ferm__dependent_rules:
+        - '{{ checkmk_server__ferm_dependent_rules }}'
 
     - role: ansible-checkmk_server
-      tags: [ 'role::checkmk_server' ]
