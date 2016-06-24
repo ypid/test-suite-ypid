@@ -8,6 +8,8 @@
     ## Run required role from the `common.yml` playbook to ensure that backports in Ubuntu are enabled.
     - role: 'debops.apt'
 
+    - role: 'debops.mariadb_server'
+
     - role: debops.apt_preferences
       tags: [ 'role::apt_preferences' ]
       apt_preferences__dependent_list:
