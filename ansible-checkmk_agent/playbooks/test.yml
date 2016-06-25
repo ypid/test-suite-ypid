@@ -4,19 +4,24 @@
   become: True
 
   roles:
-
     - role: debops.etc_services
-      tags: [ 'role::etc_services' ]
       etc_services__dependent_list:
-        - name: 'check-mk-agent'
-          port: '{{ checkmk_agent__port }}'
-          comment: 'Check_MK agent (via xinetd)'
+        - '{{ checkmk_agent__etc_services__dependent_list }}'
       when: (checkmk_agent|d() and 'xinetd' in checkmk_agent)
 
     - role: debops.ferm
-      tags: [ 'role::ferm' ]
-      ferm__dependent_rules: '{{ checkmk_agent__ferm_dependent_rules }}'
+      ferm__dependent_rules:
+        - '{{ checkmk_agent__ferm__dependent_rules }}'
       when: (checkmk_agent|d() and 'xinetd' in checkmk_agent)
 
-    - role: ansible-checkmk_agent
+    - role: debops.mariadb
+      mariadb__users:
+        - '{{ checkmk_agent__mariadb__users }}'
+      when: (("mk_mysql" in checkmk_agent__plugin_list and
+              checkmk_agent__plugin_mysql|d("automatic") == "automatic") or
+             ((checkmk_agent__plugin_autodetect|d(True) | bool) and
+              "debops_mariadb_server" in hostvars[inventory_hostname]["group_names"])
+            )
+
+    - role: debops-contrib.checkmk_agent
       tags: [ 'role::checkmk_agent' ]
