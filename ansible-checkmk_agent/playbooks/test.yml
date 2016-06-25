@@ -23,5 +23,4 @@
               "debops_mariadb_server" in hostvars[inventory_hostname]["group_names"])
             )
 
-    - role: debops-contrib.checkmk_agent
-      tags: [ 'role::checkmk_agent' ]
+    - role: ansible-checkmk_agent
