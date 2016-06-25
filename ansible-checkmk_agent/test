@@ -14,6 +14,7 @@ ansible_plugins
 
 ansible-galaxy -f install debops.etc_services
 ansible-galaxy -f install debops.ferm
+ansible-galaxy -f install debops.mariadb
 
 assert_playbook_check_runs
 assert_playbook_idempotent
