@@ -25,7 +25,7 @@ unset rvm_bin_path GEM_HOME IRBRC MY_RUBY_HOME rvm_autoupdate_flag rvm_path RACK
 sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -yq update
-apt-cache policy ruby
+apt-cache policy ruby ruby2.1 rubygems-integration
 
 
 assert_playbook_check_runs
