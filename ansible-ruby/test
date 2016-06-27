@@ -20,6 +20,7 @@ fi
 
 echo "Clean up the environment"
 unset rvm_bin_path GEM_HOME IRBRC MY_RUBY_HOME rvm_autoupdate_flag rvm_path RACK_ENV rvm_prefix rvm_version RAILS_ENV GEM_PATH RUBY_VERSION rvm_silence_path_mismatch_check_flag
+sudo apt-get --purge -y remove 'ruby*'
 
 # Add Ruby 2.1 PPA
 sudo apt-get -yq install python-software-properties
