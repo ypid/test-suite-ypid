@@ -1,8 +1,2 @@
 ---
 
-# Don't install 'rubygems-integration' because it's not present in Precise
-ruby_gems_integration: False
-
-# Don't install any gems by default
-ruby_default_gems: []
-
