@@ -1,2 +1,5 @@
 ---
 
+# Travis CI environment is simplier
+ruby__base_packages: [ 'ruby' ]
+
