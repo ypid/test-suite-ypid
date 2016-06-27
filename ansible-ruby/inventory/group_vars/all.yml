@@ -14,5 +14,5 @@ ruby__gems:
 # Install mako on Travis user account
 ruby__user_gems:
   - name: 'mako'
-    owner: 'travis'
+    user: 'travis'
 
