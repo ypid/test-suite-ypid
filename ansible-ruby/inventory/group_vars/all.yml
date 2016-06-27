@@ -1,5 +1,18 @@
 ---
 
-# Travis CI environment is simplier
-ruby__base_packages: [ 'ruby' ]
+# Brightbox Ruby packages doesn't seem to be integrated with APT 'ruby'
+# package, so install a specific ruby version instead
+ruby__base_packages: [ 'ruby2.1', 'rubygems-integration' ]
+
+# The 'ruby-dev' package doesn't exist in Brightbox packages
+ruby__dev_packages: [ 'build-essential' ]
+
+# Install bundler from RubyGems
+ruby__gems:
+  - 'bundler'
+
+# Install mako on Travis user account
+ruby__user_gems:
+  - name: 'mako'
+    owner: 'travis'
 
