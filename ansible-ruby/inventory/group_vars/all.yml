@@ -5,7 +5,7 @@
 ruby__base_packages: [ 'ruby2.1', 'rubygems-integration' ]
 
 # The 'ruby-dev' package doesn't exist in Brightbox packages
-ruby__dev_packages: [ 'build-essential' ]
+ruby__dev_packages: [ 'ruby2.1-dev', 'build-essential' ]
 
 # Install bundler from RubyGems
 ruby__gems:
