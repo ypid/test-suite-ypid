@@ -26,7 +26,7 @@ sudo apt-get --purge -y remove 'ruby*'
 sudo apt-get -yq install python-software-properties
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
 sudo apt-get -yq update
-apt-cache policy ruby ruby2.1 rubygems-integration
+apt-cache policy ruby ruby2.1 ruby2.1-dev rubygems-integration
 
 
 assert_playbook_check_runs
