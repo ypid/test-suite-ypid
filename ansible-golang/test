@@ -18,3 +18,5 @@ assert_playbook_idempotent
 
 
 assert_in "$(go version)" "go"
+assert_docs
+

@@ -36,7 +36,8 @@ export GOTOOLDIR="/usr/lib/go/pkg/tool/linux_amd64"
 
 sudo gem install bundler
 
-install_ansible ${test_ansible_version}
+#install_ansible ${test_ansible_version}
+install_ansible stable-2.0
 ansible_plugins
 
 
