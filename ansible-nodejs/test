@@ -22,3 +22,5 @@ assert_playbook_idempotent
 
 
 assert_in "$(node -v)" "v"
+assert_docs
+
