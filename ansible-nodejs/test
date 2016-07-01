@@ -20,6 +20,10 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 
+echo "Check nodejs versions"
+apt-cache policy nodejs
+
+
 assert_in "$(node -v)" "v"
 assert_docs
 
