@@ -1,5 +1,0 @@
----
-
-# On Ubuntu Precise, there's no nodejs-legacy package
-nodejs_packages: [ 'nodejs' ]
-

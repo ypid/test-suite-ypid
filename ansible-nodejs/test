@@ -14,7 +14,6 @@ ansible_plugins
 
 
 purge nodejs
-upgrade_packages nodejs nodejs-legacy
 
 
 assert_playbook_check_runs
