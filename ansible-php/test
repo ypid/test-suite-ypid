@@ -16,26 +16,10 @@ ansible_plugins
 ansible-galaxy -f install debops.logrotate
 
 
-echo "Check php packages"
-dpkg -l | grep php
-
-echo "Check diversions"
-dpkg-divert --list
-
-echo "Check php preference"
-apt-cache policy php5 php5-fpm
-
 assert_playbook_check_runs
 
-echo "Check diversions"
-dpkg-divert --list
-
-echo "Check logrotate config"
-ls -l /etc/logrotate.d
-
-echo "Check logrotate contents"
-cat /etc/logrotate.d/php*
-
+echo "Check contents"
+sudo ls -lR /etc/php5
 
 assert_playbook_idempotent
 
