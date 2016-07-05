@@ -1,0 +1,15 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: 'ansible-php/env'
+
+    - role: 'debops.logrotate'
+      logrotate__dependent_config:
+        - '{{ php__logrotate__dependent_config }}'
+
+    - role: 'ansible-php'
+
