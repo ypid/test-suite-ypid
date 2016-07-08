@@ -9,6 +9,26 @@
 
   roles:
 
+    ## Run role from the `common.yml` playbook.
+    ## debops.apt: To ensure that backports in Ubuntu are enabled.
+    - role: 'debops.apt'
+
+    ## Run required (for default debops.owncloud configuration) role before the main owncloud.yml playbook.
+    - role: 'debops.mariadb_server'
+    ## Run optional role before the main owncloud.yml playbook.
+    - role: 'debops.redis'
+
+    - role: debops.apt_preferences
+      tags: [ 'role::apt_preferences' ]
+      apt_preferences__dependent_list:
+        - '{{ nginx_apt_preferences_dependent_list }}'
+        - '{{ owncloud__apt_preferences__dependent_list }}'
+
+    - role: debops.ferm
+      tags: [ 'role::ferm' ]
+      ferm__dependent_rules:
+        - '{{ nginx_ferm_dependent_rules }}'
+
     - role: debops.mariadb
       tags: [ 'role::mariadb' ]
       mariadb_users:
@@ -21,16 +41,6 @@
       tags: [ 'role::php5' ]
       php5_pools:
         - '{{ owncloud__php5__pool }}'
-
-    - role: debops.apt_preferences
-      tags: [ 'role::apt_preferences' ]
-      apt_preferences__dependent_list:
-        - '{{ nginx_apt_preferences_dependent_list }}'
-
-    - role: debops.ferm
-      tags: [ 'role::ferm' ]
-      ferm__dependent_rules:
-        - '{{ nginx_ferm_dependent_rules }}'
 
     - role: debops.nginx
       tags: [ 'role::nginx' ]
