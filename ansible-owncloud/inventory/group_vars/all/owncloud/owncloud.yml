@@ -1,7 +1,6 @@
 ---
 
-owncloud_domain: [ 'localhost.localdomain' ]
+owncloud__domain: [ 'localhost.localdomain' ]
 
-# Ubuntu Precise (12.04) does not provide the required .deb package anymore.
-owncloud_distribution_version: '14.04'
-
+## Ensure that LibreOffice is not installed for testing the role.
+owncloud__app_documents_enabled: False
