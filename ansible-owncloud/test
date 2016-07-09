@@ -19,6 +19,7 @@ ansible-galaxy -f install debops.ferm
 ansible-galaxy -f install debops.redis
 ansible-galaxy -f install debops.mariadb_server
 ansible-galaxy -f install debops.mariadb
+ansible-galaxy -f install debops.unattended_upgrades
 ansible-galaxy -f install debops.php5
 ansible-galaxy -f install debops.nginx
 

@@ -37,6 +37,10 @@
           password: '{{ owncloud__database_map[owncloud__database].dbpass }}'
       when: (owncloud__database == 'mariadb')
 
+    - role: debops.unattended_upgrades
+      tags: [ 'role::unattended_upgrades' ]
+      unattended_upgrades__dependent_origins: '{{ owncloud__unattended_upgrades__dependent_origins }}'
+
     - role: debops.php5
       tags: [ 'role::php5' ]
       php5_pools:
