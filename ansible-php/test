@@ -25,4 +25,4 @@ assert_playbook_idempotent
 
 
 assert_in "$(php -v)" "PHP"
-
+assert_docs
