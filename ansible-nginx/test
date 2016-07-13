@@ -25,6 +25,12 @@ assert_playbook_check_runs -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 assert_playbook_idempotent -e "nginx_flavor=${TEST_NGINX_FLAVOR:-full}"
 
 
+echo "DEBUGGING"
+ls -lR /etc/nginx
+cat /etc/nginx/conf.d/*
+cat /etc/nginx/sites-enabled/*
+
+
 assert_url "http://${ROLESPEC_FQDN}:8080" 301
 assert_url "https://${ROLESPEC_FQDN}/"
 
