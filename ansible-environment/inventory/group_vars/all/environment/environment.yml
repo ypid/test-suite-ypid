@@ -1,0 +1,14 @@
+---
+
+environment__variables:
+
+  - 'string_test_environment=yes'
+
+  - name: 'conditional_test_environment'
+    value: 'yes'
+
+  - name: 'shouldn_t_be_test_environment'
+    value: 'yes'
+    state: 'absent'
+
+  - dictionary_test_environment: 'yes'
