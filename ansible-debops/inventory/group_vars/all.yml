@@ -1,4 +1,2 @@
 ---
 
-# Test Ansible bootstrap from source
-debops__ansible_git: True
