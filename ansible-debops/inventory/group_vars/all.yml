@@ -1,5 +1,4 @@
 ---
 
-# Don't install ansible .deb package, it's installed manually
-debops_ansible_packages: []
-
+# Test Ansible bootstrap from source
+debops__ansible_git: True
