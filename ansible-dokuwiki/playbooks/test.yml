@@ -3,8 +3,6 @@
 - hosts: 'placeholder_fqdn'
   become: True
 
-  roles:
-
   environment: '{{ inventory__environment | d({})
                    | combine(inventory__group_environment | d({}))
                    | combine(inventory__host_environment  | d({})) }}'
