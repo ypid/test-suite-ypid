@@ -13,9 +13,6 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-upgrade_packages python-crypto
-
-
 assert_playbook_check_runs
 assert_playbook_idempotent
 
