@@ -1,0 +1,7 @@
+---
+
+authorized_keys__host_list:
+  - name: '{{ (ansible_ssh_user
+               if ansible_ssh_user | d()
+               else lookup("env", "USER")) }}'
+    sshkeys: [ '{{ lookup("file", "~/.ssh/id_rsa.pub") }}' ]
