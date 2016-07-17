@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# test: Test debops.owncloud
 # Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
 # Part of the DebOps project - http://debops.org/
 
