@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# test: Test debops-policy documentation
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+assert_docs
