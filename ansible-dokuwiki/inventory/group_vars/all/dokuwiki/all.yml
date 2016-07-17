@@ -4,7 +4,5 @@
 nginx_pki: False
 
 # Default domain on Travis-CI
-dokuwiki__main_domain: [ 'localhost.localdomain' ]
+dokuwiki__main_domain: 'localhost.localdomain'
 
-# Help with transition to new variable names
-dokuwiki_main_domain: '{{ dokuwiki__main_domain }}'
