@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+ansible-galaxy -f install debops.apt_preferences
+ansible-galaxy -f install debops.ferm
+ansible-galaxy -f install debops.nginx
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+curl -i http://localhost.localdomain
+curl -i http://localhost.localdomain/v0/roles/debops.list
+curl --silent http://localhost.localdomain/v0/role/debops.unattended_upgrades.json | jq '.'
+
+assert_docs
