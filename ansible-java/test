@@ -20,4 +20,5 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 
-assert_in "$(java -version 2>&1)" "1.7"
+assert_in "$(java -version 2>&1)" "java version"
+assert_docs
