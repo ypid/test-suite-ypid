@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# test: Test debops-keyring documentation
+# Copyright (C) 2016 Robin Schneider <ypid@riseup.net>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+assert_docs
