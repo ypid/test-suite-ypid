@@ -1,10 +1,10 @@
 ---
 
-docker_upstream: True
+docker__upstream: True
 
 # Ubuntu Precise does not have python-docker package
-docker_base_packages: [ 'aufs-tools' ]
+docker__base_packages: [ 'aufs-tools' ]
 
 # Disable ferment support because no python-docker package is installed
-docker_ferment: False
+docker__ferment: False
 
