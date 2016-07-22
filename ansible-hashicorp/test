@@ -22,5 +22,5 @@ cat /etc/ansible/facts.d/hashicorp.fact
 
 assert_path "/usr/local/bin/consul"
 assert_in_file "/etc/ansible/facts.d/hashicorp.fact" "installed"
-assert_in "$(consul --version 2>&1)" "consul"
+assert_in "$(consul --version 2>&1)" "Consul"
 assert_docs
