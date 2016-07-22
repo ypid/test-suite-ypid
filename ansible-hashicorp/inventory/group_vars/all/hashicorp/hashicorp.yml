@@ -1,0 +1,5 @@
+---
+
+# Install all supported applications
+hashicorp__applications: '{{ hashicorp__default_version_map.keys() }}'
+

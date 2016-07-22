@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# test: Test debops.hashicorp
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+echo "debops.hashicorp local facts:"
+cat /etc/ansible/facts.d/hashicorp.fact
+
+assert_path "/usr/local/bin/consul"
+assert_in_file "/etc/ansible/facts.d/hashicorp.fact" "installed"
+assert_in "$(consul --version 2>&1)" "consul"
+assert_docs
