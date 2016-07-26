@@ -1,0 +1,18 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: ansible-nullmailer/env
+
+    - role: debops.ferm
+      ferm__dependent_rules:
+        - '{{ nullmailer__ferm__dependent_rules }}'
+
+    - role: debops.tcpwrappers
+      tcpwrappers__dependent_allow:
+        - '{{ nullmailer__tcpwrappers__dependent_allow }}'
+
+    - role: ansible-nullmailer

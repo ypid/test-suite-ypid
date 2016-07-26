@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# test: Test debops.nullmailer
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+ansible-galaxy -f install debops.ferm debops.tcpwrappers
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+assert_path "/etc/nullmailer/remotes"
+assert_running "nullmailer-send"
+assert_docs
