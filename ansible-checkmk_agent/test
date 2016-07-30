@@ -29,7 +29,7 @@ assert_group 'checkmk'
 assert_exit_code 'getent passwd checkmk' 0
 
 assert_path '/etc/ssh/authorized_keys/checkmk'
-assert_path '/etc/sudoers.d/checkmk'
+assert_path '/etc/sudoers.d/check-mk-agent'
 
 
 assert_docs
