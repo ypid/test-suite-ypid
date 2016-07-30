@@ -4,15 +4,24 @@
   become: True
 
   roles:
+    - role: debops.apt_preferences
+      apt_preferences__dependent_list:
+        - '{{ checkmk_agent__apt_preferences__dependent_list }}'
+
     - role: debops.etc_services
       etc_services__dependent_list:
         - '{{ checkmk_agent__etc_services__dependent_list }}'
-      when: (checkmk_agent|d() and 'xinetd' in checkmk_agent)
+      when: ('xinetd' in checkmk_agent__type|d(['ssh']))
 
     - role: debops.ferm
       ferm__dependent_rules:
         - '{{ checkmk_agent__ferm__dependent_rules }}'
-      when: (checkmk_agent|d() and 'xinetd' in checkmk_agent)
+      when: ('xinetd' in checkmk_agent__type|d(['ssh']))
+
+    - role: debops.authorized_keys
+      authorized_keys__dependent_list:
+        - '{{ checkmk_agent__authorized_keys__dependent_list }}'
+      when: ('ssh' in checkmk_agent__type|d(['ssh']))
 
     - role: debops.mariadb
       mariadb__users:

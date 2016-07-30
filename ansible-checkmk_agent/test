@@ -12,6 +12,8 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+ansible-galaxy -f install debops.apt_preferences
+ansible-galaxy -f install debops.authorized_keys
 ansible-galaxy -f install debops.etc_services
 ansible-galaxy -f install debops.ferm
 ansible-galaxy -f install debops.mariadb
@@ -23,6 +25,8 @@ assert_playbook_idempotent
 assert_path '/etc/check_mk'
 assert_path '/usr/bin/check_mk_agent'
 
-assert_running 'xinetd'
+assert_group 'checkmk'
+assert_exit_code 'getent passwd checkmk' 0
+
 
 assert_docs
