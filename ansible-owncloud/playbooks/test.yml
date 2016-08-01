@@ -9,14 +9,15 @@
 
   roles:
 
-    ## Run role from the `common.yml` playbook.
-    ## debops.apt: To ensure that backports in Ubuntu are enabled.
+    ## Run role from the `common.yml` playbook to ensure that backports in Ubuntu are enabled.
     - role: 'debops.apt'
 
     ## Run required (for default debops.owncloud configuration) role before the main owncloud.yml playbook.
     - role: 'debops.mariadb_server'
+
     ## Run optional role before the main owncloud.yml playbook.
     - role: 'debops.redis'
+
 
     - role: debops.php/env
       tags: [ 'role::php', 'role::apt_preferences', 'role::logrotate' ]
@@ -63,5 +64,6 @@
         - '{{ owncloud__nginx__servers }}'
       nginx_dependent_upstreams:
         - '{{ owncloud__nginx__upstream_php }}'
+
 
     - role: 'ansible-owncloud'
