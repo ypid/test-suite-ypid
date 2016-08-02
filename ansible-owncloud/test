@@ -20,12 +20,8 @@ ansible-galaxy -f install debops.redis
 ansible-galaxy -f install debops.mariadb_server
 ansible-galaxy -f install debops.mariadb
 ansible-galaxy -f install debops.unattended_upgrades
-
-# ansible-galaxy -f install debops.php
-# Tried to use ansible-galaxy, did not do what I wanted
 # FIXME: Switch back when a new release of debops.php has been made.
-git clone --depth 1 https://github.com/debops/ansible-php.git /etc/ansible/roles/debops.php
-
+ansible-galaxy -f install debops.php,master
 ansible-galaxy -f install debops.logrotate
 ansible-galaxy -f install debops.nginx
 
