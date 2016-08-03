@@ -3,6 +3,10 @@
 - hosts: 'placeholder_fqdn'
   become: True
 
+  environment: '{{ inventory__environment | d({})
+                   | combine(inventory__group_environment | d({}))
+                   | combine(inventory__host_environment  | d({})) }}'
+
   roles:
 
     - role: debops.php5
@@ -10,14 +14,12 @@
         - '{{ roundcube__php5_packages }}'
       php5_pools:
         - '{{ roundcube__php5_pool }}'
-      when: roundcube_dependencies|d()
 
     - role: debops.nginx
       nginx_servers:
         - '{{ roundcube__nginx_server }}'
       nginx_upstreams:
         - '{{ roundcube__nginx_upstream_php5 }}'
-      when: roundcube_dependencies|d()
 
     - role: 'ansible-roundcube'
 
