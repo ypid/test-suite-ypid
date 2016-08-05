@@ -9,6 +9,64 @@
 
   roles:
 
+    ## Run role from the `common.yml` playbook to ensure that backports in Ubuntu are enabled.
+    - role: 'debops.apt'
+
+    ## Run required (for default debops.owncloud configuration) role before the main owncloud.yml playbook.
+    - role: 'debops.mariadb_server'
+
+    ## Run optional role before the main owncloud.yml playbook.
+    - role: 'debops.redis'
+
+
+    - role: debops.php/env
+      tags: [ 'role::php', 'role::apt_preferences', 'role::logrotate' ]
+
+    - role: 'ansible-owncloud/env'
+      tags: [ 'role::owncloud', 'role::nginx' ]
+
+    - role: debops.apt_preferences
+      tags: [ 'role::apt_preferences' ]
+      apt_preferences__dependent_list:
+        - '{{ nginx_apt_preferences_dependent_list }}'
+        - '{{ owncloud__apt_preferences__dependent_list }}'
+        - '{{ php__apt_preferences__dependent_list }}'
+
+    - role: debops.ferm
+      tags: [ 'role::ferm' ]
+      ferm__dependent_rules:
+        - '{{ nginx_ferm_dependent_rules }}'
+
+    - role: debops.mariadb
+      tags: [ 'role::mariadb' ]
+      mariadb_users:
+        - database: '{{ owncloud__database_map[owncloud__database].dbname }}'
+          user: '{{ owncloud__database_map[owncloud__database].dbuser }}'
+          password: '{{ owncloud__database_map[owncloud__database].dbpass }}'
+      when: (owncloud__database == 'mariadb')
+
+    - role: debops.unattended_upgrades
+      tags: [ 'role::unattended_upgrades' ]
+      unattended_upgrades__dependent_origins: '{{ owncloud__unattended_upgrades__dependent_origins }}'
+
+    - role: debops.php
+      tags: [ 'role::php' ]
+      php__dependent_packages:
+        - '{{ owncloud__php__dependent_packages }}'
+      php__dependent_pools:
+        - '{{ owncloud__php__dependent_pools }}'
+
+    - role: debops.logrotate
+      tags: [ 'role::logrotate' ]
+      logrotate__dependent_config:
+        - '{{ php__logrotate__dependent_config }}'
+
+    - role: debops.nginx
+      tags: [ 'role::nginx' ]
+      nginx_dependent_servers:
+        - '{{ owncloud__nginx__servers }}'
+      nginx_dependent_upstreams:
+        - '{{ owncloud__nginx__upstream_php }}'
 
 
     - role: 'ansible-owncloud'

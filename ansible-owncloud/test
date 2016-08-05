@@ -13,17 +13,17 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
-# ansible-galaxy -f install debops.apt
-# ansible-galaxy -f install debops.apt_preferences
-# ansible-galaxy -f install debops.ferm
-# ansible-galaxy -f install debops.redis
-# ansible-galaxy -f install debops.mariadb_server
-# ansible-galaxy -f install debops.mariadb
-# ansible-galaxy -f install debops.unattended_upgrades
+ansible-galaxy -f install debops.apt
+ansible-galaxy -f install debops.apt_preferences
+ansible-galaxy -f install debops.ferm
+ansible-galaxy -f install debops.redis
+ansible-galaxy -f install debops.mariadb_server
+ansible-galaxy -f install debops.mariadb
+ansible-galaxy -f install debops.unattended_upgrades
 # FIXME: Switch back when a new release of debops.php has been made.
-# ansible-galaxy -f install debops.php,master
-# ansible-galaxy -f install debops.logrotate
-# ansible-galaxy -f install debops.nginx
+ansible-galaxy -f install debops.php,master
+ansible-galaxy -f install debops.logrotate
+ansible-galaxy -f install debops.nginx
 
 # Failed to validate the SSL certificate for download.owncloud.org:443. Make
 # sure your managed systems have a valid CA certificate installed. If the
@@ -34,7 +34,8 @@ ansible_plugins
 # but this is unsafe and not recommended. Paths checked for this platform:
 # /etc/ssl/certs, /etc/pki/ca-trust/extracted/pem, /etc/pki/tls/certs,
 # /usr/share/ca-certificates/cacert.org, /etc/ansible
-sudo apt-get install -y python-pyasn1 python-urllib3
+# sudo apt-get install -y python-pyasn1 python-urllib3
+# Does not solve it.
 
 
 assert_playbook_check_runs

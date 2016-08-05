@@ -4,3 +4,10 @@ owncloud__domain: [ 'localhost.localdomain' ]
 
 ## Ensure that LibreOffice is not installed for testing the role.
 owncloud__app_documents_enabled: False
+
+
+## FIXME
+## https://travis-ci.org/ypid/ansible-owncloud/builds/150109046
+owncloud__apt_repo_key_url: 'http://{{ owncloud__apt_repo_base + "/" +
+                             owncloud__distribution + "/"
+                             "Release.key" }}'
