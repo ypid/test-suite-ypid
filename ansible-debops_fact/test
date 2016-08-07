@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# test: Test debops.debops_fact
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+echo "/etc/ansible/facts.d/debops_fact.fact"
+cat /etc/ansible/facts.d/debops_fact.fact
+
+echo "/etc/ansible/facts.d/debops_fact_priv.fact"
+sudo cat /etc/ansible/facts.d/debops_fact_priv.fact
+
+
+assert_path "/etc/ansible/facts.d/debops_fact.fact"
+assert_path "/etc/ansible/facts.d/debops_fact_priv.fact"
+assert_docs

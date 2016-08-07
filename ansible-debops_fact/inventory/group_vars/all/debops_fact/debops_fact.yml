@@ -1,0 +1,135 @@
+---
+
+debops_fact__public_facts:
+
+  - name: 'this_string_should_be_host'
+    value: 'global'
+
+  - name: 'this_string_should_be_the_global'
+    value: 'the_global'
+
+  - name: 'this_string_should_be_missing'
+    fact_state: 'absent'
+
+  - name: 'this_list_should_be_global_and_host'
+    value: [ 'global1', 'global2' ]
+
+  - name: 'this_list_should_be_global'
+    value: [ 'global1', 'global2' ]
+
+  - name: 'this_dict_should_be_host'
+    value:
+      dictionary_key1: 'global'
+      dictionary_key2: 'global'
+
+  - name: 'test_nested_dictionary'
+    value:
+      string_should_be_host: 'global'
+      list_should_be_global_and_host: [ 'global1', 'global2' ]
+      map_should_be_host:
+        string_should_be_host: 'global'
+        list_should_be_host: [ 'global1', 'global2' ]
+        map_should_be_host:
+          key1: 'global'
+          key2: 'global'
+
+debops_fact__host_public_facts:
+
+  - name: 'this_string_should_be_host'
+    value: 'host'
+
+  - name: 'this_string_should_be_the_host'
+    value: 'the_host'
+
+  - name: 'this_string_should_be_missing'
+    fact_state: 'absent'
+
+  - name: 'this_list_should_be_global_and_host'
+    value: [ 'host1', 'host2' ]
+
+  - name: 'this_list_should_be_host'
+    value: [ 'host1', 'host2' ]
+
+  - name: 'this_dict_should_be_host'
+    value:
+      dictionary_key1: 'host'
+      dictionary_key2: 'host'
+
+  - name: 'test_nested_dictionary'
+    value:
+      string_should_be_host: 'host'
+      list_should_be_global_and_host: [ 'host1', 'host2' ]
+      map_should_be_host:
+        string_should_be_host: 'host'
+        list_should_be_host: [ 'host1', 'host2' ]
+        map_should_be_host:
+          key1: 'host'
+          key2: 'host'
+
+
+debops_fact__private_facts:
+
+  - name: 'this_string_should_be_host'
+    value: 'global'
+
+  - name: 'this_string_should_be_the_global'
+    value: 'the_global'
+
+  - name: 'this_string_should_be_missing'
+    fact_state: 'absent'
+
+  - name: 'this_list_should_be_global_and_host'
+    value: [ 'global1', 'global2' ]
+
+  - name: 'this_list_should_be_global'
+    value: [ 'global1', 'global2' ]
+
+  - name: 'this_dict_should_be_host'
+    value:
+      dictionary_key1: 'global'
+      dictionary_key2: 'global'
+
+  - name: 'test_nested_dictionary'
+    value:
+      string_should_be_host: 'global'
+      list_should_be_global_and_host: [ 'global1', 'global2' ]
+      map_should_be_host:
+        string_should_be_host: 'global'
+        list_should_be_host: [ 'global1', 'global2' ]
+        map_should_be_host:
+          key1: 'global'
+          key2: 'global'
+
+debops_fact__host_private_facts:
+
+  - name: 'this_string_should_be_host'
+    value: 'host'
+
+  - name: 'this_string_should_be_the_host'
+    value: 'the_host'
+
+  - name: 'this_string_should_be_missing'
+    fact_state: 'absent'
+
+  - name: 'this_list_should_be_global_and_host'
+    value: [ 'host1', 'host2' ]
+
+  - name: 'this_list_should_be_host'
+    value: [ 'host1', 'host2' ]
+
+  - name: 'this_dict_should_be_host'
+    value:
+      dictionary_key1: 'host'
+      dictionary_key2: 'host'
+
+  - name: 'test_nested_dictionary'
+    value:
+      string_should_be_host: 'host'
+      list_should_be_global_and_host: [ 'host1', 'host2' ]
+      map_should_be_host:
+        string_should_be_host: 'host'
+        list_should_be_host: [ 'host1', 'host2' ]
+        map_should_be_host:
+          key1: 'host'
+          key2: 'host'
+
