@@ -1,1 +1,4 @@
 placeholder_fqdn
+
+[debops_service_redis]
+hostname
