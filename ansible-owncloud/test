@@ -20,23 +20,9 @@ ansible-galaxy -f install debops.redis
 ansible-galaxy -f install debops.mariadb_server
 ansible-galaxy -f install debops.mariadb
 ansible-galaxy -f install debops.unattended_upgrades
-# FIXME: Switch back when a new release of debops.php has been made.
-ansible-galaxy -f install debops.php,master
+ansible-galaxy -f install debops.php
 ansible-galaxy -f install debops.logrotate
 ansible-galaxy -f install debops.nginx
-
-# Failed to validate the SSL certificate for download.owncloud.org:443. Make
-# sure your managed systems have a valid CA certificate installed. If the
-# website serving the url uses SNI you need python >= 2.7.9 on your managed
-# machine or you can install the `urllib3`, `pyopenssl`, `ndg-httpsclient`, and
-# `pyasn1` python modules to perform SNI verification in python >= 2.6. You can
-# use validate_certs=False if you do not need to confirm the servers identity
-# but this is unsafe and not recommended. Paths checked for this platform:
-# /etc/ssl/certs, /etc/pki/ca-trust/extracted/pem, /etc/pki/tls/certs,
-# /usr/share/ca-certificates/cacert.org, /etc/ansible
-# sudo apt-get install -y python-pyasn1 python-urllib3
-# Does not solve it.
-
 
 assert_playbook_check_runs
 assert_playbook_idempotent
@@ -47,10 +33,10 @@ assert_playbook_idempotent
 /usr/local/bin/occ user:report
 /usr/local/bin/occ status
 
-echo "curl http://localhost.localdomain/"
+echo 'curl http://localhost.localdomain/'
 curl http://localhost.localdomain
 
-assert_path "/var/www/owncloud"
-assert_url "http://localhost.localdomain/"
+assert_path '/var/www/owncloud'
+assert_url 'http://localhost.localdomain/'
 
 assert_docs
