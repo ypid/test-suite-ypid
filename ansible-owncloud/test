@@ -21,7 +21,7 @@ ansible_plugins
 # ansible-galaxy -f install debops.mariadb
 # ansible-galaxy -f install debops.unattended_upgrades
 ansible-galaxy -f install debops.php
-cp "$ROLESPEC_TEST/php-synchronize-config.sh" /home/travis/build/debops/ansible-owncloud/rolespec/roles/debops.php/files/script/php-synchronize-config.sh
+cp "$ROLESPEC_TEST/php-synchronize-config.sh" /home/travis/build/ypid/ansible-owncloud/rolespec/roles/debops.php/files/script/php-synchronize-config.sh
 # ansible-galaxy -f install debops.logrotate
 # ansible-galaxy -f install debops.nginx
 
