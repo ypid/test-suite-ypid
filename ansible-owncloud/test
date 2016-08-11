@@ -23,7 +23,6 @@ ansible-galaxy -f install debops.unattended_upgrades
 ansible-galaxy -f install debops.php
 ansible-galaxy -f install debops.logrotate
 ansible-galaxy -f install debops.nginx
-sudo sudo apt-get install -qq php7.0
 
 
 assert_playbook_check_runs
