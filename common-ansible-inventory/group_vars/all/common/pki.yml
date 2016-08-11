@@ -3,6 +3,7 @@
 # Fix for long travis hostnames
 pki_fqdn: 'travis.{{ pki_domain }}'
 pki_domain: 'test.internal'
+pki_default_domain: '{{ pki_domain }}'
 
 pki_ca_domain: 'test.internal'
 
