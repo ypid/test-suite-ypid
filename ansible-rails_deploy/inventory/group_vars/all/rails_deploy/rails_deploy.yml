@@ -4,10 +4,10 @@
 ruby_gems_integration: False
 
 # Our ruby is different
-ruby_packages: [ 'ruby2.1', 'ruby2.1-dev', 'rubygems' ]
+ruby__host_packages: [ 'ruby2.1', 'ruby2.1-dev', 'rubygems' ]
 
 # Don't install any gems by default
-ruby_default_gems: [ 'bundler' ]
+ruby__host_gems: [ 'bundler' ]
 
 # Allow everyone on the local network to talk to redis
 redis_bind: ['0.0.0.0']
