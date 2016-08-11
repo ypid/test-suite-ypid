@@ -24,7 +24,12 @@ ansible-galaxy -f install debops.php
 ansible-galaxy -f install debops.logrotate
 ansible-galaxy -f install debops.nginx
 
+ls -Rl /etc/php* || true
+
 assert_playbook_check_runs
+
+ls -Rl /etc/php* || true
+
 assert_playbook_idempotent
 
 
