@@ -4,3 +4,5 @@
 # in OpenVZ containers
 core_tags: [ 'ignore-cap12s' ]
 
+# Add a common admin user
+core__admin_users: [ 'travis' ]

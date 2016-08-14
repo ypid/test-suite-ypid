@@ -20,17 +20,6 @@ stop mysql
 purge ${ROLESPEC_MYSQL_LIBS}
 
 
-echo "Test various things"
-echo "hostname -I"
-hostname -I
-echo "/etc/hosts contents"
-cat /etc/hosts
-echo "hostname --fqdn"
-hostname --fqdn
-
-echo "ansible facts"
-ansible all -m setup -s
-
 assert_playbook_check_runs
 assert_playbook_idempotent
 

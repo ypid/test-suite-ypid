@@ -11,14 +11,6 @@
 - hosts: 'placeholder_fqdn'
   become: True
 
-  pre_tasks:
-
-    - name: 'librenms__domain'
-      debug: var=librenms__domain
-
-    - name: 'librenms__nginx__dependent_servers'
-      debug: var=librenms__nginx__dependent_servers
-
   roles:
 
     - role: debops.php/env
