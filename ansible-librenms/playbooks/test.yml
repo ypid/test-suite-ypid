@@ -23,6 +23,7 @@
     - role: debops.logrotate
       logrotate__dependent_config:
         - '{{ php__logrotate__dependent_config }}'
+        - '{{ librenms__logrotate__dependent_config }}'
 
     - role: debops.ferm
       ferm__dependent_rules:
