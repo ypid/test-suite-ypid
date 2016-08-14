@@ -1,15 +1,8 @@
 ---
 
-# Disable SSL support in nginx
-nginx_pki: False
-
 # Used for testing purposes.
-librenms_domain: [ '{{ ansible_domain }}' ]
+librenms__domain: [ '{{ ansible_domain }}' ]
 
 # It defaults to:
 #librenms_domain: [ 'nms.{{ ansible_domain }}' ]
 
-# Custom PHP5 packages on Travis-CI
-librenms_php5_packages: [ 'php5-mysql', 'php5-gmp', 'php5-gd', 'php5-snmp',
-                          'php5-curl', 'php5-mcrypt', 'php5-common',
-                          'php-net-ipv4', 'php-net-ipv6' ]
