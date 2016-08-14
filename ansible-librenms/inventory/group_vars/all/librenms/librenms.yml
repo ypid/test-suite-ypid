@@ -1,8 +1,4 @@
 ---
 
 # Used for testing purposes.
-librenms__domain: [ '{{ ansible_domain }}' ]
-
-# It defaults to:
-#librenms_domain: [ 'nms.{{ ansible_domain }}' ]
-
+librenms__fqdn: '{{ ansible_fqdn }}'
