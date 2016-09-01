@@ -20,10 +20,6 @@ assert_playbook_idempotent
 echo "/etc/ansible/facts.d/debops_fact.fact"
 cat /etc/ansible/facts.d/debops_fact.fact
 
-echo "/etc/ansible/facts.d/debops_fact_priv.fact"
-sudo cat /etc/ansible/facts.d/debops_fact_priv.fact
-
 
 assert_path "/etc/ansible/facts.d/debops_fact.fact"
-assert_path "/etc/ansible/facts.d/debops_fact_priv.fact"
 assert_docs
