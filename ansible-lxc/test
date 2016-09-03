@@ -28,4 +28,3 @@ assert_playbook_idempotent
 
 assert_path "/etc/lxc/lxc.conf"
 assert_path "/var/lib/lxc"
-
