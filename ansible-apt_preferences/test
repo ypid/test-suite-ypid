@@ -15,11 +15,11 @@ ansible_plugins
 
 assert_playbook_check_runs
 assert_playbook_idempotent
-assert_docs
-
 
 # Check list of configured apt preferences
 cat /etc/apt/preferences.d/*
 
 # Check APT policy for nginx package
 apt-cache policy nginx
+
+assert_docs
