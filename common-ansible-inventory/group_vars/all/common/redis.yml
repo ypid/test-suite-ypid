@@ -2,3 +2,6 @@
 
 # There's no 'redis-tools' package on Ubuntu Precise
 redis__base_packages: []
+
+# Bind to localhost differently, so that the firewall is configured for tests
+redis__server_bind: '127.0.0.1'

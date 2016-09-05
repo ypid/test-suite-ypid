@@ -26,6 +26,9 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 
+echo "Randomized Redis password: '$(sudo redis-password)'"
+
+echo "Redis information:"
 sudo redis-cli -a "$(sudo redis-password)" info
 
 
