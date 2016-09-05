@@ -19,12 +19,19 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+ansible-galaxy -f install debops.apt_preferences debops.etc_services debops.ferm
+
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
 
-assert_in "$(sudo redis-cli PING)" "PONG"
-#assert_in "$(sudo redis-cli -p 26379 PING)" "PONG"
+sudo redis-cli -a "$(sudo redis-password)" info
+
+
+assert_in "$(sudo redis-cli -a $(sudo redis-password) PING)" "PONG"
+#assert_in "$(sudo redis-cli -a $(redis-password) -p 26379 PING)" "PONG"
 
 assert_iptables_allow "redis-server"
 #assert_iptables_allow "redis-sentinel"
+assert_docs
