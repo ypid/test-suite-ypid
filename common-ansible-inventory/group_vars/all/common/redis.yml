@@ -5,3 +5,7 @@ redis__base_packages: []
 
 # Bind to localhost differently, so that the firewall is configured for tests
 redis__server_bind: '127.0.0.1'
+
+# Allow localhost to connect to Redis through firewall
+
+redis__server_allow: [ '127.0.0.0/8' ]
