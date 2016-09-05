@@ -1,0 +1,4 @@
+---
+
+# There's no 'redis-tools' package on Ubuntu Precise
+redis__base_packages: []
