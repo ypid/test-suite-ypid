@@ -1,5 +1,8 @@
 ---
 
+# Temporary switch to a different GitLab version
+gitlab_version: '8.10'
+
 # Default domain on Travis-CI
 gitlab_domain: [ 'localhost.localdomain' ]
 
