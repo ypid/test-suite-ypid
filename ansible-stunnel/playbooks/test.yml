@@ -7,6 +7,15 @@
 
   roles:
 
+    - role: debops.etc_services
+      etc_services__dependent_list: '{{ stunnel_services }}'
+
+    - role: debops.ferm
+      ferm__dependent_rules: '{{ stunnel_services }}'
+
+    - role: debops.tcpwrappers
+      tcpwrappers__dependent_allow: '{{ stunnel_services }}'
+
       # Test stunnel
     - role: 'ansible-stunnel'
 
