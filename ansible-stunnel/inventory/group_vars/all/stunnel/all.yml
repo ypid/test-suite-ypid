@@ -10,7 +10,7 @@ stunnel_services:
 
     port: '3307'
 
-    type: 'dport_accept'
+    type: 'accept'
     dport: [ 'test-service' ]
 
     daemon: 'test-service'
