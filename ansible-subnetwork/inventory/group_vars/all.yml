@@ -9,3 +9,5 @@ subnetwork__addresses:
 # https://github.com/travis-ci/travis-ci/issues/1341
 subnetwork__ipv4_nat: False
 
+# Test what happens when we're not forcing anything
+subnetwork__force: False
