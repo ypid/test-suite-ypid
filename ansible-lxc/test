@@ -24,6 +24,10 @@ if [ -n "${ROLESPEC_TRAVIS}" ] ; then
 fi
 
 
+echo "Check if lxc is installed"
+dpkg -l | grep lxc
+
+
 assert_playbook_check_runs
 
 echo "Check package policies"
