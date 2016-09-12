@@ -35,3 +35,5 @@ assert_playbook_idempotent
 
 # Check if configuration file is present
 assert_path "/etc/dnsmasq.d/00_main.conf"
+
+assert_docs
