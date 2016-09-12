@@ -18,6 +18,15 @@ ansible-galaxy -f install debops.ferm
 
 
 assert_playbook_check_runs
+
+echo "Show firewall rules"
+sudo tail -n +1 /etc/ferm/ferm.d/*
+
+assert_playbook_check_runs
+
+echo "Show firewall rules"
+sudo tail -n +1 /etc/ferm/ferm.d/*
+
 # FIXME: Disabled for now: https://github.com/debops/ansible-subnetwork/pull/16
 # assert_playbook_idempotent
 
