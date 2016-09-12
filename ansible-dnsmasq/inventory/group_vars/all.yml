@@ -1,5 +1,9 @@
 ---
 
-dnsmasq_options: |
+dnsmasq__options: |
   # Run dnsmasq as 'root' for Travis-CI test
   user = root
+
+
+# Don’t try to mess with non-existing interfaces on Travis.
+dnsmasq__interfaces: []
