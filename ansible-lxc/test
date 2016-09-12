@@ -13,7 +13,7 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 ansible-galaxy -f install debops.apt_preferences
-ansible-galaxy -f install debops.ferm
+ansible-galaxy -f install debops.ferm debops-contrib.apparmor
 
 # Add Ubuntu Trusty repository
 if [ -n "${ROLESPEC_TRAVIS}" ] ; then
