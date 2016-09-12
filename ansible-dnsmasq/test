@@ -27,6 +27,7 @@ sudo rm -rf /usr/sbin/policy-rc.d
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+ansible-galaxy -f install debops.ferm
 
 assert_playbook_check_runs
 assert_playbook_idempotent
@@ -34,4 +35,3 @@ assert_playbook_idempotent
 
 # Check if configuration file is present
 assert_path "/etc/dnsmasq.d/00_main.conf"
-

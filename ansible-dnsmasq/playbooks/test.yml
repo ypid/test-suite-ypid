@@ -1,0 +1,16 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  environment: '{{ inventory__environment | d({})
+                   | combine(inventory__group_environment | d({}))
+                   | combine(inventory__host_environment  | d({})) }}'
+
+  roles:
+
+    - role: debops.ferm
+      ferm__dependent_rules:
+        - '{{ dnsmasq__ferm__dependent_rules }}'
+
+    - role: 'ansible-dnsmasq'
