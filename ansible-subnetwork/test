@@ -21,13 +21,17 @@ assert_playbook_check_runs
 
 echo "Show firewall rules"
 sudo ls -l /etc/ferm/ferm.d
+sudo cp /etc/ferm/ferm.d/50_accept_filter_forward.conf /tmp/forward-old.conf
 sudo cat /etc/ferm/ferm.d/50_accept_filter_forward.conf
 
 assert_playbook_check_runs
 
 echo "Show firewall rules"
 sudo ls -l /etc/ferm/ferm.d
+sudo cp /etc/ferm/ferm.d/50_accept_filter_forward.conf /tmp/forward-new.conf
 sudo cat /etc/ferm/ferm.d/50_accept_filter_forward.conf
+
+diff /tmp/forward-old.conf /tmp/forward-new.conf
 
 # FIXME: Disabled for now: https://github.com/debops/ansible-subnetwork/pull/16
 # assert_playbook_idempotent
