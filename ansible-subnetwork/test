@@ -18,10 +18,10 @@ ansible-galaxy -f install debops.ferm
 
 
 assert_playbook_check_runs
-assert_playbook_idempotent
+# FIXME: Disabled for now: https://github.com/debops/ansible-subnetwork/pull/16
+# assert_playbook_idempotent
 
 
 assert_path /etc/network/interfaces
 
 assert_docs
-
