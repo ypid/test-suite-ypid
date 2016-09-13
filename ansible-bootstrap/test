@@ -12,6 +12,11 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+# Suddently /etc/hosts on Travis has no newline character at the end, which breaks the idempotency. Let's try to fix it.
+if [ -s "/etc/hosts" ] && [ "$(tail -c1 "/etc/hosts"; echo x)" != $'\nx' ]; then
+    echo "" | sudo tee -a "/etc/hosts"
+fi
+
 cp /etc/hosts ~/hosts
 
 assert_playbook_check_runs --diff
