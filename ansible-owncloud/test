@@ -45,4 +45,6 @@ assert_url 'http://localhost.localdomain/'
 cat /var/www/owncloud/data/owncloud.log
 
 assert_docs
+
+echo 'Running make check'
 cd .. && make --makefile docs/_tests/Makefile check; cd - || exit 1
