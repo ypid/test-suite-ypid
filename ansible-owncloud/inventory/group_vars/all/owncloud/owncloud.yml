@@ -1,6 +1,7 @@
 ---
 
-owncloud__domain: [ 'localhost.localdomain' ]
+owncloud__fqdn: 'localhost.localdomain'
+owncloud__domain: 'localdomain'
 
 ## Ensure that LibreOffice is not installed for testing the role.
 owncloud__app_documents_enabled: False
