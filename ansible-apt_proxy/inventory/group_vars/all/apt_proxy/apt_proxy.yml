@@ -1,0 +1,10 @@
+---
+
+apt_proxy__http_url: 'http://proxy.example.com:3128'
+apt_proxy__http_direct: [ 'example.com' ]
+
+apt_proxy__https_url: '{{ apt_proxy__http_url }}'
+apt_proxy__https_direct: '{{ apt_proxy__http_direct }}'
+
+apt_proxy__ftp_url: '{{ apt_proxy__http_url }}'
+apt_proxy__ftp_direct: '{{ apt_proxy__http_direct }}'
