@@ -41,5 +41,5 @@ curl http://localhost.localdomain
 assert_path '/var/www/owncloud'
 assert_url 'http://localhost.localdomain/'
 
-make --makefile ../docs/_tests/Makefile check
 assert_docs
+cd .. && make --makefile docs/_tests/Makefile check; cd - || exit 1
