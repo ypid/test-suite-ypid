@@ -41,7 +41,8 @@ curl http://localhost.localdomain
 assert_path '/var/www/owncloud'
 assert_url 'http://localhost.localdomain/'
 
-# FIXME: Debugging
+# TODO: Remove later, leave if in for now.
+# Ref: https://github.com/debops/ansible-owncloud/issues/59
 sudo cat /var/www/owncloud/data/owncloud.log
 
 assert_docs
