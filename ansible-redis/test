@@ -39,6 +39,7 @@ assert_in "$(sudo redis-cli -a $(sudo redis-password) PING)" "PONG"
 assert_iptables_allow "redis-server"
 #assert_iptables_allow "redis-sentinel"
 
-shellcheck /tmp/ansible-redis-dynamic.conf
+shellcheck /etc/redis/ansible-redis-dynamic.conf || fail "shellcheck reported issues."
+shellcheck /tmp/ansible-redis-dynamic.conf || fail "shellcheck reported issues."
 
 assert_docs
