@@ -40,6 +40,5 @@ assert_iptables_allow "redis-server"
 #assert_iptables_allow "redis-sentinel"
 
 sudo shellcheck /etc/redis/ansible-redis-dynamic.conf || fail "shellcheck reported issues."
-shellcheck /tmp/ansible-redis-dynamic.conf || exit 1
 
 assert_docs
