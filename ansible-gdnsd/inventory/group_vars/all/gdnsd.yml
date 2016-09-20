@@ -1,0 +1,4 @@
+---
+
+# Startup fails if service is bound to all available addresses in Travis-CI
+gdnsd__listen: [ '{{ ansible_default_ipv4.address }}' ]

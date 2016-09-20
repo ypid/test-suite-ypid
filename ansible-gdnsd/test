@@ -8,6 +8,13 @@
 . "${ROLESPEC_LIB}/main"
 . "${ROLESPEC_TEST}/../defaults.conf"
 
+# Prevent auto-start of unconfigured service
+cat <<EOF | sudo tee /usr/sbin/policy-rc.d
+#!/bin/sh
+echo "All runlevel operations denied by policy" >&2
+exit 101
+EOF
+sudo chmod +x /usr/sbin/policy-rc.d
 
 install_ansible ${test_ansible_version}
 ansible_plugins
