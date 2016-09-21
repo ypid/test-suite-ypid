@@ -24,10 +24,10 @@ assert_playbook_idempotent
 
 assert_path /etc/gdnsd/config
 assert_running gdnsd
-assert_in "$(dig @${HOSTNAME} localdomain SOA)" "ANSWER SECTION"
-assert_in "$(dig @${HOSTNAME} localdomain NS)" "ANSWER SECTION"
-assert_in "$(dig @${HOSTNAME} ${HOSTNAME}.localdomain)" "ANSWER SECTION"
-addr="$(dig @{HOSTNAME} +short ${HOSTNAME}.localdomain)"
-assert_in "$(dig @${HOSTNAME} -x ${addr})" "ANSWER SECTION"
+assert_in "$(dig @127.0.0.1 localdomain SOA)" "ANSWER SECTION"
+assert_in "$(dig @127.0.0.1 localdomain NS)" "ANSWER SECTION"
+assert_in "$(dig @127.0.0.1 ${HOSTNAME}.localdomain)" "ANSWER SECTION"
+addr="$(dig @127.0.0.1 +short ${HOSTNAME}.localdomain)"
+assert_in "$(dig @127.0.0.1 -x ${addr})" "ANSWER SECTION"
 
 assert_docs
