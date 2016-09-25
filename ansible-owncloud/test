@@ -35,8 +35,8 @@ assert_playbook_idempotent
 /usr/local/bin/occ user:report
 /usr/local/bin/occ status
 
-echo 'curl http://localhost.localdomain/'
-curl http://localhost.localdomain
+echo "curl http://${ROLESPEC_FQDN}/"
+curl "http://${ROLESPEC_FQDN}"
 
 assert_path '/var/www/owncloud'
 assert_url 'http://localhost.localdomain/'
