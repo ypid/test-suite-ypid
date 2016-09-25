@@ -1,0 +1,16 @@
+---
+
+- include: '../../common-ansible-playbooks/pki.yml'
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: ansible-apache/env
+
+    - role: debops.ferm
+      ferm__dependent_rules:
+        - '{{ apache__ferm__dependent_rules }}'
+
+    - role: ansible-apache

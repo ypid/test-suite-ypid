@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# test: Test debops.apache
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+ansible-galaxy -f install debops.ferm
+ansible-galaxy -f install debops.pki
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+assert_url "http://${ROLESPEC_FQDN}" 301
+assert_url "https://${ROLESPEC_FQDN}/"
+
+assert_docs
