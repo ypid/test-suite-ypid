@@ -12,6 +12,8 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+ansible-galaxy -f install debops.etc_services debops.ferm debops.java
+
 
 stop elasticsearch
 purge elasticsearch
