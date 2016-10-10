@@ -1,5 +1,5 @@
-[debops_elasticsearch:children]
-debops_elasticsearch_master
+[debops_service_elasticsearch:children]
+debops_service_elasticsearch_master
 
-[debops_elasticsearch_master]
+[debops_service_elasticsearch_master]
 placeholder_fqdn

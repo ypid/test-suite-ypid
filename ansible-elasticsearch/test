@@ -12,6 +12,8 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+ansible-galaxy -f install debops.etc_services debops.ferm debops.java
+
 
 stop elasticsearch
 purge elasticsearch
@@ -27,3 +29,6 @@ assert_iptables_allow "9200:9300"
 assert_iptables_allow "9300:9400"
 
 assert_url "http://${ROLESPEC_FQDN}:9200"
+
+
+assert_docs
