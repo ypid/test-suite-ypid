@@ -2,17 +2,17 @@
 
 # Don't try to change default user account, it seems that Ubuntu Precise
 # doesn't like it
-users_default: []
+users__admin_accounts: []
 
 # Make sure that audio system group exists
-users_groups:
+users__groups:
 
   - name: 'audio'
     group: 'audio'
     system: 'yes'
 
 # User accounts on the test host
-users_host_list:
+users__host_accounts:
 
   - name: 'testuser'
     home: '/tmp/testuser'
@@ -20,7 +20,7 @@ users_host_list:
 
     # The default shell is bash and dotfiles are disabled by default.
     shell: '/bin/zsh'
-    dotfiles: True
+    dotfiles_enabled: True
     sshkeys:
       - 'ssh-rsa 000000 test'
 
