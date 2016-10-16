@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# test: Test debops.gunicorn
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+# Prepare test application
+sudo apt-get install python-flask
+sudo mkdir /opt/travis
+sudo chown travis:travis /opt/travis
+cp -v "${ROLESPEC_TEST}/test_files/flask_app.py" "${ROLESPEC_TEST}/test_files/wsgi.py" /opt/travis/
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+echo "Checking if the application responds..."
+curl -v http://$(ROLESPEC_FQDN}:8000/
+
+
+assert_url "http://${ROLESPEC_FQDN}:8000"
+assert_docs
