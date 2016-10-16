@@ -25,7 +25,7 @@ assert_playbook_idempotent
 
 
 echo "Checking if the application responds..."
-curl -v http://$(ROLESPEC_FQDN}:8000/
+curl -v http://${ROLESPEC_FQDN}:8000/
 
 
 assert_url "http://${ROLESPEC_FQDN}:8000"
