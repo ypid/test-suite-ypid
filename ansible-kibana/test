@@ -12,11 +12,13 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+ansible-galaxy -f install debops.ferm
+
 
 assert_playbook_check_runs
 assert_playbook_idempotent
 
-
+assert_iptables_allow 5601
 assert_path "/opt/kibana/config/kibana.yml"
 assert_tcp localhost 5601
 
