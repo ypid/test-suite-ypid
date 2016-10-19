@@ -54,6 +54,9 @@ sleep 15
 echo "Check contents of the webpage"
 curl http://localhost.localdomain/users/sign_in
 
+echo "Check Go version"
+go version
+
 
 assert_url "http://localhost.localdomain/users/sign_in" 302
 
