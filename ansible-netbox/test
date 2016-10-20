@@ -22,6 +22,11 @@ ansible-galaxy -f install debops.apt_preferences \
                           debops.nginx
 
 
+stop postgresql
+purge ${ROLESPEC_POSTGRESQL_LIBS}
+sudo rm -rf /var/lib/postgresql
+
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
