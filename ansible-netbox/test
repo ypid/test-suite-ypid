@@ -9,6 +9,9 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+upgrade_packages gunicorn
+
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
@@ -31,12 +34,6 @@ sudo rm -rf /var/lib/postgresql
 
 assert_playbook_check_runs
 assert_playbook_idempotent
-
-echo "Show /usr/local/lib/netbox/virtualenv/app/netbox/netbox/configuration.py"
-sudo cat /usr/local/lib/netbox/virtualenv/app/netbox/netbox/configuration.py
-
-echo "Show pg_hba.conf"
-sudo cat /etc/postgresql/*/main/pg_hba.conf
 
 
 assert_url "http://localhost.localdomain/login/"
