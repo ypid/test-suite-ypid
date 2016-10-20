@@ -1,0 +1,4 @@
+---
+
+# Setup on a test domain
+netbox__fqdn: 'localhost.localdomain'
