@@ -1,0 +1,12 @@
+---
+
+- name: Manage Elastic Beats data shippers
+  hosts: [ 'debops_service_elasticbeats' ]
+  become: True
+
+  environment: '{{ inventory__environment | d({})
+                   | combine(inventory__group_environment | d({}))
+                   | combine(inventory__host_environment  | d({})) }}'
+
+  roles:
+    - role: ansible-elasticbeats

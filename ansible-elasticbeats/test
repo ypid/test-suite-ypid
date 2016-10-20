@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# test: Test debops.elasticbeats
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+assert_path "/etc/filebeat/filebeat.yml"
+assert_running /usr/bin/filebeat
+assert_path "/etc/topbeat/topbeat.yml"
+assert_running /usr/bin/topbeat
+assert_path "/etc/packetbeat/packetbeat.yml"
+assert_running /usr/bin/packetbeat
+
+
+assert_docs
