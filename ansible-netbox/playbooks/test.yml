@@ -37,6 +37,9 @@
     - name: Check variable contents
       debug: var=netbox__database_port
 
+    - name: Check variable contents
+      debug: var=netbox__database_host
+
   roles:
 
     - role: debops.apt_preferences
