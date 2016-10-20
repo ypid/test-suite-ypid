@@ -36,7 +36,10 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 
-assert_url "http://localhost.localdomain/login/"
+curl http://localhost.localdomain/login/
+
+
+assert_url "http://localhost.localdomain/login/" 301
 
 # Test documentation
 assert_docs
