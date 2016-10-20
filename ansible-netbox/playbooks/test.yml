@@ -32,6 +32,11 @@
                    | combine(inventory__group_environment | d({}))
                    | combine(inventory__host_environment  | d({})) }}'
 
+  pre_tasks:
+
+    - name: Check variable contents
+      debug: var=netbox__database_port
+
   roles:
 
     - role: debops.apt_preferences
