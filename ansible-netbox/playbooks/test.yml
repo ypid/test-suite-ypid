@@ -1,5 +1,19 @@
 ---
 
+- name: Manage PKI
+  hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: 'debops.pki/env'
+
+    - role: debops.secret
+      secret_directories:
+        - '{{ pki_env_secret_directories }}'
+
+    - role: 'debops.pki'
+
 - name: Manage PostgreSQL server
   hosts: 'placeholder_fqdn'
   become: True

@@ -16,6 +16,8 @@ ansible_plugins
 ansible-galaxy -f install debops.apt_preferences \
                           debops.etc_services \
                           debops.ferm \
+                          debops.pki \
+                          debops.secret \
                           debops.gunicorn \
                           debops.postgresql \
                           debops.postgresql_server \
@@ -31,10 +33,10 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 echo "Show /usr/local/lib/netbox/virtualenv/app/netbox/netbox/configuration.py"
-cat /usr/local/lib/netbox/virtualenv/app/netbox/netbox/configuration.py
+sudo cat /usr/local/lib/netbox/virtualenv/app/netbox/netbox/configuration.py
 
 echo "Show pg_hba.conf"
-cat /etc/postgresql/*/main/pg_hba.conf
+sudo cat /etc/postgresql/*/main/pg_hba.conf
 
 
 assert_url "http://localhost.localdomain/login/"
