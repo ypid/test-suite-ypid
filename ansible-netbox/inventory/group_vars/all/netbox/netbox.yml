@@ -2,3 +2,6 @@
 
 # Setup on a test domain
 netbox__fqdn: 'localhost.localdomain'
+
+# Use the PostgreSQL socket connection instead of port
+netbox__database_port: ''
