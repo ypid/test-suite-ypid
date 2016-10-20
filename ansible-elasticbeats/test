@@ -18,11 +18,11 @@ assert_playbook_idempotent
 
 
 assert_path "/etc/filebeat/filebeat.yml"
-assert_running /usr/bin/filebeat
+assert_running filebeat
 assert_path "/etc/topbeat/topbeat.yml"
-assert_running /usr/bin/topbeat
+assert_running topbeat
 assert_path "/etc/packetbeat/packetbeat.yml"
-assert_running /usr/bin/packetbeat
+assert_running packetbeat
 
 
 assert_docs
