@@ -16,7 +16,7 @@ for i in $(seq 0 4)
 do
 	echo "Creating loop${i}"
 	truncate --size=42M "/tmp/ciphertext_loop${i}_file.raw"
-	losetup "$(losetup --find)" "/tmp/ciphertext_loop${i}_file.raw"
+	sudo losetup "$(losetup --find)" "/tmp/ciphertext_loop${i}_file.raw"
 done
 
 assert_playbook_check_runs
