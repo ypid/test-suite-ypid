@@ -12,10 +12,15 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+for i in $(seq 0 4)
+do
+	echo "Creating loop${i}"
+	truncate --size=42M "/tmp/ciphertext_loop${i}_file.raw"
+	losetup "$(losetup --find)" "/tmp/ciphertext_loop${i}_file.raw"
+done
 
 assert_playbook_check_runs
 assert_playbook_idempotent
 
 
 assert_docs
-
