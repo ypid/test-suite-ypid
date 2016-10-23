@@ -3,23 +3,23 @@
 cryptsetup__use_dev_random: False
 cryptsetup__keyfile_source_dev: '/dev/urandom'
 
-cryptsetup__devices:
-
-  - name: 'mounted_plaintext_dm_target'
-    ciphertext_block_device: '/tmp/ciphertext_loop0_file.raw'
-
-  - name: 'ansible_controller_mounted_plaintext_dm_target'
-    ciphertext_block_device: '/tmp/ciphertext_loop1_file.raw'
-    state: 'ansible_controller_mounted'
-
-  - name: 'unmounted_plaintext_dm_target'
-    ciphertext_block_device: '/tmp/ciphertext_loop2_file.raw'
-    state: 'unmounted'
-
-  - name: 'present_plaintext_dm_target'
-    ciphertext_block_device: '/tmp/ciphertext_loop3_file.raw'
-    state: 'present'
-
-  - name: 'absent_plaintext_dm_target'
-    ciphertext_block_device: '/tmp/ciphertext_loop4_file.raw'
-    state: 'absent'
+# cryptsetup__devices:
+#
+#   - name: 'mounted_plaintext_dm_target'
+#     ciphertext_block_device: '/tmp/ciphertext_loop0_file.raw'
+#
+#   - name: 'ansible_controller_mounted_plaintext_dm_target'
+#     ciphertext_block_device: '/tmp/ciphertext_loop1_file.raw'
+#     state: 'ansible_controller_mounted'
+#
+#   - name: 'unmounted_plaintext_dm_target'
+#     ciphertext_block_device: '/tmp/ciphertext_loop2_file.raw'
+#     state: 'unmounted'
+#
+#   - name: 'present_plaintext_dm_target'
+#     ciphertext_block_device: '/tmp/ciphertext_loop3_file.raw'
+#     state: 'present'
+#
+#   - name: 'absent_plaintext_dm_target'
+#     ciphertext_block_device: '/tmp/ciphertext_loop4_file.raw'
+#     state: 'absent'
