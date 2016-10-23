@@ -1,6 +1,7 @@
 ---
 
 cryptsetup__use_dev_random: False
+cryptsetup__keyfile_source_dev: '/dev/urandom'
 
 cryptsetup__devices:
 
