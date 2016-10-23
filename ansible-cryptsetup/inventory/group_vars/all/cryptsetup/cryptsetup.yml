@@ -1,22 +1,22 @@
 ---
 
-cryptsetup__devices:
-
-  - name: 'mounted_plaintext_dm_target'
-    ciphertext_block_device: '/dev/loop0'
-
-  - name: 'ansible_controller_mounted_plaintext_dm_target'
-    ciphertext_block_device: '/dev/loop1'
-	state: 'ansible_controller_mounted'
-
-  - name: 'unmounted_plaintext_dm_target'
-    ciphertext_block_device: '/dev/loop2'
-	state: 'unmounted'
-
-  - name: 'present_plaintext_dm_target'
-    ciphertext_block_device: '/dev/loop3'
-	state: 'present'
-
-  - name: 'absent_plaintext_dm_target'
-    ciphertext_block_device: '/dev/loop4'
-	state: 'absent'
+# cryptsetup__devices:
+#
+#   - name: 'mounted_plaintext_dm_target'
+#     ciphertext_block_device: '/dev/loop0'
+#
+#   - name: 'ansible_controller_mounted_plaintext_dm_target'
+#     ciphertext_block_device: '/dev/loop1'
+#     state: 'ansible_controller_mounted'
+#
+#   - name: 'unmounted_plaintext_dm_target'
+#     ciphertext_block_device: '/dev/loop2'
+#     state: 'unmounted'
+#
+#   - name: 'present_plaintext_dm_target'
+#     ciphertext_block_device: '/dev/loop3'
+#     state: 'present'
+#
+#   - name: 'absent_plaintext_dm_target'
+#     ciphertext_block_device: '/dev/loop4'
+#     state: 'absent'

@@ -12,12 +12,14 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
-for i in $(seq 0 4)
-do
-	echo "Creating loop${i}"
-	truncate --size=42M "/tmp/ciphertext_loop${i}_file.raw"
-	sudo losetup "$(losetup --find)" "/tmp/ciphertext_loop${i}_file.raw"
-done
+# Can not be tested as loop devices are not supported on Travis.
+# https://github.com/travis-ci/travis-ci/issues/1119
+# for i in $(seq 0 4)
+# do
+#     echo "Creating loop${i}"
+#     truncate --size=42M "/tmp/ciphertext_loop${i}_file.raw"
+#     sudo losetup "$(losetup --find)" "/tmp/ciphertext_loop${i}_file.raw"
+# done
 
 assert_playbook_check_runs
 assert_playbook_idempotent
