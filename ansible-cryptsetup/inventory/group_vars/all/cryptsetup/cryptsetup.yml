@@ -1,5 +1,7 @@
 ---
 
+cryptsetup__use_dev_random: False
+
 cryptsetup__devices:
 
   - name: 'mounted_plaintext_dm_target'
