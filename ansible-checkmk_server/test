@@ -9,7 +9,7 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
-install_ansible stable-2.0
+install_ansible ${test_ansible_version}
 ansible_plugins
 
 ansible-galaxy -f install debops.ferm
