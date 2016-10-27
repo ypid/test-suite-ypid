@@ -19,7 +19,7 @@ assert_playbook_check_runs
 assert_playbook_idempotent
 
 assert_iptables_allow 5601
-assert_path "/opt/kibana/config/kibana.yml"
+assert_path "/etc/kibana/kibana.yml"
 assert_tcp localhost 5601
 
 assert_docs
