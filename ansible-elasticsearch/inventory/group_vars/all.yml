@@ -1,5 +1,6 @@
 ---
 
+elasticsearch__distribution_repository: False
 elasticsearch_bind_host: ['0.0.0.0']
 elasticsearch_node_allow: ['127.0.0.1']
 elasticsearch_http_allow: ['127.0.0.1']
