@@ -3,6 +3,12 @@
 cryptsetup__use_dev_random: False
 cryptsetup__keyfile_source_dev: '/dev/urandom'
 
+cryptsetup__keyfile_shred_command: 'rm'
+cryptsetup__header_backup_shred_command: 'rm'
+
+# UUIDs don’t work when regular files are used as `ciphertext_block_device` ;)
+cryptsetup__use_uuid: False
+
 # cryptsetup__devices:
 #
 #   - name: 'mounted_plaintext_dm_target'
