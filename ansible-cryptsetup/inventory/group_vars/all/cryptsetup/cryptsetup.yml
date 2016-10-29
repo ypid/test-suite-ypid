@@ -6,9 +6,10 @@ cryptsetup__keyfile_source_dev: '/dev/urandom'
 cryptsetup__keyfile_shred_command: 'rm'
 cryptsetup__header_backup_shred_command: 'rm'
 
-# UUIDs don’t work when regular files are used as `ciphertext_block_device` ;)
+## UUIDs don’t work when regular files are used as `ciphertext_block_device` ;)
 cryptsetup__use_uuid: False
 
+# cryptsetup__devices_execution_strategy: 'serial'
 # cryptsetup__devices:
 #
 #   - name: 'mounted_plaintext_dm_target'
@@ -29,3 +30,39 @@ cryptsetup__use_uuid: False
 #   - name: 'absent_plaintext_dm_target'
 #     ciphertext_block_device: '/tmp/ciphertext_loop4_file.raw'
 #     state: 'absent'
+#
+#   - name: 'absent_plaintext_dm_target'
+#     ciphertext_block_device: '/tmp/ciphertext_loop4_file.raw'
+#     state: 'absent'
+#
+#   - name: 'vault_ciphertext0'
+#     ciphertext_block_device: '/tmp/ciphertext_loop5_file.raw'
+#     manage_filesystem: False
+#     use_uuid: False
+#
+#   - name: 'vault_ciphertext1'
+#     ciphertext_block_device: '/dev/mapper/vault_ciphertext0'
+#     manage_filesystem: False
+#     cipher: 'twofish-cbc-plain'
+#     key_size: 256
+#
+#   - name: 'vault'
+#     ciphertext_block_device: '/dev/mapper/vault_ciphertext1'
+#     cipher: 'serpent-cbc-plain'
+#     key_size: 256
+#
+#   - name: 'rand_key_tmp'
+#     mode: 'plain'
+#     mount: '/mnt/tmp'
+#     remote_keyfile: '/dev/urandom'
+#     ciphertext_block_device: '/tmp/ciphertext_loop6_file.raw'
+#     create_filesystem: False
+#     crypttab_options: '{{ ["tmp"] + (cryptsetup__crypttab_options|d([]) | list) }}'
+#     ## This seems to not work with Debian jessie (results in systemd waiting forever for the cleartext target):
+#     # crypttab_options: '{{ ["tmp=" + cryptsetup__fstype] + (cryptsetup__crypttab_options|d([]) | list) }}'
+#
+#   - name: 'rand_key_swap0'
+#     mode: 'plain'
+#     swap: True
+#     remote_keyfile: '/dev/urandom'
+#     ciphertext_block_device: '/tmp/ciphertext_loop7_file.raw'

@@ -15,11 +15,14 @@ ansible_plugins
 # TODO
 # Can not be tested as loop devices are not supported on Travis.
 # https://github.com/travis-ci/travis-ci/issues/1119
-# for i in $(seq 0 4)
+#
+# Run this manually against a test system before each release, PR.
+# Use the commented out part of inventory/group_vars/all/cryptsetup/cryptsetup.yml
+#
+# for i in $(seq 0 7)
 # do
 #     echo "Creating loop${i}"
 #     truncate --size=42M "/tmp/ciphertext_loop${i}_file.raw"
-#     # sudo losetup "$(losetup --find)" "/tmp/ciphertext_loop${i}_file.raw"
 # done
 
 assert_playbook_check_runs
