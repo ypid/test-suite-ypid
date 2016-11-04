@@ -7,6 +7,8 @@
 . "${ROLESPEC_LIB}/main"
 . "${ROLESPEC_TEST}/../defaults.conf"
 
+pip install Jinja2
+
 # Testing is done against Ubuntu trusty which is not officially supported.
 wget https://sourceforge.net/projects/firejail/files/firejail/firejail_0.9.44_1_amd64.deb/download -O firejail_0.9.44_1_amd64.deb
 dpkg -i firejail_0.9.44_1_amd64.deb
