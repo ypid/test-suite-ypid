@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# test: Test debops.apache
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+# Testing is done against Ubuntu trusty which is not officially supported.
+wget https://sourceforge.net/projects/firejail/files/firejail/firejail_0.9.44_1_amd64.deb/download -O firejail_0.9.44_1_amd64.deb
+dpkg -i firejail_0.9.44_1_amd64.deb
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+assert_docs

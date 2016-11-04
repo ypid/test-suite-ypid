@@ -1,0 +1,5 @@
+---
+# .. vim: foldmarker=[[[,]]]:foldmethod=marker
+
+
+firejail__base_packages: []
