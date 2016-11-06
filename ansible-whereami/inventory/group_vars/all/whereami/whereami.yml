@@ -1,0 +1,5 @@
+---
+# .. vim: foldmarker=[[[,]]]:foldmethod=marker
+
+# `whereami` hangs in Ubuntu 12.04 and Ubuntu 14.04 in Travis CI.
+whereami__base_packages: []

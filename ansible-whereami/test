@@ -6,6 +6,9 @@
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+# Refer to inventory/group_vars/all/whereami/whereami.yml
+sudo mkdir -p '/etc/whereami'
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
