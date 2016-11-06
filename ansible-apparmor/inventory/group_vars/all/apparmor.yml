@@ -1,5 +1,0 @@
----
-# .. vim: foldmarker=[[[,]]]:foldmethod=marker
-
-## Don’t send Emails on as there is no mail server installed on the build instances of Travis.
-apparmor__mail_to: []

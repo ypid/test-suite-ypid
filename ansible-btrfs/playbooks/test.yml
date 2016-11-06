@@ -1,9 +1,0 @@
----
-
-- hosts: 'placeholder_fqdn'
-  become: True
-
-  roles:
-
-    - role: 'ansible-btrfs'
-
