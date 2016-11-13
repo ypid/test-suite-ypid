@@ -1,0 +1,15 @@
+---
+
+- name: Configure ifupdown
+  hosts: 'placeholder_fqdn'
+  become: True
+
+  roles:
+
+    - role: ansible-ifupdown/env
+
+    - role: debops.ferm
+      ferm_dependent_rules:
+        - '{{ ifupdown__env_ferm__dependent_rules }}'
+
+    - role: ansible-ifupdown

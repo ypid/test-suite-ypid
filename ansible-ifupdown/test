@@ -13,11 +13,21 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+ansible-galaxy -f install debops.ferm
+
+
 assert_playbook_check_runs
 assert_playbook_idempotent
+
+
+echo "Network interfaces"
+ip addr
+
+echo "Files in the /etc/network/interfaces.d/ directory"
+ls -l /etc/network/interfaces.d/
+cat /etc/network/interfaces.d/*
 
 
 assert_path "/etc/network/interfaces"
 
 assert_docs
-
