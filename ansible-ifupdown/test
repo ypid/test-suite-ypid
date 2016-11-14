@@ -9,6 +9,8 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+install_shellcheck
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
@@ -27,6 +29,11 @@ echo "Files in the /etc/network/interfaces.d/ directory"
 ls -l /etc/network/interfaces.d/
 cat /etc/network/interfaces.d/*
 
+if sudo shellcheck ${TRAVIS_BUILD_DIR}/files/script/ifupdown-reconfigure-interfaces ; then
+    pass "shellcheck reported no issues."
+else
+    fail "shellcheck reported issues."
+fi
 
 assert_path "/etc/network/interfaces"
 
