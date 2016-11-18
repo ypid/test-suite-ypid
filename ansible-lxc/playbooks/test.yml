@@ -20,7 +20,12 @@
 
   roles:
 
-    - role: debops-contrib.apparmor
+    # Error on Travis-CI:
+    # install 'debootstrap' 'lxc' 'lxc-templates' 'libcgmanager0'' \
+    # failed: AppArmor parser error for /etc/apparmor.d/lxc-containers \
+    # in /etc/apparmor.d/lxc-containers at line 5: Could not open 'tunables/global'
+
+    #- role: debops-contrib.apparmor
 
     - role: debops.apt_preferences
       apt_preferences__dependent_list:
