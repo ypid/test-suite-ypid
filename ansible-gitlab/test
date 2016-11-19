@@ -63,6 +63,14 @@ curl http://localhost.localdomain/users/sign_in
 echo "Check Go version"
 go version
 
+echo "Debug, redis facts"
+sudo /etc/ansible/facts.d/redis.fact
+
+echo "Debug, check redis password"
+echo "Randomized Redis password: '$(sudo redis-password)'"
+
+echo "Debug, check gitlab redis config"
+sudo cat /var/local/git/gitlab/config/resque.yml
 
 assert_url "http://localhost.localdomain/users/sign_in" 302
 
