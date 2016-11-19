@@ -9,6 +9,12 @@
 . "${ROLESPEC_TEST}/../defaults.conf"
 
 
+# Try removing AppArmor to avoid issues on Travis-CI
+echo "Remove AppArmor support"
+sudo service apparmor teardown
+sudo service apparmor stop
+sudo aa-status
+
 install_ansible ${test_ansible_version}
 ansible_plugins
 
