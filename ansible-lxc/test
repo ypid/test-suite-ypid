@@ -10,8 +10,8 @@
 
 
 # Try fixing AppArmor to avoid issues on Travis-CI
-echo "Fix AppArmor support"
-sudo touch /etc/apparmor.d/tunables/global
+#echo "Fix AppArmor support"
+#sudo touch /etc/apparmor.d/tunables/global
 
 install_ansible ${test_ansible_version}
 ansible_plugins
