@@ -1,0 +1,7 @@
+---
+
+cron__jobs:
+
+  'test-job':
+    job: 'ls -l /'
+    special_time: 'daily'

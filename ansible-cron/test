@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# test: Test debops.cron
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+echo "/etc/cron.d/test-job"
+cat /etc/cron.d/test-job
+
+
+assert_file "/etc/cron.d/test-job"
+
+assert_docs
