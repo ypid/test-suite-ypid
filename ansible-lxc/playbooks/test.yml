@@ -20,8 +20,7 @@
 
   roles:
 
-    # Disable the role for now
-    #- role: debops-contrib.apparmor
+    - role: debops-contrib.apparmor
 
     - role: debops.apt_preferences
       apt_preferences__dependent_list:
