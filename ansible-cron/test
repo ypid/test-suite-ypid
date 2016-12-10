@@ -21,6 +21,6 @@ echo "/etc/cron.d/test-job"
 cat /etc/cron.d/test-job
 
 
-assert_file "/etc/cron.d/test-job"
+assert_path "/etc/cron.d/test-job"
 
 assert_docs
