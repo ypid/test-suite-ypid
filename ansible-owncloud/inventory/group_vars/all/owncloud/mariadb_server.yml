@@ -3,6 +3,6 @@
 
 # Travis has MySQL Preinstalled and switching DB server flavors might require
 # force and workarounds. Avoiding it.
-mariadb_server__flavor: 'mysql'
-mariadb_server__packages_map:
-  'mysql': [ 'mysql-server-5.6' ]
+# mariadb_server__flavor: 'mysql'
+# mariadb_server__packages_map:
+#   'mysql': [ 'mysql-server-5.6' ]
