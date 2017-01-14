@@ -26,6 +26,8 @@ ansible-galaxy -f install debops.logrotate
 ansible-galaxy -f install debops.nginx
 
 
+## Purge preinstalled MySQL server and let DebOps do it’s thing.
+## Ref: https://github.com/debops/ansible-mariadb_server/issues/41
 sudo apt-get purge -fy mysql-server-5.6 mysql-client-5.6
 sudo rm -rf /etc/mysql /var/lib/mysql*
 
