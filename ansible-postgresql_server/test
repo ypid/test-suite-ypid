@@ -21,6 +21,13 @@ purge ${ROLESPEC_POSTGRESQL_LIBS}
 sudo rm -rf /var/lib/postgresql
 
 
+echo "Debugging PG..."
+echo "\$ROLESPEC_ROLES = '${ROLESPEC_ROLES}'"
+
+echo "\$ROLESPEC_TEST = '${ROLESPEC_TEST}'"
+
+sed -i 's/no_log: True/no_log: False/' ${ROLESPEC_TEST}/tasks/secure_installation.yml
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
