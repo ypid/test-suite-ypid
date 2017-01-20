@@ -21,20 +21,6 @@ purge ${ROLESPEC_POSTGRESQL_LIBS}
 sudo rm -rf /var/lib/postgresql
 
 
-echo "Debugging PG..."
-
-echo "Disable no_log: True"
-sed -i 's/no_log: True/no_log: False/' /home/travis/build/debops/ansible-postgresql_server/tasks/secure_installation.yml
-
-echo "Show list of running PG processes"
-ps aux | grep postg
-
-echo "Show list of PG instances"
-ls -l /var/lib/postgresql
-
-echo "Show list of Ansible facts"
-ansible all -m setup -b
-
 assert_playbook_check_runs
 assert_playbook_idempotent
 
