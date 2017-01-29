@@ -1,0 +1,4 @@
+---
+# vim: foldmarker=[[[,]]]:foldmethod=marker
+
+dm__testing_mode: True

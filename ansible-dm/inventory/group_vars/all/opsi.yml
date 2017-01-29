@@ -1,6 +1,0 @@
----
-# .. vim: foldmarker=[[[,]]]:foldmethod=marker
-
-
-## Don’t require the Opsi CLI tools to be installed.
-opsi__testing_mode: True

@@ -4,11 +4,14 @@
 . "${ROLESPEC_LIB}/main"
 . "${ROLESPEC_TEST}/../defaults.conf"
 
+sudo pip install --upgrade Jinja2
 
 install_ansible ${test_ansible_version}
 ansible_plugins
 
 assert_playbook_check_runs
+# sudo ls /etc/lightdm/
+# sudo dpkg-divert --list
 assert_playbook_idempotent
 
 assert_docs
