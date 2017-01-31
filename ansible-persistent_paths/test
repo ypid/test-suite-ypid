@@ -19,6 +19,6 @@ assert_path "/rw/config/qubes-bind-dirs.d"
 assert_path "/rw/config/qubes-bind-dirs.d/50_debops_cryptsetup.conf"
 assert_in_file "/rw/config/qubes-bind-dirs.d/50_debops_cryptsetup.conf" "/etc/fstab"
 
-ls -l /rw/config/qubes-bind-dirs.d
+sudo ls -l /rw/config/qubes-bind-dirs.d
 
 assert_docs
