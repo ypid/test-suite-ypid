@@ -1,0 +1,7 @@
+---
+# vim: foldmarker=[[[,]]]:foldmethod=marker
+
+## Fake Qubes OS detection.
+persistent_paths__qubes_os_enabled: True
+
+persistent_paths__qubes_os_bind_dirs: 'true'

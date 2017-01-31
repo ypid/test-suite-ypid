@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# test: Test debops.users
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+assert_path "/rw/config/qubes-bind-dirs.d"
+assert_path "/rw/config/qubes-bind-dirs.d/50_debops_cryptsetup.conf"
+assert_in_file "/rw/config/qubes-bind-dirs.d/50_debops_cryptsetup.conf" "/etc/fstab"
+
+ls -l /rw/config/qubes-bind-dirs.d
+
+assert_docs
