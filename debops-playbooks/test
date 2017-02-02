@@ -8,20 +8,30 @@
 . "${ROLESPEC_LIB}/main"
 . "${ROLESPEC_TEST}/../defaults.conf"
 
+echo "ExitCode before Ansible: $?"
 
 install_ansible ${test_ansible_version}
 ansible_plugins
 
+echo "ExitCode after Ansible: $?"
 
 ansible-galaxy install --force -r /home/travis/build/debops/debops-playbooks/galaxy/requirements.txt
+
+echo "ExitCode after Galaxy: $?"
 
 
 # Remove symlink to /var/run/motd
 sudo rm -f /etc/motd
 
+echo "ExitCode after sudo: $?"
 
 assert_playbook_check_runs
+
+echo "ExitCode first pass: $?"
 assert_playbook_idempotent_long
+
+echo "ExitCode second pass: $?"
 
 assert_docs
 
+echo "ExitCode assert docs: $?"
