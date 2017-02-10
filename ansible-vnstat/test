@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+ip a
+
+vnstat --hours
+
+assert_in "$(vnstat --hours)" "eth0"
+
+assert_path '/var/lib/vnstat/eth0'
+assert_path '/var/lib/vnstat/docker0'
+
+# assert_docs
