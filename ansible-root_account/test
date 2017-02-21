@@ -13,6 +13,10 @@ install_ansible ${test_ansible_version}
 ansible_plugins
 
 
+echo "Remove existing SSH keys for better testing"
+sudo rm -vf /root/.ssh/id_*
+
+
 assert_playbook_check_runs
 assert_playbook_idempotent
 
