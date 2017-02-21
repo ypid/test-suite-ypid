@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# test: Test debops.root_account
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+
+assert_playbook_check_runs
+assert_playbook_idempotent
+
+
+echo "Checking 'getent passwd root' ..."
+getent passwd root
+
+echo "Checking 'getent shadow root' ..."
+sudo getent shadow root
+
+echo "Checking root SSH keys ..."
+sudo ls -lR /root/.ssh
+
+assert_path "/etc/ansible/facts.d/root_account.fact"
+assert_docs
