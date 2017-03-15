@@ -20,6 +20,6 @@ assert_playbook_idempotent
 assert_path "/etc/fail2ban/jail.local"
 assert_running "fail2ban-server"
 assert_in_file "/etc/fail2ban/jail.local" "banaction"
-assert_exit_code "fail2ban-client status ssh" "0"
+assert_exit_code "fail2ban-client -vv status ssh" "0"
 assert_docs
 
