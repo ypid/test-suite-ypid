@@ -1,0 +1,53 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  environment: '{{ inventory__environment | d({})
+                   | combine(inventory__group_environment | d({}))
+                   | combine(inventory__host_environment  | d({})) }}'
+
+  roles:
+
+    ## Run required role (default of debops-contrib.volkszaehler) before the main playbook.
+    - role: 'debops.mariadb_server'
+
+
+    - role: 'ansible-volkszaehler/env'
+
+    - role: debops.php/env
+
+    - role: debops.apt_preferences
+      apt_preferences__dependent_list:
+        - '{{ nginx__apt_preferences__dependent_list }}'
+        - '{{ php__apt_preferences__dependent_list }}'
+
+    - role: debops.ferm
+      ferm__dependent_rules:
+        - '{{ nginx__ferm__dependent_rules }}'
+
+    - role: debops.mariadb
+      mariadb__dependent_databases: '{{ volkszaehler__mariadb__dependent_databases }}'
+      mariadb__dependent_users: '{{ volkszaehler__mariadb__dependent_users }}'
+      when: (volkszaehler__database == 'mariadb')
+
+    - role: debops.php
+      php__dependent_packages:
+        - '{{ volkszaehler__php__dependent_packages }}'
+      php__dependent_pools:
+        - '{{ volkszaehler__php__dependent_pools }}'
+
+    - role: debops.logrotate
+      logrotate__dependent_config:
+        - '{{ php__logrotate__dependent_config }}'
+
+    - role: geerlingguy.composer
+
+    - role: debops.nginx
+      nginx__dependent_upstreams:
+        - '{{ volkszaehler__nginx__dependent_upstreams }}'
+      nginx__dependent_servers:
+        - '{{ volkszaehler__nginx__dependent_servers }}'
+
+
+    - role: 'ansible-volkszaehler'

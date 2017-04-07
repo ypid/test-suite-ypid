@@ -1,0 +1,7 @@
+---
+# vim: foldmarker=[[[,]]]:foldmethod=marker
+
+volkszaehler__fqdn: 'localhost.localdomain'
+volkszaehler__domain: 'localdomain'
+volkszaehler__git_version: '0.5'
+volkszaehler__database_demo_insert: True

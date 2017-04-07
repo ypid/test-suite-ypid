@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# test: Test debops.users
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+ansible-galaxy -f install debops.apt
+ansible-galaxy -f install debops.apt_preferences
+ansible-galaxy -f install debops.ferm
+ansible-galaxy -f install debops.mariadb_server
+ansible-galaxy -f install debops.mariadb
+ansible-galaxy -f install debops.php
+ansible-galaxy -f install debops.logrotate
+ansible-galaxy -f install geerlingguy.composer
+ansible-galaxy -f install debops.nginx
+
+
+## Purge preinstalled MySQL server and let DebOps do it’s thing.
+## Ref: https://github.com/debops/ansible-mariadb_server/issues/41
+sudo apt-get purge -fy mysql-server-5.6 mysql-client-5.6
+sudo rm -rf /etc/mysql /var/lib/mysql*
+
+assert_playbook_check_runs
+php -m
+assert_playbook_idempotent
+
+assert_url "http://localhost.localdomain"
+
+assert_url "http://localhost.localdomain/middleware.php/capabilities.json"
+curl -k -v "http://localhost.localdomain/middleware.php/capabilities.json"
+
+assert_url "http://localhost.localdomain/middleware.php/entity/a301d8d0-903b-1234-94bb-d943d061b6a8.json"
+curl -k -v "http://localhost.localdomain/middleware.php/entity/a301d8d0-903b-1234-94bb-d943d061b6a8.json"
+
+assert_docs
