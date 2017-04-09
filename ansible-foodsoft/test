@@ -37,16 +37,9 @@ which bundler
 # sudo bundler --version
 
 assert_playbook_check_runs
+# assert_playbook_idempotent
 
-# bundler --version
-# rake --version
-# sudo bundler --version
-# sudo rake --version
-# sudo sh -c 'ls -l /srv/www/foodsoft/foodcoops-foodsoft'
-# sudo sh -c 'cd /srv/www/foodsoft/foodcoops-foodsoft && bundler exec rake secret'
-
-assert_playbook_idempotent
-
+curl -k -v "http://localhost.localdomain"
 assert_url "http://localhost.localdomain" "302"
 assert_url "http://localhost.localdomain/f" "302"
 assert_url "http://localhost.localdomain/f/login"
