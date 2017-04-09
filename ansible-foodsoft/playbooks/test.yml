@@ -1,0 +1,37 @@
+---
+
+- hosts: 'placeholder_fqdn'
+  become: True
+
+  environment: '{{ inventory__environment | d({})
+                   | combine(inventory__group_environment | d({}))
+                   | combine(inventory__host_environment  | d({})) }}'
+
+  roles:
+
+    ## Run required role (default of debops-contrib.foodsoft) before the main playbook.
+    - role: 'debops.mariadb_server'
+
+
+    - role: debops.apt_preferences
+      apt_preferences__dependent_list:
+        - '{{ ruby__apt_preferences__dependent_list }}'
+        - '{{ nginx__apt_preferences__dependent_list }}'
+
+    - role: debops.ferm
+      ferm__dependent_rules:
+        - '{{ nginx__ferm__dependent_rules }}'
+
+    - role: debops.mariadb
+      mariadb__dependent_databases: '{{ foodsoft__mariadb__dependent_databases }}'
+      mariadb__dependent_users: '{{ foodsoft__mariadb__dependent_users }}'
+      when: (foodsoft__database == 'mariadb')
+
+    - role: debops.ruby
+
+    - role: debops.nginx
+      nginx__dependent_servers:
+        - '{{ foodsoft__nginx__dependent_servers }}'
+
+
+    - role: 'ansible-foodsoft'

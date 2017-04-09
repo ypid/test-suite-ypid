@@ -1,0 +1,5 @@
+---
+# vim: foldmarker=[[[,]]]:foldmethod=marker
+
+foodsoft__fqdn: 'localhost.localdomain'
+foodsoft__domain: 'localdomain'

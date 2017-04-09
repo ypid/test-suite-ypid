@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# test: Test debops.users
+# Copyright (C) 2014 Nick Janetakis <nick.janetakis@gmail.com>
+# Part of the DebOps project - http://debops.org/
+
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+ansible-galaxy -f install debops.apt_preferences
+ansible-galaxy -f install debops.ferm
+ansible-galaxy -f install debops.mariadb_server
+ansible-galaxy -f install debops.mariadb
+ansible-galaxy -f install debops.ruby
+ansible-galaxy -f install debops.nginx
+
+
+## Purge preinstalled MySQL server and let DebOps do it’s thing.
+## Ref: https://github.com/debops/ansible-mariadb_server/issues/41
+sudo apt-get purge -fy mysql-server-5.6 mysql-client-5.6
+sudo rm -rf /etc/mysql /var/lib/mysql*
+
+sudo apt-get install -y software-properties-common
+sudo apt-add-repository -y ppa:brightbox/ruby-ng
+sudo apt-get update
+sudo apt-get -y install ruby2.2 ruby2.2-dev ruby-switch bundler
+sudo ruby-switch --set ruby2.2
+ruby --version
+which bundler
+# sudo ln -s "$(which bundler)" /bin/bundler
+# sudo which bundler
+# sudo bundler --version
+
+assert_playbook_check_runs
+
+# bundler --version
+# rake --version
+# sudo bundler --version
+# sudo rake --version
+# sudo sh -c 'ls -l /srv/www/foodsoft/foodcoops-foodsoft'
+# sudo sh -c 'cd /srv/www/foodsoft/foodcoops-foodsoft && bundler exec rake secret'
+
+assert_playbook_idempotent
+
+assert_url "http://localhost.localdomain" "302"
+assert_url "http://localhost.localdomain/f" "302"
+assert_url "http://localhost.localdomain/f/login"
+
+assert_docs
