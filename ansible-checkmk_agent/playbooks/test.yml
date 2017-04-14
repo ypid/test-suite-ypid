@@ -4,6 +4,9 @@
   become: True
 
   roles:
+
+    - role: ansible-checkmk_agent/env
+
     - role: debops.apt_preferences
       apt_preferences__dependent_list:
         - '{{ checkmk_agent__apt_preferences__dependent_list }}'
@@ -11,25 +14,23 @@
     - role: debops.etc_services
       etc_services__dependent_list:
         - '{{ checkmk_agent__etc_services__dependent_list }}'
-      when: ('xinetd' in checkmk_agent__type|d(['ssh']))
+      when: ('xinetd' in checkmk_agent__type)
 
     - role: debops.ferm
       ferm__dependent_rules:
         - '{{ checkmk_agent__ferm__dependent_rules }}'
-      when: ('xinetd' in checkmk_agent__type|d(['ssh']))
+
+    - role: debops.tcpwrappers
+      tcpwrappers__dependent_allow:
+        - '{{ checkmk_agent__tcpwrappers__dependent_allow }}'
 
     - role: debops.authorized_keys
       authorized_keys__dependent_list:
         - '{{ checkmk_agent__authorized_keys__dependent_list }}'
-      when: ('ssh' in checkmk_agent__type|d(['ssh']))
 
     - role: debops.mariadb
-      mariadb__users:
-        - '{{ checkmk_agent__mariadb__users }}'
-      when: (("mk_mysql" in checkmk_agent__plugin_list and
-              checkmk_agent__plugin_mysql|d("automatic") == "automatic") or
-             ((checkmk_agent__plugin_autodetect|d(True) | bool) and
-              "debops_mariadb_server" in hostvars[inventory_hostname]["group_names"])
-            )
+      mariadb__dependent_users:
+        - '{{ checkmk_agent__mariadb__dependent_users }}'
+      when: ("mk_mysql" in checkmk_agent__combined_plugins)
 
     - role: ansible-checkmk_agent
