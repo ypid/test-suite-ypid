@@ -1,0 +1,7 @@
+---
+# vim: foldmarker=[[[,]]]:foldmethod=marker
+
+homeassistant__fqdn: 'localhost.localdomain'
+homeassistant__domain: 'localdomain'
+
+homeassistant__virtualenv: True
